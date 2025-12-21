@@ -23,6 +23,20 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	# Gravedad
+	var is_starting_jump := Input.is_action_just_pressed("jump") and is_on_floor()
+	y_velocity -= gravity * delta
+	
+	if is_starting_jump:
+		$Player/AnimationPlayer.play("Jump_Start")
+	elif not is_on_floor() and velocity.y <0:
+		$Player/AnimationPlayer.play("Jump_Land")
+	elif is_on_floor():
+		var ground_speed := velocity.length()
+		if ground_speed > 0.0:
+			$Player/AnimationPlayer.play("Walk")
+		else:
+			$Player/AnimationPlayer.play("Idle")
+	
 	if not is_on_floor():
 		y_velocity -= gravity * delta
 	else :
@@ -31,6 +45,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			y_velocity = 0.0
 			
+
 	# Input con WASD pero es un vector 2D
 	var input_dir: Vector2 = Input.get_vector(
 		"move_left",
@@ -59,6 +74,6 @@ func _physics_process(delta: float) -> void:
 		
 	# Aplicar velocidad vertical
 	velocity_3d.y = y_velocity
-	
+
 	velocity = velocity_3d
 	move_and_slide()

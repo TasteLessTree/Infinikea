@@ -5,21 +5,17 @@ extends CharacterBody3D
 @export var move_speed: float = 6.0
 @export var gravity: float = 24.0
 @export var jump_velocity: float = 6.0
+@export var camera_sens: float = 0.003
 
 var y_velocity: float = 6.0
-
-const CAMERA_SENS: float = 0.003
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("quit"):
-		get_tree().quit()
-		
+func _input(event: InputEvent) -> void:		
 	if event is InputEventMouseMotion:
-		rotation.y -= event.relative.x * CAMERA_SENS
-		rotation.x -= event.relative.y * CAMERA_SENS
+		rotation.y -= event.relative.x * camera_sens
+		rotation.x -= event.relative.y * camera_sens
 
 func _physics_process(delta: float) -> void:
 	# Gravedad

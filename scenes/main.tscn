@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqvkyf6bec5nt"]
+[gd_scene load_steps=6 format=3 uid="uid://bqvkyf6bec5nt"]
 
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/opciones.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/pausa.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/main_menu.tscn" id="2_sugp2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0wfyh"]
 size = Vector3(60, 2, 60)
@@ -25,6 +26,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2616444, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.07720628, 0.9970151, 0, -0.9970151, -0.07720628, 0, 10.750185, 0)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="MainMenu" type="CanvasLayer" parent="."]
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_0wfyh")]
+[node name="MainMenu" parent="MainMenu" instance=ExtResource("2_sugp2")]
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_0wfyh")]

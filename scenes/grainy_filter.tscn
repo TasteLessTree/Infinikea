@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://kd1d1tbuc220"]
+
+[ext_resource type="Script" uid="uid://bbhws0qqafn7w" path="res://scripts/grainy.gd" id="1_txe58"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ihk1k"]
+noise_type = 3
+frequency = 0.5
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_txe58"]
+width = 1152
+height = 645
+noise = SubResource("FastNoiseLite_ihk1k")
+
+[node name="grainy_filter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.16078432)
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 649.0
+texture = SubResource("NoiseTexture2D_txe58")
+script = ExtResource("1_txe58")

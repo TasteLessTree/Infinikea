@@ -1,5 +1,8 @@
 extends Control
 
+@onready var sfx_fluorescent_lightbulb = $"../../WorldEnvironment/sfx_fluorescent_lightbulb"
+@onready var sfx_main_menu_music = $sfx_main_menu
+
 var is_main_menu: bool = true
 
 func mostrar_menu_principal() -> void:
@@ -7,12 +10,15 @@ func mostrar_menu_principal() -> void:
 	get_tree().paused = true
 	visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	sfx_main_menu_music.play()
 
 func iniciar_juego() -> void:
 	is_main_menu = false
 	get_tree().paused = false
 	visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	sfx_main_menu_music.stop()
+	sfx_fluorescent_lightbulb.play()
 
 func _ready() -> void:
 	mostrar_menu_principal()

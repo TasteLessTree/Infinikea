@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://cbqcjkv0fl233"]
+[gd_scene load_steps=53 format=3 uid="uid://cbqcjkv0fl233"]
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://durba1hhnm2n5" path="res://models/AnimationLibrary_Godot_Standard.glb" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://dklwjv6sflcsp" path="res://scenes/view_model.tscn" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://assets/proyector.jpg" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_6n6g4"]
@@ -17342,13 +17343,32 @@ shape = SubResource("CapsuleShape3D_3vyb7")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7815063, -0.19146442)
+cull_mask = 1048573
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Head/Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="Camera3D" parent="Head/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("3_dqkch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.66235626, 0)
+cull_mask = 2
+fov = 75.5
 
 [node name="Hand" type="Node3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36, 0, 0)
+transform = Transform3D(0.9934308, 0, 0.11443438, 0, 1, 0, -0.11443438, 0, 0.9934308, 0.61654556, 0.39833397, -2.0468328)
 light_volumetric_fog_energy = 16.0
 light_projector = ExtResource("3_qhqgy")
+light_cull_mask = 4293918722
 shadow_enabled = true
 spot_range = 25.142
 spot_angle = 15.29

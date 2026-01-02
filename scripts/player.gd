@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var mano = $Hand
 @onready var linterna = $Hand/SpotLight3D
 @onready var body_pivot = $Player
+@onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -26,11 +27,15 @@ func _input(event):
 		head_y_axis +=event.relative.x * camera_sens
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
+		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
 func _physics_process(delta: float) -> void:
+	$Head/Camera3D/SubViewportContainer/SubViewport/Camera3D.global_transform = camara.global_transform
+	
 	# Entrada
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")

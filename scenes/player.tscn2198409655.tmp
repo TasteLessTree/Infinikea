@@ -1,8 +1,7 @@
-[gd_scene load_steps=52 format=3 uid="uid://cbqcjkv0fl233"]
+[gd_scene load_steps=51 format=3 uid="uid://cbqcjkv0fl233"]
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://durba1hhnm2n5" path="res://models/AnimationLibrary_Godot_Standard.glb" id="2_g2els"]
-[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://assets/proyector.jpg" id="3_qhqgy"]
 
 [sub_resource type="Animation" id="Animation_6n6g4"]
 resource_name = "A_TPose"
@@ -17342,13 +17341,3 @@ shape = SubResource("CapsuleShape3D_3vyb7")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7815063, -0.19146442)
-
-[node name="Hand" type="Node3D" parent="."]
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Hand"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.36, 0, 0)
-light_volumetric_fog_energy = 16.0
-light_projector = ExtResource("3_qhqgy")
-shadow_enabled = true
-spot_range = 25.142
-spot_angle = 15.29

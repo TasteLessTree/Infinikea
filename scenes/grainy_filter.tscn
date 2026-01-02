@@ -20,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.09019608)
+modulate = Color(1, 1, 1, 0.039215688)
 layout_mode = 0
 offset_right = 1153.0
 offset_bottom = 649.0

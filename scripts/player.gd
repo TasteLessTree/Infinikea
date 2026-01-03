@@ -32,6 +32,10 @@ var camera_x_axis: float = 0.0
 var stamina: float = staminaMax
 var is_sprinting: bool = false
 var regen_cooldown_timer: float = 0.0
+var step_distance_accum: float = 0.0
+
+# Distancia entre pasos
+const STEP_DISTANCE: float = 2.75
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -87,8 +91,19 @@ func _physics_process(delta: float) -> void:
 	head.rotation.y = lerp(head.rotation.y, -deg_to_rad(head_y_axis), camera_acc * delta)
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
+	# Sonido de andar
+	var moving = direction.length() > 0.1
+	if is_on_floor() and moving:
+		step_distance_accum += (velocity * delta).length()
+		if step_distance_accum >= STEP_DISTANCE:
+				sfx_footsteps.play()
+				step_distance_accum = 0.0
+	else:
+		step_distance_accum = 0.0
+	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jumpForce
+		sfx_jump.play(0.25)
 	else:
 		velocity.y -= gravity * delta
 	

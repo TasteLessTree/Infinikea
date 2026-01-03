@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqvkyf6bec5nt"]
+[gd_scene load_steps=11 format=3 uid="uid://bqvkyf6bec5nt"]
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/fluorescent_lightbulb_hum_buzz.mp3" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/pausa.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/main_menu.tscn" id="2_sugp2"]
 
@@ -30,6 +31,11 @@ size = Vector3(60, 2, 60)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tbgi4")
+
+[node name="sfx_fluorescent_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment"]
+stream = ExtResource("1_tbgi4")
+volume_db = -1.0
+parameters/looping = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
 

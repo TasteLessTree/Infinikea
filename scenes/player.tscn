@@ -1,8 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://cbqcjkv0fl233"]
+[gd_scene load_steps=54 format=3 uid="uid://cbqcjkv0fl233"]
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://durba1hhnm2n5" path="res://models/AnimationLibrary_Godot_Standard.glb" id="2_g2els"]
 [ext_resource type="PackedScene" uid="uid://dklwjv6sflcsp" path="res://scenes/view_model.tscn" id="3_dqkch"]
+[ext_resource type="AudioStream" uid="uid://fw2ay6ej1rga" path="res://assets/sounds/jump.mp3" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cji3ux2eptujo" path="res://assets/sounds/footsteps.mp3" id="5_tuyoq"]
 
 [sub_resource type="Animation" id="Animation_6n6g4"]
 resource_name = "A_TPose"
@@ -17345,6 +17347,7 @@ shape = SubResource("CapsuleShape3D_3vyb7")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6577714, -0.47123098)
+visible = false
 cull_mask = 1048573
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
@@ -17374,3 +17377,13 @@ offset_bottom = -75.0
 grow_vertical = 0
 size_flags_vertical = 8
 value = 100.0
+
+[node name="sfx_jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qlg0r")
+volume_db = -8.5
+autoplay = true
+
+[node name="sfx_footsteps" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tuyoq")
+volume_db = -1.0
+autoplay = true

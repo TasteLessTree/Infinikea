@@ -1,14 +1,12 @@
 extends CharacterBody3D
 
-
-@onready var linterna =$Node3D/linterna/SpotLight3D
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
 @onready var body_pivot = $Player
-@onready var sfx_footsteps = $sfx_footsteps
-@onready var sfx_jump = $sfx_jump
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
+@onready var sfx_jump: AudioStreamPlayer = $sfx_jump
+@onready var sfx_footsteps: AudioStreamPlayer = $sfx_footsteps
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -45,6 +43,9 @@ func _input(event):
 		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
 func _ready() -> void:
+	print("Existe sfx_jump?: ", has_node("sfx_jump"))
+	print("Existe sfx_footsteps?: ", has_node("sfx_footsteps"))
+	
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()

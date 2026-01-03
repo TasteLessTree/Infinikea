@@ -1,9 +1,9 @@
 extends CharacterBody3D
 
+
+@onready var linterna =$Node3D/linterna/SpotLight3D
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
-@onready var mano = $Hand
-@onready var linterna = $Hand/SpotLight3D
 @onready var body_pivot = $Player
 @onready var sfx_footsteps = $sfx_footsteps
 @onready var sfx_jump = $sfx_jump
@@ -28,14 +28,14 @@ var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
 var head_y_axis: float = 0.0
 var camera_x_axis: float = 0.0
-var spotlight_on: bool = true
+
 var stamina: float = staminaMax
 var is_sprinting: bool = false
 var regen_cooldown_timer: float = 0.0
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		head_y_axis +=event.relative.x * camera_sens
+		head_y_axis += event.relative.x * camera_sens
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
@@ -47,7 +47,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	$Head/Camera3D/SubViewportContainer/SubViewport/Camera3D.global_transform = camara.global_transform
-	
+
 	# Entrada
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
@@ -83,10 +83,6 @@ func _physics_process(delta: float) -> void:
 	if stamina_bar:
 		stamina_bar.value = stamina
 	
-	# Rotación cabeza y cámara
-	mano.rotation.y = -deg_to_rad(head_y_axis)
-	linterna.rotation.x = -deg_to_rad(camera_x_axis)
-	
 	body_pivot.rotation.y = -deg_to_rad(head_y_axis)
 	head.rotation.y = lerp(head.rotation.y, -deg_to_rad(head_y_axis), camera_acc * delta)
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
@@ -96,17 +92,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.y -= gravity * delta
 	
-	# Encender apagar la linterna
-	if Input.is_action_just_pressed("spotlight_on_off") and spotlight_on:
-		spotlight_on = false
-		linterna.visible = false
-	elif Input.is_action_just_pressed("spotlight_on_off") and !spotlight_on:
-		spotlight_on = true
-		linterna.visible = true
-	
 	move_and_slide()
 
 func _get_walk_speed():
+	if is_sprinting:
 		return sprintSpeed
 	else:
 		return playerSpeed

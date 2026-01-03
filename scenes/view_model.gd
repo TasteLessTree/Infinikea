@@ -14,5 +14,5 @@ func _process(delta):
 	pass
 	
 func sway(sway_amount):
-	camara.position.x += sway_amount.x * 0.0005
-	camara.position.y += sway_amount.y * 0.0005
+	camara.position.x += sway_amount.x * 0.00009
+	camara.position.y += sway_amount.y * 0.00009

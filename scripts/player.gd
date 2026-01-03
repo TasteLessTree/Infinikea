@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var sfx_footsteps = $sfx_footsteps
 @onready var sfx_jump = $sfx_jump
 @onready var stamina_bar = $Head/ProgressBar
+@onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -27,26 +28,26 @@ var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
 var head_y_axis: float = 0.0
 var camera_x_axis: float = 0.0
-var step_distance_accum: float = 0.0
 var spotlight_on: bool = true
 var stamina: float = staminaMax
 var is_sprinting: bool = false
 var regen_cooldown_timer: float = 0.0
-
-# Distancia entre pasos
-const STEP_DISTANCE: float = 2.75
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		head_y_axis +=event.relative.x * camera_sens
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
+		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
 func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
-func _physics_process(delta: float) -> void:	
+func _physics_process(delta: float) -> void:
+	$Head/Camera3D/SubViewportContainer/SubViewport/Camera3D.global_transform = camara.global_transform
+	
 	# Entrada
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
@@ -90,20 +91,8 @@ func _physics_process(delta: float) -> void:
 	head.rotation.y = lerp(head.rotation.y, -deg_to_rad(head_y_axis), camera_acc * delta)
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
-	# Sonido de andar
-	var moving = direction.length() > 0.1
-	if is_on_floor() and moving:
-		step_distance_accum += (velocity * delta).length()
-		if step_distance_accum >= STEP_DISTANCE:
-				sfx_footsteps.play()
-				step_distance_accum = 0.0
-	else:
-		step_distance_accum = 0.0
-	
-	# Saltar
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jumpForce
-		sfx_jump.play(0.25)
 	else:
 		velocity.y -= gravity * delta
 	
@@ -118,7 +107,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _get_walk_speed():
-	if is_sprinting:
 		return sprintSpeed
 	else:
 		return playerSpeed

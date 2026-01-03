@@ -1,12 +1,13 @@
 extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
-@onready var head = $Head 
+@onready var head = $Head
 @onready var mano = $Hand
 @onready var linterna = $Hand/SpotLight3D
 @onready var body_pivot = $Player
 @onready var sfx_footsteps = $sfx_footsteps
 @onready var sfx_jump = $sfx_jump
+@onready var stamina_bar = $Head/ProgressBar
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -16,6 +17,11 @@ extends CharacterBody3D
 @export var camera_sens: float = 0.05
 @export var jumpForce: float = 8.0
 @export var camera_acc: float = 1.5
+@export var sprintSpeed: float = 12.0 
+@export var staminaMax: float = 100.0
+@export var staminaDrainRate: float = 20.0
+@export var staminaRegenRate: float = 15.0
+@export var regenCooldown: float = 0.5
 
 var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
@@ -23,6 +29,9 @@ var head_y_axis: float = 0.0
 var camera_x_axis: float = 0.0
 var step_distance_accum: float = 0.0
 var spotlight_on: bool = true
+var stamina: float = staminaMax
+var is_sprinting: bool = false
+var regen_cooldown_timer: float = 0.0
 
 # Distancia entre pasos
 const STEP_DISTANCE: float = 2.75
@@ -34,6 +43,7 @@ func _input(event):
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 
 func _ready() -> void:
+	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta: float) -> void:	
@@ -46,7 +56,31 @@ func _physics_process(delta: float) -> void:
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	velocity = velocity.lerp(direction * playerSpeed + velocity.y * Vector3.UP, player_acc * delta)
+	# Esprintar
+	var want_sprint = Input.is_action_pressed("sprint")
+	if want_sprint and stamina > 0.0 and is_on_floor():
+		is_sprinting = true
+		regen_cooldown_timer = 0.0
+	else:
+		is_sprinting = false
+		
+	if is_sprinting:
+		stamina = max(stamina - staminaDrainRate * delta, 0.0)
+		if stamina <= 0.0:
+			is_sprinting = false # No puedes correr si no hay estamina
+			regen_cooldown_timer = regenCooldown
+	else:
+		if regen_cooldown_timer > 0.0:
+			regen_cooldown_timer -= delta
+		else:
+			stamina = min(stamina + staminaRegenRate * delta, staminaMax)
+			
+	var currentSpeed = _get_walk_speed()
+	velocity = velocity.lerp(direction * currentSpeed + velocity.y * Vector3.UP, player_acc * delta)
+	
+	# Actualizar la barra de progreso
+	if stamina_bar:
+		stamina_bar.value = stamina
 	
 	# Rotación cabeza y cámara
 	mano.rotation.y = -deg_to_rad(head_y_axis)
@@ -82,3 +116,9 @@ func _physics_process(delta: float) -> void:
 		linterna.visible = true
 	
 	move_and_slide()
+
+func _get_walk_speed():
+	if is_sprinting:
+		return sprintSpeed
+	else:
+		return playerSpeed

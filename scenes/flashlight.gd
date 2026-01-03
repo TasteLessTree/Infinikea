@@ -10,8 +10,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _input(event: InputEvent) -> void:
-	
+func _input(_event: InputEvent) -> void:
 	# Encender apagar la linterna
 	if Input.is_action_just_pressed("spotlight_on_off") and spotlight_on:
 		spotlight_on = false

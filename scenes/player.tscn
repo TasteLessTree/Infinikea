@@ -17331,23 +17331,10 @@ player_acc = 2.0
 camera_sens = 0.1
 metadata/_edit_group_ = true
 
-[node name="Player" parent="." instance=ExtResource("2_g2els")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
-visible = false
-
-[node name="Animations" type="AnimationPlayer" parent="Player"]
-libraries = {
-&"": SubResource("AnimationLibrary_2gq4e")
-}
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_3vyb7")
-
 [node name="Head" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6577714, -0.47123098)
-visible = false
 cull_mask = 1048573
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
@@ -17378,12 +17365,21 @@ grow_vertical = 0
 size_flags_vertical = 8
 value = 100.0
 
-[node name="sfx_jump" type="AudioStreamPlayer" parent="."]
+[node name="sfx_jump" type="AudioStreamPlayer" parent="Head"]
 stream = ExtResource("4_qlg0r")
 volume_db = -8.5
-autoplay = true
 
-[node name="sfx_footsteps" type="AudioStreamPlayer" parent="."]
+[node name="sfx_footsteps" type="AudioStreamPlayer" parent="Head"]
 stream = ExtResource("5_tuyoq")
 volume_db = -1.0
-autoplay = true
+
+[node name="Player" parent="." instance=ExtResource("2_g2els")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, 0)
+
+[node name="Animations" type="AnimationPlayer" parent="Player"]
+libraries = {
+&"": SubResource("AnimationLibrary_2gq4e")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_3vyb7")

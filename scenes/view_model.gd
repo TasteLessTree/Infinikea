@@ -11,7 +11,6 @@ func _ready() -> void:
 func _process(delta):
 	camara.position.x = lerp(camara.position.x, 0.0, delta * 5.0)
 	camara.position.y = lerp(camara.position.y, 0.0, delta * 5.0)
-	pass
 	
 func sway(sway_amount):
 	camara.position.x += sway_amount.x * 0.00009

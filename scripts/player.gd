@@ -5,8 +5,8 @@ extends CharacterBody3D
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
-@onready var sfx_jump: AudioStreamPlayer = $sfx_jump
-@onready var sfx_footsteps: AudioStreamPlayer = $sfx_footsteps
+@onready var sfx_footsteps = $Head/sfx_footsteps
+@onready var sfx_jump = $Head/sfx_jump
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -42,10 +42,7 @@ func _input(event):
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
-func _ready() -> void:
-	print("Existe sfx_jump?: ", has_node("sfx_jump"))
-	print("Existe sfx_footsteps?: ", has_node("sfx_footsteps"))
-	
+func _ready() -> void:	
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
@@ -97,14 +94,16 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor() and moving:
 		step_distance_accum += (velocity * delta).length()
 		if step_distance_accum >= STEP_DISTANCE:
-				sfx_footsteps.play()
+				if sfx_footsteps:
+					sfx_footsteps.play()
 				step_distance_accum = 0.0
 	else:
 		step_distance_accum = 0.0
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y += jumpForce
-		sfx_jump.play(0.25)
+		if sfx_jump:
+			sfx_jump.play(0.25)
 	else:
 		velocity.y -= gravity * delta
 	

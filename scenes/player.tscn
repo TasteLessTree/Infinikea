@@ -64,24 +64,24 @@ current = true
 [node name="Mano" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.658, 0)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/Mano"]
+transform = Transform3D(0.9840966, 0, 0.1776344, 0, 1, 0, -0.17763439, 0, 0.9840965, 0.39679074, 0.3263114, -0.26993793)
+layers = 99
+light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
+light_energy = 7.2
+light_volumetric_fog_energy = 16.0
+light_projector = ExtResource("5_ur7pv")
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 12.0
+spot_angle_attenuation = 0.7845841
+
 [node name="flashlight_low" type="MeshInstance3D" parent="Head/Camera3D/Mano"]
 transform = Transform3D(0.048317652, -0.019319698, -0.011644363, -0.019335013, -0.049648713, 0.0021451565, -0.011618976, 0.00227843, -0.051992793, 0.37140387, 0.31690425, -0.46751547)
 layers = 2
 material_override = ExtResource("5_qlg0r")
 mesh = SubResource("ArrayMesh_tuyoq")
 skeleton = NodePath("")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/Mano"]
-transform = Transform3D(0.9659259, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 0.34972727, 0.3263114, -0.6401262)
-light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
-light_energy = 5.526
-light_volumetric_fog_energy = 16.0
-light_projector = ExtResource("5_ur7pv")
-light_bake_mode = 1
-shadow_enabled = true
-shadow_blur = 0.0
-spot_range = 9.0
-spot_angle = 18.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Head/Camera3D"]
 anchors_preset = 15

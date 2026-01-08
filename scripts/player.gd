@@ -22,6 +22,8 @@ extends CharacterBody3D
 @export var staminaDrainRate: float = 20.0
 @export var staminaRegenRate: float = 15.0
 @export var regenCooldown: float = 0.5
+@export var flashlight_pitch_up = 35.0 # grados
+@export var flashlight_pitch_down = 10  # grados hacia abajo
 
 var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
@@ -85,7 +87,6 @@ func _physics_process(delta):
 		stamina_bar.value = stamina
 	
 	body_pivot.rotation.y = -deg_to_rad(head_y_axis)
-	head.rotation.y = lerp(head.rotation.y, -deg_to_rad(head_y_axis), camera_acc * delta)
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
 	head.rotation.y= -deg_to_rad(head_y_axis)
@@ -110,6 +111,11 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	move_and_slide()
+
+func _process(delta):
+	var cam_pitch = rad_to_deg(camara.rotation.x)
+	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
+	$Head/Camera3D/Mano.rotation.x = deg_to_rad(clamped_pitch)
 
 func _get_walk_speed():
 	if is_sprinting:

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
-@onready var linterna = $Head/Camera3D/linterna/Flashlight
+@onready var linterna = $Head/Camera3D/Mano
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
@@ -89,7 +89,7 @@ func _physics_process(delta):
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
 	head.rotation.y= -deg_to_rad(head_y_axis)
-	linterna.rotation.x = -deg_to_rad(camera_x_axis) 
+	linterna.rotation.x = -deg_to_rad(camera_x_axis)
 	
 	# Sonido de andar
 	var moving = direction.length() > 0.1

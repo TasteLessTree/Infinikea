@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdypj5r6ag3y3"]
+[gd_scene load_steps=6 format=3 uid="uid://cdypj5r6ag3y3"]
 
 [ext_resource type="Script" uid="uid://dxpj58j5gtpm3" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="Shader" uid="uid://d0k4e32p1jicv" path="res://material/shaders/opciones.gdshader" id="2_ekxnf"]
 [ext_resource type="AudioStream" uid="uid://kpg13147jsu4" path="res://assets/sounds/Phantom_HorrorGame_Main_Menu_Music.mp3" id="3_bqqt6"]
+[ext_resource type="PackedScene" uid="uid://dkxoun78frvvd" path="res://scenes/options_menu.tscn" id="4_wu84c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bqqt6"]
 shader = ExtResource("2_ekxnf")
@@ -37,6 +38,7 @@ offset_bottom = 557.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 
 [node name="Titulo" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -67,6 +69,10 @@ text = "Salir
 
 [node name="sfx_main_menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bqqt6")
+
+[node name="OptionsMenu" parent="." instance=ExtResource("4_wu84c")]
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Nueva partida" to="." method="_on_nueva_partida_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]

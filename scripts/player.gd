@@ -2,6 +2,7 @@ extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
+@onready var linterna = $Head/Camera3D/linterna/Flashlight
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
@@ -47,9 +48,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
-func _physics_process(delta: float) -> void:
-	$Head/Camera3D/SubViewportContainer/SubViewport/Camera3D.global_transform = camara.global_transform
-
+func _physics_process(delta):
 	# Entrada
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
@@ -88,6 +87,9 @@ func _physics_process(delta: float) -> void:
 	body_pivot.rotation.y = -deg_to_rad(head_y_axis)
 	head.rotation.y = lerp(head.rotation.y, -deg_to_rad(head_y_axis), camera_acc * delta)
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
+	
+	head.rotation.y= -deg_to_rad(head_y_axis)
+	linterna.rotation.x = -deg_to_rad(camera_x_axis) 
 	
 	# Sonido de andar
 	var moving = direction.length() > 0.1

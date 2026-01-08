@@ -16,13 +16,10 @@ sky_material = SubResource("ProceduralSkyMaterial_sugp2")
 
 [sub_resource type="Environment" id="Environment_tbgi4"]
 background_mode = 2
-background_energy_multiplier = 0.1
+background_energy_multiplier = 0.65
 sky = SubResource("Sky_jyhfs")
 tonemap_mode = 2
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.0896
-volumetric_fog_emission_energy = 0.0
-volumetric_fog_detail_spread = 1.5
 
 [sub_resource type="BoxMesh" id="BoxMesh_0wfyh"]
 size = Vector3(60, 2, 60)
@@ -64,7 +61,6 @@ shape = SubResource("BoxShape3D_sugp2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="grainy_filter" parent="." instance=ExtResource("1_jyhfs")]
-visible = false
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 

@@ -60,9 +60,11 @@ mesh = SubResource("BoxMesh_0wfyh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
 shape = SubResource("BoxShape3D_sugp2")
 
-[node name="grainy_filter" parent="." instance=ExtResource("1_jyhfs")]
-
 [node name="Player" parent="." instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="grainy_filter" parent="." instance=ExtResource("1_jyhfs")]
+visible = false
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
 

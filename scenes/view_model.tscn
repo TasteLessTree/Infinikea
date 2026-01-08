@@ -724,6 +724,7 @@ skeleton = NodePath("")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D/linterna"]
 transform = Transform3D(0.9604737, 0.07568271, 0.26788524, 1.8544672e-09, 0.96233195, -0.27187723, -0.27837095, 0.2611309, 0.9242945, 0.04578776, -0.065022364, 0.049475946)
+light_color = Color(0.5897319, 0.99904484, 0.9999997, 1)
 light_energy = 1.5
 light_indirect_energy = 0.125
 light_volumetric_fog_energy = 2.025

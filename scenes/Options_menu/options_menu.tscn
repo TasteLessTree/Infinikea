@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkxoun78frvvd"]
+[gd_scene load_steps=5 format=3 uid="uid://dkxoun78frvvd"]
 
 [ext_resource type="Shader" uid="uid://d0k4e32p1jicv" path="res://material/shaders/opciones.gdshader" id="1_ijpji"]
-[ext_resource type="Script" uid="uid://dok7rursl0pg3" path="res://scripts/options_menu.gd" id="2_hm4m4"]
+[ext_resource type="Script" uid="uid://dok7rursl0pg3" path="res://scripts/Options_menu/options_menu.gd" id="2_hm4m4"]
+[ext_resource type="PackedScene" uid="uid://b4xrbkr4cxaru" path="res://scenes/Options_menu/options_menu_tabs.tscn" id="3_hm4m4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lfjc7"]
 shader = ExtResource("1_ijpji")
@@ -40,10 +41,14 @@ text = "Opciones"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Settings_Tab_Container" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_hm4m4")]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="Atras" type="Button" parent="MarginContainer/VBoxContainer"]
 clip_contents = true
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 10
+size_flags_vertical = 8
 text = "Atrás"

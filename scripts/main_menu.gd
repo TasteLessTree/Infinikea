@@ -34,11 +34,13 @@ func _on_salir_pressed() -> void:
 
 func _on_opciones_pressed() -> void:
 	$PanelContainer/VBoxContainer.visible = false
+	$PanelContainer.self_modulate = 0
 	options_menu.set_process(true)
 	options_menu.visible = true
 	
 func on_exit_options_menu() -> void:
 	$PanelContainer/VBoxContainer.visible = true
+	$PanelContainer.self_modulate = 100
 	options_menu.visible = false
 
 func _on_continuar_pressed() -> void:

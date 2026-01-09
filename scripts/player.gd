@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
-@onready var linterna = $Head/Camera3D/Mano
+@onready var linterna = $Head/Camera3D/Linterna
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D

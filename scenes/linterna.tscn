@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://8tjwuoernafm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="flashlight_low" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.053323902, 0, 0, 0, 0.053323887, 0, 0, 0, 0.053323947, 0, 0, 0)
+layers = 2
+skeleton = NodePath("")

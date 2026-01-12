@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 @onready var sfx_footsteps = $Head/sfx_footsteps
 @onready var sfx_jump = $Head/sfx_jump
+@onready var ray = $Head/Camera3D/RayCast3D
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -49,9 +50,20 @@ func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	
+func ray_scanning(delta):
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider == null:
+			return
+		
+		if Input.is_action_just_pressed("spotlight_on_off"):
+			print("Es: " +collider.name)
+			
 
 func _physics_process(delta):
 	# Entrada
+	ray_scanning(delta)
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
 	
@@ -90,7 +102,6 @@ func _physics_process(delta):
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
 	head.rotation.y= -deg_to_rad(head_y_axis)
-	"linterna.rotation.x = -deg_to_rad(camera_x_axis)"
 	
 	# Sonido de andar
 	var moving = direction.length() > 0.1

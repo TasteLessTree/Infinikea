@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://1e6j51g5jhrn"]
+
+[ext_resource type="Script" uid="uid://cf4bar7043nx2" path="res://scripts/inventario.gd" id="1_mu20r"]
+[ext_resource type="Script" uid="uid://c7204y455f8bi" path="res://scripts/hotbar.gd" id="2_1ji4w"]
+[ext_resource type="PackedScene" uid="uid://bpve6ixkvogdf" path="res://scenes/inventory_slot.tscn" id="3_t2sse"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mu20r"]
+keycode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_mu20r"]
+events = [SubResource("InputEventKey_mu20r")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1ji4w"]
+keycode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_1ji4w"]
+events = [SubResource("InputEventKey_1ji4w")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_t2sse"]
+keycode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_t2sse"]
+events = [SubResource("InputEventKey_t2sse")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_t6213"]
+keycode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_ai134"]
+events = [SubResource("InputEventKey_t6213")]
+
+[node name="Inventario" type="Node"]
+script = ExtResource("1_mu20r")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Hotbar" type="HBoxContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 252.0
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("2_1ji4w")
+
+[node name="Slot" parent="UI/Hotbar" instance=ExtResource("3_t2sse")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+shortcut = SubResource("Shortcut_mu20r")
+
+[node name="Slot2" parent="UI/Hotbar" instance=ExtResource("3_t2sse")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+shortcut = SubResource("Shortcut_1ji4w")
+
+[node name="Slot3" parent="UI/Hotbar" instance=ExtResource("3_t2sse")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+shortcut = SubResource("Shortcut_t2sse")
+
+[node name="Slot4" parent="UI/Hotbar" instance=ExtResource("3_t2sse")]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+shortcut = SubResource("Shortcut_ai134")

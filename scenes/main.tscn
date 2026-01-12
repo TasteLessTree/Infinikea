@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqvkyf6bec5nt"]
+[gd_scene load_steps=12 format=3 uid="uid://bqvkyf6bec5nt"]
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/pausa.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
+[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -74,6 +76,10 @@ skeleton = NodePath("../../Ground3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
 shape = SubResource("BoxShape3D_sugp2")
+
+[node name="Interactuables" parent="Ground3" instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24.806849, 2.6798449)
+item_data = ExtResource("6_o6xl0")
 
 [node name="Ground4" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 27.814705, 0)

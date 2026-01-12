@@ -103,6 +103,9 @@ cull_mask = 2
 current = true
 fov = 75.0
 
+[node name="RayCast3D" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -5)
+
 [node name="ProgressBar" type="ProgressBar" parent="Head"]
 anchors_preset = 2
 anchor_top = 1.0

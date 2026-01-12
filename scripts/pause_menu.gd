@@ -1,5 +1,7 @@
 extends Control
 
+@onready var options_menu: OptionsMenu = $OptionsMenu
+
 func resume() -> void:
 	get_tree().paused = false
 	visible = false
@@ -22,7 +24,16 @@ func _on_continuar_pressed() -> void:
 	resume()
 
 func _on_opciones_pressed() -> void:
-	pass
+	$PanelContainer/VBoxContainer.visible = false
+	$PanelContainer.self_modulate = 0
+	options_menu.set_process(true)
+	options_menu.visible = true
+
+# ¿Puede que sea esto?
+func on_exit_options_menu() -> void:
+	$PanelContainer/VBoxContainer.visible = true
+	$PanelContainer.self_modulate = 100
+	options_menu.visible = false
 
 func _on_salir_pressed() -> void:
 	get_tree().quit()
@@ -31,7 +42,11 @@ func _process(_delta: float) -> void:
 	pause_menu()
 	
 func _ready() -> void:
+	handle_signals()
 	get_tree().paused = false
 	visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$AnimationPlayer.play("RESET")
+
+func handle_signals() -> void:
+	options_menu.exit_option_menu.connect(on_exit_options_menu)

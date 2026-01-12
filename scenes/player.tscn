@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://cbqcjkv0fl233"]
+[gd_scene load_steps=12 format=4 uid="uid://cbqcjkv0fl233"]
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://iiw0i31fjxdq" path="res://scenes/mano.gd" id="2_fjrip"]
 [ext_resource type="PackedScene" uid="uid://dklwjv6sflcsp" path="res://scenes/view_model.tscn" id="3_dqkch"]
 [ext_resource type="AudioStream" uid="uid://fw2ay6ej1rga" path="res://assets/sounds/jump.mp3" id="4_qlg0r"]
 [ext_resource type="Material" uid="uid://4ypek0oytg5x" path="res://material/linterna_material.tres" id="5_qlg0r"]
@@ -63,12 +64,13 @@ current = true
 
 [node name="Mano" type="Node3D" parent="Head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.658, 0)
+script = ExtResource("2_fjrip")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/Mano"]
 transform = Transform3D(0.9840966, 0, 0.1776344, 0, 1, 0, -0.17763439, 0, 0.9840965, 0.39679074, 0.3263114, -0.26993793)
 layers = 99
 light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
-light_energy = 7.2
+light_energy = 0.0
 light_volumetric_fog_energy = 16.0
 light_projector = ExtResource("5_ur7pv")
 shadow_enabled = true

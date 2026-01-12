@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://bs5mmnyftg8jg"]
+[gd_scene load_steps=7 format=4 uid="uid://bs5mmnyftg8jg"]
 
+[ext_resource type="Script" uid="uid://bi2p6f8em4cup" path="res://assets/items/linterna/linterna.gd" id="1_k3qu7"]
 [ext_resource type="Material" uid="uid://4ypek0oytg5x" path="res://material/linterna_material.tres" id="1_meiyn"]
 [ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://assets/proyector.jpg" id="2_k3qu7"]
 
@@ -41,6 +42,7 @@ _surfaces = [{
 shadow_mesh = SubResource("ArrayMesh_cb067")
 
 [node name="Linterna" type="Node3D"]
+script = ExtResource("1_k3qu7")
 
 [node name="flashlight_low" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.048317652, -0.019319698, -0.011644363, -0.019335013, -0.049648713, 0.0021451565, -0.011618976, 0.00227843, -0.051992793, 0.37140387, -0.34109575, -0.46751547)

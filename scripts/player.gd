@@ -90,7 +90,7 @@ func _physics_process(delta):
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
 	head.rotation.y= -deg_to_rad(head_y_axis)
-	linterna.rotation.x = -deg_to_rad(camera_x_axis)
+	"linterna.rotation.x = -deg_to_rad(camera_x_axis)"
 	
 	# Sonido de andar
 	var moving = direction.length() > 0.1

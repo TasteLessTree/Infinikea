@@ -43,7 +43,7 @@ func _input(event):
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
-func _ready() -> void:	
+func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()

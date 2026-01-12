@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://bs5mmnyftg8jg" path="res://assets/items/linterna/linterna.tscn" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dklwjv6sflcsp" path="res://scenes/view_model.tscn" id="3_dqkch"]
-[ext_resource type="AudioStream" uid="uid://fw2ay6ej1rga" path="res://assets/sounds/jump.mp3" id="4_qlg0r"]
-[ext_resource type="AudioStream" uid="uid://cji3ux2eptujo" path="res://assets/sounds/footsteps.mp3" id="5_tuyoq"]
+[ext_resource type="Script" uid="uid://dxy26avre7khl" path="res://scripts/flashlight.gd" id="3_fjrip"]
+[ext_resource type="AudioStream" uid="uid://fw2ay6ej1rga" path="res://assets/sounds/sfx/jump.mp3" id="4_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://cji3ux2eptujo" path="res://assets/sounds/sfx/footsteps.mp3" id="5_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://assets/proyector.jpg" id="5_ur7pv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 
@@ -56,10 +58,12 @@ value = 100.0
 [node name="sfx_jump" type="AudioStreamPlayer" parent="Head"]
 stream = ExtResource("4_qlg0r")
 volume_db = -8.5
+bus = &"Sfx"
 
 [node name="sfx_footsteps" type="AudioStreamPlayer" parent="Head"]
 stream = ExtResource("5_tuyoq")
 volume_db = -1.0
+bus = &"Sfx"
 
 [node name="Player" type="Node3D" parent="."]
 

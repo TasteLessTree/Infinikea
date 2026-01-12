@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player: CharacterBody3D = $"/root/Main/Player"
+@onready var player: Player = $"/root/Main/Player"
 @onready var h_slider: HSlider = $HBoxContainer/HSlider
 @onready var sensibildad_value: Label = $HBoxContainer/Sensibildad_value
 

@@ -1,13 +1,15 @@
+class_name Player
 extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
-@onready var linterna = $Head/Camera3D/Linterna
+@onready var linterna = $Head/Camera3D/Mano/SpotLight3D
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 @onready var sfx_footsteps = $Head/sfx_footsteps
 @onready var sfx_jump = $Head/sfx_jump
+@onready var sfx_gasping = $Head/sfx_gasping
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -16,14 +18,14 @@ extends CharacterBody3D
 @export var jump_velocity: float = 6.0
 @export var camera_sens: float = 0.05
 @export var jumpForce: float = 8.0
-@export var camera_acc: float = 1.5
+@export var camera_acc: float = 3.5
 @export var sprintSpeed: float = 12.0 
 @export var staminaMax: float = 100.0
 @export var staminaDrainRate: float = 20.0
 @export var staminaRegenRate: float = 15.0
 @export var regenCooldown: float = 0.5
-@export var flashlight_pitch_up = 35.0 # grados
-@export var flashlight_pitch_down = 10  # grados hacia abajo
+@export var flashlight_pitch_up: float = 35.0 # grados
+@export var flashlight_pitch_down: float = 10  # grados hacia abajo
 
 var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
@@ -70,6 +72,8 @@ func _physics_process(delta):
 		
 	if is_sprinting:
 		stamina = max(stamina - staminaDrainRate * delta, 0.0)
+		if stamina <= 25.0:
+			sfx_gasping.play()
 		if stamina <= 0.0:
 			is_sprinting = false # No puedes correr si no hay estamina
 			regen_cooldown_timer = regenCooldown
@@ -90,7 +94,6 @@ func _physics_process(delta):
 	camara.rotation.x = lerp(camara.rotation.x, -deg_to_rad(camera_x_axis), camera_acc * delta)
 	
 	head.rotation.y= -deg_to_rad(head_y_axis)
-	"linterna.rotation.x = -deg_to_rad(camera_x_axis)"
 	
 	# Sonido de andar
 	var moving = direction.length() > 0.1
@@ -112,7 +115,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	var cam_pitch = rad_to_deg(camara.rotation.x)
 	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
 	$Head/Camera3D/Mano.rotation.x = deg_to_rad(clamped_pitch)

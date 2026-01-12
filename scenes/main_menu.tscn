@@ -66,7 +66,7 @@ theme_override_font_sizes/font_size = 20
 text = "Salir
 "
 
-[node name="sfx_main_menu" type="AudioStreamPlayer" parent="."]
+[node name="music_main_menu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bqqt6")
 bus = &"Music"
 

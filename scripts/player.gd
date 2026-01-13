@@ -1,8 +1,9 @@
+class_name Player
 extends CharacterBody3D
 
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
-@onready var linterna = $Head/Camera3D/Linterna
+@onready var linterna = $Head/Camera3D/Mano/SpotLight3D
 @onready var body_pivot = $Player
 @onready var stamina_bar = $Head/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
@@ -51,7 +52,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 	
-func ray_scanning(delta):
+func ray_scanning(_delta):
 	if ray.is_colliding():
 		var collider = ray.get_collider()
 		if collider == null:
@@ -123,7 +124,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
-func _process(delta):
+func _process(_delta):
 	var cam_pitch = rad_to_deg(camara.rotation.x)
 	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
 	$Head/Camera3D/Mano.rotation.x = deg_to_rad(clamped_pitch)

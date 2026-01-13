@@ -22,6 +22,6 @@ func add_item(item:  ItemData) -> bool:
 	return false
 
 func select_slot(index: int):
-	print(index)
+	# print(index)
 	selected_slot = clamp(index, 0, HOTBAR_SIZE -1)
 	slot_selected.emit(selected_slot)

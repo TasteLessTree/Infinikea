@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://cbqcjkv0fl233"]
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player.gd" id="1_3vyb7"]
-[ext_resource type="Script" uid="uid://iiw0i31fjxdq" path="res://scenes/mano.gd" id="2_fjrip"]
+[ext_resource type="Script" uid="uid://42xnfibqkyl1" path="res://scenes/mano.gd" id="2_fjrip"]
 [ext_resource type="PackedScene" uid="uid://dklwjv6sflcsp" path="res://scenes/view_model.tscn" id="3_dqkch"]
 [ext_resource type="Material" uid="uid://4ypek0oytg5x" path="res://material/linterna_material.tres" id="5_qlg0r"]
 [ext_resource type="AudioStream" uid="uid://dyx553eddhbxs" path="res://assets/sounds/sfx/flashlight_on_off.mp3" id="5_smehm"]

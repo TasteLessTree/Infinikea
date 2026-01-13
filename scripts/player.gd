@@ -5,11 +5,14 @@ extends CharacterBody3D
 @onready var head = $Head
 @onready var linterna = $Head/Camera3D/Mano/SpotLight3D
 @onready var body_pivot = $Player
-@onready var stamina_bar = $Head/ProgressBar
+@onready var stamina_bar = $UI/ProgressBar
 @onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
-@onready var sfx_footsteps = $Head/sfx_footsteps
-@onready var sfx_jump = $Head/sfx_jump
-@onready var ray = $Head/Camera3D/RayCast3D
+@onready var sfx_footsteps = $Sonidos/sfx_footsteps
+@onready var sfx_jump = $Sonidos/sfx_jump
+@onready var ray = $Head/Camera3D/Vision
+@onready var label = $Head/Camera3D/Vision/Label
+
+
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0
@@ -45,12 +48,10 @@ func _input(event):
 		head_y_axis += event.relative.x * camera_sens
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
-		camera_3d.sway(Vector2(event.relative.x, event.relative.y))
 
 func _ready() -> void:	
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 	
 
 func _physics_process(delta):
@@ -121,8 +122,8 @@ func ray_scanning(_delta):
 		if collider == null:
 			return
 		
-		if Input.is_action_just_pressed("spotlight_on_off"):
-			print("Es: " +collider.name)
+		if Input.is_action_just_pressed("interactuar"):
+			print(collider.name)
 			
 			if collider.is_in_group("interactuable"):
 				collider.interact()

@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://ce7jfupig3v3v"]
 
-[ext_resource type="Script" path="res://scripts/interactuables.gd" id="1_eslx8"]
+[ext_resource type="Script" uid="uid://b7br3p777dmog" path="res://scripts/interactuables.gd" id="1_eslx8"]
 
 [node name="Interactuables" type="RigidBody3D" groups=["interactuable"]]
 script = ExtResource("1_eslx8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["interactuable"]]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]

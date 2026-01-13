@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://1e6j51g5jhrn"]
 
 [ext_resource type="Script" uid="uid://cf4bar7043nx2" path="res://scripts/inventario.gd" id="1_mu20r"]
-[ext_resource type="Script" uid="uid://c7204y455f8bi" path="res://scripts/hotbar.gd" id="2_1ji4w"]
+[ext_resource type="Script" path="res://scripts/hotbar.gd" id="2_1ji4w"]
 [ext_resource type="PackedScene" uid="uid://bpve6ixkvogdf" path="res://scenes/inventory_slot.tscn" id="3_t2sse"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_mu20r"]

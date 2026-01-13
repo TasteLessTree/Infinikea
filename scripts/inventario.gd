@@ -6,7 +6,7 @@ signal item_drop(item)
 
 const HOTBAR_SIZE :=4
 var hotbar: Array[ItemData]
-var selected_slot: int = 0
+var selected_slot: int = 1
 
 func _init():
 	for i in HOTBAR_SIZE:

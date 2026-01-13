@@ -52,15 +52,6 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	$Head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 	
-func ray_scanning(_delta):
-	if ray.is_colliding():
-		var collider = ray.get_collider()
-		if collider == null:
-			return
-		
-		if Input.is_action_just_pressed("spotlight_on_off"):
-			print("Es: " +collider.name)
-			
 
 func _physics_process(delta):
 	# Entrada
@@ -121,8 +112,20 @@ func _physics_process(delta):
 			sfx_jump.play(0.25)
 	else:
 		velocity.y -= gravity * delta
-	
+
 	move_and_slide()
+
+func ray_scanning(_delta):
+	if ray.is_colliding():
+		var collider = ray.get_collider()
+		if collider == null:
+			return
+		
+		if Input.is_action_just_pressed("spotlight_on_off"):
+			print("Es: " +collider.name)
+			
+			if collider.is_in_group("interactuable"):
+				collider.interact()
 
 func _process(_delta):
 	var cam_pitch = rad_to_deg(camara.rotation.x)

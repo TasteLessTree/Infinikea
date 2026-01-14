@@ -2,7 +2,7 @@ extends Node
 
 signal inventory_changed
 signal slot_selected(slot_index: int)
-signal item_drop(item)
+# signal item_drop(item)
 
 const HOTBAR_SIZE :=4
 var hotbar: Array[ItemData]

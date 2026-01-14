@@ -6,13 +6,10 @@ extends CharacterBody3D
 @onready var linterna = $Head/Camera3D/Mano/SpotLight3D
 @onready var body_pivot = $Player
 @onready var stamina_bar = $UI/ProgressBar
-@onready var camera_3d = $Head/Camera3D/SubViewportContainer/SubViewport/Camera3D
 @onready var sfx_footsteps = $Sonidos/sfx_footsteps
 @onready var sfx_jump = $Sonidos/sfx_jump
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Label
-
-
 
 @export var playerSpeed: float = 8.0
 @export var player_acc: float = 5.0

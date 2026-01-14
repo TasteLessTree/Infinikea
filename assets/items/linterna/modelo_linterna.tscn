@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://dl2yjpe3aserm"]
 
 [ext_resource type="Material" uid="uid://4ypek0oytg5x" path="res://material/linterna_material.tres" id="1_sng6i"]
-[ext_resource type="Material" uid="uid://dkoha1i4la3h" path="res://material/glow.tres" id="2_mxaii"]
+[ext_resource type="Material" path="res://material/glow.tres" id="2_mxaii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hai11"]
 resource_name = "Flashlight"

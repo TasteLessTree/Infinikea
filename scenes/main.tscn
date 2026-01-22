@@ -125,3 +125,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.
 [node name="Linterna_pickup" parent="." instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, -1.3255104)
 item_data = ExtResource("6_o6xl0")
+
+[node name="Linterna_pickup2" parent="." instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -8.572065, -1.1920929e-07, -1.1920929e-07)
+item_data = ExtResource("6_o6xl0")

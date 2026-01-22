@@ -77,11 +77,12 @@ light_volumetric_fog_energy = 16.0
 light_projector = ExtResource("5_ur7pv")
 shadow_enabled = true
 spot_range = 30.0
-spot_angle = 12.0
+spot_angle = 14.352548
 spot_angle_attenuation = 0.7845841
 
 [node name="linterna_modelo" type="MeshInstance3D" parent="Head/Camera3D/Mano"]
 transform = Transform3D(0.048317652, -0.019319698, -0.011644363, -0.019335013, -0.049648713, 0.0021451565, -0.011618976, 0.00227843, -0.051992793, 0.37140387, 0.31690425, -0.46751547)
+visible = false
 layers = 2
 material_override = ExtResource("5_qlg0r")
 mesh = SubResource("ArrayMesh_tuyoq")

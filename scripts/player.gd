@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var label = $Head/Camera3D/Vision/Label
 
 @export var playerSpeed: float = 8.0
+@export var friction: float = 20.0
 @export var player_acc: float = 5.0
 @export var move_speed: float = 6.0
 @export var gravity: float = 24.0
@@ -52,17 +53,16 @@ func _ready() -> void:
 	
 
 func _physics_process(delta):
-	# Entrada
 	ray_scanning(delta)
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
 	
-	# Dirección basaba en la rotación del cuerpo
+	# Dirección basada en la rotación del cuerpo [cite: 7]
 	direction = input_x * body_pivot.basis.x + input_z * body_pivot.basis.z
 	direction.y = 0.0
 	direction = direction.normalized()
 	
-	# Esprintar
+	# Lógica de Sprint y Stamina [cite: 5, 6]
 	var want_sprint = Input.is_action_pressed("sprint")
 	if want_sprint and stamina > 0.0 and is_on_floor():
 		is_sprinting = true
@@ -81,8 +81,18 @@ func _physics_process(delta):
 		else:
 			stamina = min(stamina + staminaRegenRate * delta, staminaMax)
 			
-	var currentSpeed = _get_walk_speed()
-	velocity = velocity.lerp(direction * currentSpeed + velocity.y * Vector3.UP, player_acc * delta)
+	var target_speed = _get_walk_speed()
+	var target_velocity = direction * target_speed
+
+	# 2. SISTEMA DE MOVIMIENTO MEJORADO:
+	if direction.length() > 0:
+		# Aplicamos aceleración si hay input
+		velocity.x = lerp(velocity.x, target_velocity.x, player_acc * delta)
+		velocity.z = lerp(velocity.z, target_velocity.z, player_acc * delta)
+	else:
+		# Aplicamos fricción fuerte si NO hay input para frenar en seco
+		velocity.x = lerp(velocity.x, 0.0, friction * delta)
+		velocity.z = lerp(velocity.z, 0.0, friction * delta)
 	
 	# Actualizar la barra de progreso
 	if stamina_bar:

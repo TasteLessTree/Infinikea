@@ -17,7 +17,7 @@ func add_item(item:  ItemData) -> bool:
 		if hotbar[i] == null:
 			hotbar[i] = item
 			inventory_changed.emit()
-			slot_selected.emit(i)
+			select_slot(i)
 			return true
 	return false
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3tqnaotfq746"]
+[gd_scene load_steps=3 format=3 uid="uid://d3tqnaotfq746"]
 
 [ext_resource type="Script" uid="uid://dawh6bgqnp1ft" path="res://scripts/Options_menu/sensibilidad.gd" id="1_deubo"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="2_likrs"]
 
 [node name="Sensibilidad" type="Control"]
 layout_mode = 3
@@ -19,6 +20,7 @@ offset_bottom = 40.0
 [node name="Sensibilidad_lbl" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_likrs")
 theme_override_font_sizes/font_size = 32
 text = "Sensibilidad"
 
@@ -38,6 +40,7 @@ layout_mode = 2
 [node name="Sensibildad_value" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_likrs")
 theme_override_font_sizes/font_size = 32
 text = "3.5"
 

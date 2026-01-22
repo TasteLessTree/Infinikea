@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqvkyf6bec5nt"]
+[gd_scene load_steps=16 format=3 uid="uid://bqvkyf6bec5nt"]
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/pruebas/mesa_test.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://cl7q80axlw3iw" path="res://scenes/enemy.tscn" id="10_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -125,3 +126,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.
 [node name="Linterna_pickup" parent="." instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, -1.3255104)
 item_data = ExtResource("6_o6xl0")
+
+[node name="Nigg3D" parent="." instance=ExtResource("10_choun")]
+transform = Transform3D(3.2454767, 0, 0, 0, 3.2454767, 0, 0, 0, 3.2454767, 1.8814157, 1.5700908, -1.496984)

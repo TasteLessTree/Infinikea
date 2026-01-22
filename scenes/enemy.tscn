@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl7q80axlw3iw"]
+
+[ext_resource type="PackedScene" uid="uid://vhuemyqkxqbs" path="res://models/enemy/scp-3008-2.glb" id="1_7p1mj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7p1mj"]
+radius = 0.1743164
+height = 0.83496094
+
+[node name="Node3D" type="StaticBody3D"]
+transform = Transform3D(1.4279878, 0, 0, 0, 1.4279878, 0, 0, 0, 1.4279878, 0, 0.09938282, 0)
+
+[node name="scp-3008-2" parent="." instance=ExtResource("1_7p1mj")]
+transform = Transform3D(0.9875706, -0.15717565, 0, 0.15717565, 0.9875706, 0, 0, 0, 1, 0.018077195, 0.3013573, 0.1882391)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2772522, 0.572937)
+shape = SubResource("CapsuleShape3D_7p1mj")

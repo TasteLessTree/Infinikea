@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var stamina_bar = $UI/ProgressBar
 @onready var sfx_footsteps = $Sonidos/sfx_footsteps
 @onready var sfx_jump = $Sonidos/sfx_jump
+@onready var sfx_gasping = $Sonidos/sfx_gasping
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Label
 
@@ -72,6 +73,8 @@ func _physics_process(delta):
 		
 	if is_sprinting:
 		stamina = max(stamina - staminaDrainRate * delta, 0.0)
+		if stamina <= 25.0:
+			sfx_gasping.play()
 		if stamina <= 0.0:
 			is_sprinting = false # No puedes correr si no hay estamina
 			regen_cooldown_timer = regenCooldown

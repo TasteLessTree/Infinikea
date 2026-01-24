@@ -163,7 +163,7 @@ bus = &"Sfx"
 
 [node name="sfx_gasping" type="AudioStreamPlayer" parent="Sonidos"]
 stream = ExtResource("9_ur7pv")
-volume_db = 1.0
+volume_db = 15.0
 bus = &"Sfx"
 parameters/looping = false
 

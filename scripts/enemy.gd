@@ -1,73 +1,249 @@
 extends CharacterBody3D
 
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var animation_tree: AnimationTree = $AnimationTree
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+@onready var raycast_origin: RayCast3D = $RayCast3D
 
 @export var player_path: NodePath
-@export_enum("Idle", "Neutral", "Searching", "Spotted", "Chasing", "Attack") var states: String
+@export var turn_speed: float = 6.0
+@export var facing_correction_deg: float = 0.0
 
-var player = null
-var state: String = "Idle"
+# Estados del enemigo
+enum EnemyState { IDLE, NEUTRAL, SEARCHING, CHASING }
+var state: int = EnemyState.IDLE
 
-const SPEED: float = 7.5
-const SCREAM_RANGE: float = 4.0
-const ATTACK_RANGE: float = 2.0
+# Configurables
+@export_range(0.1, 20.0, 0.1) var walking_speed: float = 3.5
+@export_range(0.1, 40.0, 0.1) var running_speed: float = 9.0
+@export_range(0.1, 30.0, 0.1) var detection_range: float = 12.0
+@export_range(0.1, 10.0, 0.1) var scream_range: float = 4.0
+@export_range(0.1, 6.0, 0.1) var attack_range: float = 1.8
+
+# Elegir un punto aleatorio (en un radio) para moverse
+@export_range(1.0, 50.0, 0.5) var wander_radius: float = 8.0
+
+# Temporizadores
+@export var wander_retarget_time: float = 2.0
+@export var scream_cooldown: float = 3.0
+
+var player: Node3D = null
+# var velocity: Vector3 = Vector3.ZERO
+var next_wander_time: float = 0.0
+var scream_timer: float = 0.0
+var current_target: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
-	player = get_node(player_path)
+	# Detectar el jugador
+	if player_path and has_node(player_path):
+		player = get_node(player_path) as Node3D
+	else:
+		if get_tree().root.has_node("root"):
+			pass # Si no lo detecta lo dejamos cómo null
 
-func _physics_process(_delta: float) -> void:
+	# Iniciar temporizadores de caminar y gritar
+	next_wander_time = Time.get_ticks_msec() / 1000.0 + randf_range(0.0, wander_retarget_time)
+	scream_timer = 0.0
+
+	# Estado inicial
+	_set_state(EnemyState.NEUTRAL)
+
+func _physics_process(delta: float) -> void:
+	# Detectar el jugador
+	if player_path and has_node(player_path):
+		player = get_node(player_path) as Node3D
+	else:
+		if get_tree().root.has_node("root"):
+			pass # Si no lo detecta lo dejamos cómo null
+
+	# Actualizar temporizadores
+	scream_timer = max(0.0, scream_timer - delta)
+
+	# Comportamiento
 	match state:
-		"Idle":
-			animation_tree.set("parameters/conditions/walking", true)
-			ray_scanning()
+		EnemyState.IDLE:
+			_process_idle(delta)
 
-		"Neutral":
-			walk_or_run(0.0)
+		EnemyState.NEUTRAL:
+			_process_neutral(delta)
 
-		"Searching":
-			animation_player.play("scream")
+		EnemyState.SEARCHING:
+			_process_searching(delta)
 
-		_:
-			print("Unexpected token: " + state + ". Check spelling or add state")
-
-func ray_scanning() -> void:
-	if ray_cast_3d.is_colliding():
-		var collider = ray_cast_3d.get_collider()
-		
-		if collider == null:
-			return
-		
-		if collider == player:
-			print("Jugador detectado")
-			print("Cambiando estado")
-			state = "Neutral"
-
-func walk_or_run(running_speed: float) -> void:
-	velocity = Vector3.ZERO
-	nav_agent.set_target_position(player.global_position)
-	var next_nav_point  = nav_agent.get_next_path_position()
-	velocity = (next_nav_point - global_position).normalized() * (SPEED + running_speed)
-
-	ray_scanning()
-
-	# Gritar si el jugador está cerca y atacarle si está a un más cerca
-	animation_tree.set("parameters/conditions/scream", scream_in_range())
-	animation_tree.set("parameters/conditions/attack", target_in_range())
-
-	look_towards(next_nav_point)
+		EnemyState.CHASING:
+			_process_chasing(delta)
+	
+	# Desplazamiento
+	velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
 
 	move_and_slide()
 
-func target_in_range() -> bool:
-	return global_position.distance_to(player.global_position) <= ATTACK_RANGE
+# Cambiar el estado
+func _set_state(new_state: int) -> void:
+	if new_state == state:
+		return
 
-func scream_in_range() -> bool:
-	return global_position.distance_to(player.global_position) < SCREAM_RANGE
+	state = new_state
 
-func look_towards(target: Vector3) -> void:
+	match state:
+		EnemyState.IDLE:
+			_play_animation("idle")
+			velocity = Vector3.ZERO
+			nav_agent.set_avoidance_enable(false)
+
+		EnemyState.NEUTRAL:
+			_play_animation("walk")
+			nav_agent.set_avoidance_enabled(true)
+			_pick_new_wander_target()
+
+		EnemyState.SEARCHING:
+			_play_animation("walk")
+			nav_agent.set_avoidance_enabled(true)
+			_pick_new_wander_target()
+
+		EnemyState.CHASING:
+			_play_animation("run")
+			nav_agent.set_avoidance_enabled(true)
+
+""" --- Estados --- """
+# Idle
+func _process_idle(_delta: float) -> void:
+	# TODO: cambiar a chasing si es de noche y ha detectado al jugador
+	pass
+
+# Neutral
+func _process_neutral(delta: float) -> void:
+	_wander_tick(delta, walking_speed, delta)
+	
+	# TODO: también comprobar si es de noche
+	if _can_see_player() and _distance_to_player() <= detection_range:
+		# Neutral y noche pasamos a chasing por que hemos detectado al jugador
+		_set_state(EnemyState.CHASING)
+
+# Searching
+func _process_searching(delta: float) -> void:
+	_wander_tick(delta, walking_speed, delta)
+	
+	# Gritar si está cerca
+	if _can_see_player() and _distance_to_player() <= scream_range and scream_timer <= 0.0:
+		_play_animation("scream")
+		scream_timer = scream_cooldown
+
+		# Tras gritar, perseguimos
+		_set_state(EnemyState.CHASING)
+
+	# Detectar al jugador desde lejos, pero no grita
+	if _can_see_player() and _distance_to_player() <= detection_range and _distance_to_player() > scream_range:
+		_set_state(EnemyState.CHASING)
+
+# Chasing
+func _process_chasing(delta: float) -> void:
+	# El objetivo es el jugador
+	if player:
+		nav_agent.set_target_position(player.global_transform.origin)
+	
+	# Continuar con la ruta
+	if nav_agent.is_navigation_finished():
+		_move_towards(player.global_position, running_speed, delta)
+	else:
+		var next_point = nav_agent.get_next_path_position()
+		_move_towards(next_point, running_speed, delta)
+
+	# Comprobar si puede atacar
+	if _can_see_player() and _distance_to_player() <= attack_range:
+		_play_animation("attack")
+
+""" --- Movimiento --- """
+func _pick_new_wander_target() -> void:
+	# Calcular un punto aleatorio al rededor
+	var angle = randf() * TAU
+	var r = randf() * wander_radius
+	var local_point = Vector3(cos(angle) * r, 0.0, sin(angle) * r)
+	var world_point = global_position + local_point
+
+	# Calcular el camino hacia ese punto
+	nav_agent.target_position = world_point
+	next_wander_time = Time.get_ticks_msec() / 1000.0 + randf_range(1.0, wander_retarget_time)
+
+func _wander_tick(_delta: float, speed: float, delta: float) -> void:
+	# Elegir un nuevo objetivo
+	var now = Time.get_ticks_msec() / 1000.0
+
+	if now >= next_wander_time or nav_agent.is_navigation_finished():
+		_pick_new_wander_target()
+
+	# Si tenemos un camino, seguirlo
+	if not nav_agent.is_navigation_finished():
+		var next_point = nav_agent.get_next_path_position()
+		_move_towards(next_point, speed, delta)
+	else:
+		velocity = Vector3.ZERO
+
+func _move_towards(target_pos: Vector3, speed: float, delta: float) -> void:
+	# Movimiento horizontal
+	var dir = (target_pos - global_position)
+	dir.y = 0
+
+	if dir.length() > 0.1:
+		dir = dir.normalized()
+		velocity.x = dir.x * speed
+		velocity.z = dir.z * speed
+
+		# Mirar hacia delante
+		_look_towards(global_position + dir, delta)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, 0.2)
+		velocity.z = lerp(velocity.z, 0.0, 0.2)
+
+""" --- Dirección y utilidades --- """
+func _distance_to_player() -> float:
+	if player:
+		return global_position.distance_to(player.global_position)
+	else:
+		return 9999.0
+
+func _can_see_player() -> bool:
+	if player == null:
+		return false
+	
+	if _distance_to_player() > detection_range:
+		return false
+
+	# Desde el enemigo al jugador
+	# TODO: Modificar los vectores 3D si no detectan al jugador
+	var from_pos = global_position + Vector3(0, 1.4, 0)
+	var to_pos = player.global_position + Vector3(0, 1.3, 0)
+	var space = get_world_3d().direct_space_state
+	var exclude = [self.get_rid()]
+	var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 0x7FFFFFFF, exclude)
+	var result = space.intersect_ray(query)
+
+	if not result:
+		return true
+
+	if result.has("collider"):
+		var collider = result.collider
+
+		# El primer collider es el propio
+		return collider == player or collider.is_a_parent_of(player) or player.is_a_parent_of(collider)
+
+	return false
+
+func _play_animation(animation_name: String) -> void:
+	if animation_player and animation_player.has_animation(animation_name):
+		animation_player.play(animation_name)
+
+# Para animaciones que no se pueden interrumpir cómo la del grito (scream)
+func _play_animation_once(animation_name: String) -> void:
+	if animation_player and animation_player.has_animation(animation_name):
+		animation_player.play(animation_name)
+
+func _look_towards(target: Vector3, delta: float) -> void:
 	var look_pos = Vector3(target.x, global_position.y, target.z)
-	look_at(look_pos, Vector3.UP)
+	var desired = Transform3D().looking_at(look_pos - global_position, Vector3.UP)
+	
+	if facing_correction_deg != 0.0:
+		desired.basis = desired.basis.rotated(Vector3.UP, deg_to_rad(facing_correction_deg))
+	
+	var slerped_bais = global_transform.basis.slerp(desired.basis, clamp(turn_speed * delta, 0.0, 1.0))
+	global_transform = Transform3D(slerped_bais, global_transform.origin)

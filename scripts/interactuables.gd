@@ -1,4 +1,5 @@
-extends RigidBody3D
+extends CollisionObject3D
+class_name Interactuable
 
 @onready var mesh_instance_node: MeshInstance3D = $MeshInstance3D
 @export var item_data: ItemData

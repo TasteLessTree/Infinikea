@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/pruebas/mesa_test.tscn" id="9_85g3d"]
-[ext_resource type="PackedScene" uid="uid://cl7q80axlw3iw" path="res://scenes/enemy.tscn" id="10_choun"]
+[ext_resource type="PackedScene" uid="uid://3l4m8bxjb54l" path="res://scenes/enemy.tscn" id="10_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -64,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0067653656)
 navigation_mesh = SubResource("NavigationMesh_choun")
 
 [node name="Nigg3D" parent="NavigationRegion3D" instance=ExtResource("10_choun")]
-transform = Transform3D(2.075384, 0, 0, 0, 2.0753841, 0, 0, 0, 2.0753841, 13.784776, 0.92593694, 23.116432)
+transform = Transform3D(1.3896972, 0, 0, 0, 1.3896977, 0, 0, 0, 1.3896977, 0, 1.05774, -14)
 player_path = NodePath("../../Player")
 
 [node name="Suelo" type="StaticBody3D" parent="NavigationRegion3D"]
@@ -136,5 +136,5 @@ shape = SubResource("BoxShape3D_sugp2")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.047367, 1.0171909, -11.366068)
 
 [node name="Linterna_pickup" parent="NavigationRegion3D" instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, -1.3322757)
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, 8.667725)
 item_data = ExtResource("6_o6xl0")

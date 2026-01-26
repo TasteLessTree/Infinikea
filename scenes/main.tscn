@@ -66,7 +66,7 @@ navigation_mesh = SubResource("NavigationMesh_choun")
 [node name="Nigg3D" parent="NavigationRegion3D" instance=ExtResource("10_choun")]
 transform = Transform3D(1.3896972, 0, 0, 0, 1.3896977, 0, 0, 0, 1.3896977, 0, 1.05774, -14)
 player_path = NodePath("../../Player")
-states = "Idle"
+facing_correction_deg = 180.0
 
 [node name="Suelo" type="StaticBody3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0067653656)

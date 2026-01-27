@@ -3,19 +3,21 @@ extends CharacterBody3D
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+@onready var sfx_scream: AudioStreamPlayer = $sfx_scream
+@onready var sfx_attack: AudioStreamPlayer = $sfx_attack
 @onready var raycast_origin: RayCast3D = $RayCast3D
 
 @export var player_path: NodePath
 @export var turn_speed: float = 6.0
-@export var facing_correction_deg: float = 0.0
+@export var facing_correction_deg: float = 180.0
 
 # Estados del enemigo
 enum EnemyState { IDLE, NEUTRAL, SEARCHING, CHASING }
 var state: int = EnemyState.IDLE
 
 # Configurables
-@export_range(0.1, 20.0, 0.1) var walking_speed: float = 3.5
-@export_range(0.1, 40.0, 0.1) var running_speed: float = 9.0
+@export_range(0.1, 20.0, 0.1) var walking_speed: float = 2.0
+@export_range(0.1, 40.0, 0.1) var running_speed: float = 7.5
 @export_range(0.1, 30.0, 0.1) var detection_range: float = 12.0
 @export_range(0.1, 10.0, 0.1) var scream_range: float = 4.0
 @export_range(0.1, 6.0, 0.1) var attack_range: float = 1.8
@@ -28,7 +30,6 @@ var state: int = EnemyState.IDLE
 @export var scream_cooldown: float = 3.0
 
 var player: Node3D = null
-# var velocity: Vector3 = Vector3.ZERO
 var next_wander_time: float = 0.0
 var scream_timer: float = 0.0
 var current_target: Vector3 = Vector3.ZERO
@@ -72,7 +73,7 @@ func _physics_process(delta: float) -> void:
 
 		EnemyState.CHASING:
 			_process_chasing(delta)
-	
+
 	# Desplazamiento
 	velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
 
@@ -113,8 +114,8 @@ func _process_idle(_delta: float) -> void:
 
 # Neutral
 func _process_neutral(delta: float) -> void:
-	_wander_tick(delta, walking_speed, delta)
-	
+	_wander_tick(delta, walking_speed)
+
 	# TODO: también comprobar si es de noche
 	if _can_see_player() and _distance_to_player() <= detection_range:
 		# Neutral y noche pasamos a chasing por que hemos detectado al jugador
@@ -122,11 +123,12 @@ func _process_neutral(delta: float) -> void:
 
 # Searching
 func _process_searching(delta: float) -> void:
-	_wander_tick(delta, walking_speed, delta)
-	
+	_wander_tick(delta, walking_speed)
+
 	# Gritar si está cerca
 	if _can_see_player() and _distance_to_player() <= scream_range and scream_timer <= 0.0:
 		_play_animation("scream")
+		sfx_scream.play() # TODO: Buscar un sonido
 		scream_timer = scream_cooldown
 
 		# Tras gritar, perseguimos
@@ -152,6 +154,7 @@ func _process_chasing(delta: float) -> void:
 	# Comprobar si puede atacar
 	if _can_see_player() and _distance_to_player() <= attack_range:
 		_play_animation("attack")
+		sfx_attack.play() # TODO: Buscar un sonido
 
 """ --- Movimiento --- """
 func _pick_new_wander_target() -> void:
@@ -165,7 +168,7 @@ func _pick_new_wander_target() -> void:
 	nav_agent.target_position = world_point
 	next_wander_time = Time.get_ticks_msec() / 1000.0 + randf_range(1.0, wander_retarget_time)
 
-func _wander_tick(_delta: float, speed: float, delta: float) -> void:
+func _wander_tick(delta: float, speed: float) -> void:
 	# Elegir un nuevo objetivo
 	var now = Time.get_ticks_msec() / 1000.0
 
@@ -205,7 +208,7 @@ func _distance_to_player() -> float:
 func _can_see_player() -> bool:
 	if player == null:
 		return false
-	
+
 	if _distance_to_player() > detection_range:
 		return false
 
@@ -233,17 +236,24 @@ func _play_animation(animation_name: String) -> void:
 	if animation_player and animation_player.has_animation(animation_name):
 		animation_player.play(animation_name)
 
-# Para animaciones que no se pueden interrumpir cómo la del grito (scream)
-func _play_animation_once(animation_name: String) -> void:
-	if animation_player and animation_player.has_animation(animation_name):
-		animation_player.play(animation_name)
-
 func _look_towards(target: Vector3, delta: float) -> void:
 	var look_pos = Vector3(target.x, global_position.y, target.z)
-	var desired = Transform3D().looking_at(look_pos - global_position, Vector3.UP)
-	
+	var desired = global_transform.looking_at(look_pos, Vector3.UP)
+
 	if facing_correction_deg != 0.0:
 		desired.basis = desired.basis.rotated(Vector3.UP, deg_to_rad(facing_correction_deg))
-	
-	var slerped_bais = global_transform.basis.slerp(desired.basis, clamp(turn_speed * delta, 0.0, 1.0))
-	global_transform = Transform3D(slerped_bais, global_transform.origin)
+
+	# Interpolación
+	var t = clamp(turn_speed * delta, 0.0, 1.0)
+
+	# Mantener escala
+	var original_basis = global_transform.basis.get_scale()
+	var slerped_basis = global_transform.basis.orthonormalized().slerp(desired.basis.orthonormalized(), t)
+
+	slerped_basis = slerped_basis.scaled(original_basis)
+	global_transform.basis = slerped_basis
+
+func _hit_player() -> void:
+	if _can_see_player() and _distance_to_player() <= attack_range:
+		_play_animation("attack")
+		sfx_attack.play() # TODO: Buscar un sonido

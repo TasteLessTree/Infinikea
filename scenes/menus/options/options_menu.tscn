@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkxoun78frvvd"]
+[gd_scene format=3 uid="uid://dkxoun78frvvd"]
 
 [ext_resource type="Shader" uid="uid://d0k4e32p1jicv" path="res://material/shaders/opciones.gdshader" id="1_ijpji"]
-[ext_resource type="Script" uid="uid://dok7rursl0pg3" path="res://scripts/Options_menu/options_menu.gd" id="2_hm4m4"]
-[ext_resource type="PackedScene" uid="uid://b4xrbkr4cxaru" path="res://scenes/Options_menu/options_menu_tabs.tscn" id="3_hm4m4"]
+[ext_resource type="Script" uid="uid://dok7rursl0pg3" path="res://scripts/menus/options/options_menu.gd" id="2_hm4m4"]
+[ext_resource type="PackedScene" uid="uid://b4xrbkr4cxaru" path="res://scenes/menus/options/options_menu_tabs.tscn" id="3_hm4m4"]
 [ext_resource type="FontFile" uid="uid://gdk1upb382y" path="res://assets/fonts/NotoSans-Bold.ttf" id="3_v627i"]
 [ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="5_v627i"]
 

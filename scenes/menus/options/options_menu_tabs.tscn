@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4xrbkr4cxaru"]
+[gd_scene format=3 uid="uid://b4xrbkr4cxaru"]
 
-[ext_resource type="PackedScene" uid="uid://3kox5e8dy0oe" path="res://scenes/Options_menu/sound.tscn" id="1_8xflh"]
+[ext_resource type="PackedScene" uid="uid://3kox5e8dy0oe" path="res://scenes/menus/options/sound.tscn" id="1_8xflh"]
 [ext_resource type="FontFile" uid="uid://bpev0qylyi2n7" path="res://assets/fonts/NotoSans-Italic.ttf" id="1_md144"]
-[ext_resource type="PackedScene" uid="uid://dprl4yapmo05r" path="res://scenes/Options_menu/tipo_ventana.tscn" id="2_eavan"]
-[ext_resource type="PackedScene" uid="uid://dn8yhvey3ug5t" path="res://scenes/Options_menu/resolucion.tscn" id="3_ewiri"]
-[ext_resource type="PackedScene" uid="uid://0k14o5886m0r" path="res://scenes/Options_menu/fov.tscn" id="4_qaawh"]
-[ext_resource type="PackedScene" uid="uid://d3tqnaotfq746" path="res://scenes/Options_menu/sensibilidad.tscn" id="5_tjaae"]
+[ext_resource type="PackedScene" uid="uid://dprl4yapmo05r" path="res://scenes/menus/options/tipo_ventana.tscn" id="2_eavan"]
+[ext_resource type="PackedScene" uid="uid://dn8yhvey3ug5t" path="res://scenes/menus/options/resolucion.tscn" id="3_ewiri"]
+[ext_resource type="PackedScene" uid="uid://0k14o5886m0r" path="res://scenes/menus/options/fov.tscn" id="4_qaawh"]
+[ext_resource type="PackedScene" uid="uid://d3tqnaotfq746" path="res://scenes/menus/options/sensibilidad.tscn" id="5_tjaae"]
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3

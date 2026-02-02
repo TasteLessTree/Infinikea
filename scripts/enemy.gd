@@ -11,6 +11,9 @@ extends CharacterBody3D
 @export var turn_speed: float = 6.0
 @export var facing_correction_deg: float = 180.0
 
+# Golpear al jugador
+signal player_hit
+
 # Estados del enemigo
 enum EnemyState { IDLE, NEUTRAL, SEARCHING, CHASING }
 var state: int = EnemyState.IDLE
@@ -213,7 +216,7 @@ func _can_see_player() -> bool:
 		return false
 
 	# Desde el enemigo al jugador
-	# TODO: Modificar los vectores 3D si no detectan al jugador
+	# TODO: Modificar los vectores 3D si no detectan al jugador (de momento funciona bien)
 	var from_pos = global_position + Vector3(0, 1.4, 0)
 	var to_pos = player.global_position + Vector3(0, 1.3, 0)
 	var space = get_world_3d().direct_space_state
@@ -257,3 +260,4 @@ func _hit_player() -> void:
 	if _can_see_player() and _distance_to_player() <= attack_range:
 		_play_animation("attack")
 		sfx_attack.play() # TODO: Buscar un sonido
+		emit_signal("player_hit")

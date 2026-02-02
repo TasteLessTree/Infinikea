@@ -1,74 +1,9 @@
 [gd_scene format=3 uid="uid://chyjvuomerpn4"]
 
 [ext_resource type="Script" uid="uid://p3f72pfrpyp8" path="res://scripts/menus/game_over.gd" id="1_djsq2"]
-[ext_resource type="Shader" uid="uid://d0k4e32p1jicv" path="res://material/shaders/opciones.gdshader" id="2_0gvls"]
+[ext_resource type="Texture2D" uid="uid://dcac7m8tyj7bf" path="res://assets/placeholder.jpg" id="2_vg4au"]
 [ext_resource type="FontFile" uid="uid://gdk1upb382y" path="res://assets/fonts/NotoSans-Bold.ttf" id="3_ihysu"]
 [ext_resource type="FontFile" uid="uid://cp5n84evqiuy2" path="res://assets/fonts/NotoSans-Medium.ttf" id="5_q7h0p"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0ul2"]
-shader = ExtResource("2_0gvls")
-shader_parameter/lod = 0.0
-
-[sub_resource type="Animation" id="Animation_tvub7"]
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_hegvj"]
-resource_name = "blur"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.678000032205]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_djsq2"]
-_data = {
-&"RESET": SubResource("Animation_tvub7"),
-&"blur": SubResource("Animation_hegvj")
-}
 
 [node name="Control" type="Control" unique_id=1663538140]
 layout_mode = 3
@@ -79,17 +14,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_djsq2")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=694217549]
-material = SubResource("ShaderMaterial_t0ul2")
+[node name="ColorRect" type="TextureRect" parent="." unique_id=1139963086]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_vg4au")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=864664746]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,6 +35,7 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Separador" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1203615630]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=203023193]
@@ -111,7 +46,7 @@ text = "Game Over"
 horizontal_alignment = 1
 
 [node name="Separador2" type="Control" parent="PanelContainer/VBoxContainer" unique_id=1058130279]
-custom_minimum_size = Vector2(100, 470)
+custom_minimum_size = Vector2(100, 400)
 layout_mode = 2
 
 [node name="Main" type="Button" parent="PanelContainer/VBoxContainer" unique_id=113080258]
@@ -126,9 +61,6 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("5_q7h0p")
 theme_override_font_sizes/font_size = 25
 text = "Salir"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1031929736]
-libraries/ = SubResource("AnimationLibrary_djsq2")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Main" to="." method="_on_main_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]

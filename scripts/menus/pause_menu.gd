@@ -30,7 +30,7 @@ func _on_opciones_pressed() -> void:
 	options_menu.visible = true
 
 # ¿Puede que sea esto?
-func on_exit_options_menu() -> void:
+func _on_exit_options_menu() -> void:
 	$PanelContainer/VBoxContainer.visible = true
 	$PanelContainer.self_modulate = 100
 	options_menu.visible = false
@@ -49,4 +49,4 @@ func _ready() -> void:
 	$AnimationPlayer.play("RESET")
 
 func handle_signals() -> void:
-	options_menu.exit_option_menu.connect(on_exit_options_menu)
+	options_menu.exit_option_menu.connect(_on_exit_options_menu)

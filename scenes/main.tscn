@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=17 format=3 uid="uid://bqvkyf6bec5nt"]
+=======
 [gd_scene load_steps=15 format=3 uid="uid://bqvkyf6bec5nt"]
+>>>>>>> parent of 64725e4 (Modelos)
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
@@ -9,6 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/pruebas/mesa_test.tscn" id="9_85g3d"]
+<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://ujj3stynqk15" path="res://scenes/lampara.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://txrkuo0oh400" path="res://scenes/silla.tscn" id="12_trceg"]
+=======
+>>>>>>> parent of 64725e4 (Modelos)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,6 +40,9 @@ size = Vector3(60, 2, 60)
 size = Vector3(60, 2, 60)
 
 [node name="Main" type="Node"]
+
+[node name="Silla2" parent="." instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7807846, 5.120905, -8.693001)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tefeu")
@@ -129,3 +141,12 @@ item_data = ExtResource("6_o6xl0")
 [node name="Linterna_pickup2" parent="." instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -8.572065, -1.1920929e-07, -1.1920929e-07)
 item_data = ExtResource("6_o6xl0")
+<<<<<<< HEAD
+
+[node name="lampara" parent="." instance=ExtResource("11_ya4ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.482832, 22.11308, -9.983586)
+
+[node name="Silla" parent="." instance=ExtResource("12_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.66037, 1.0210859, -28.617868)
+=======
+>>>>>>> parent of 64725e4 (Modelos)

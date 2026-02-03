@@ -138,7 +138,8 @@ func ray_scanning(_delta):
 func _process(_delta):
 	var cam_pitch = rad_to_deg(camara.rotation.x)
 	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
-	$Head/Camera3D/Mano.rotation.x = deg_to_rad(clamped_pitch)
+	
+	$Head/Camera3D/Mano.rotation.x = -deg_to_rad(clamped_pitch)
 
 func _get_walk_speed():
 	if is_sprinting:

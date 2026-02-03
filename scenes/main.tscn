@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/menus/pausa.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="3_tefeu"]
-[ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
-[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://resources/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="7_choun"]
 [ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/pruebas/mesa_test.tscn" id="9_85g3d"]
@@ -140,8 +138,16 @@ shape = SubResource("BoxShape3D_sugp2")
 [node name="Mesa" parent="NavigationRegion3D" unique_id=1155797663 instance=ExtResource("9_85g3d")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.047367, 1.0171909, -11.366068)
 
-[node name="Linterna_pickup" parent="NavigationRegion3D" unique_id=349453081 instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, 8.667725)
-item_data = ExtResource("6_o6xl0")
+[node name="Ground7" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1862462474]
+transform = Transform3D(0.19193824, 0, 0, 0, 0.06474404, 0, 0, 0, 0.476828, -32.44313, -4.957858, -0.013530731)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground7" unique_id=1569817350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
+mesh = SubResource("BoxMesh_0wfyh")
+skeleton = NodePath("../../Ground5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground7" unique_id=1982243734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
+shape = SubResource("BoxShape3D_sugp2")
 
 [connection signal="player_hit" from="NavigationRegion3D/Enemy" to="CLGameOver/GameOver" method="pausar"]

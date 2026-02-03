@@ -31,11 +31,13 @@ var state: int = EnemyState.IDLE
 # Temporizadores
 @export var wander_retarget_time: float = 2.0
 @export var scream_cooldown: float = 3.0
+@export var lost_interest_timeout: float = 5.0
 
 var player: Node3D = null
 var next_wander_time: float = 0.0
 var scream_timer: float = 0.0
 var current_target: Vector3 = Vector3.ZERO
+var lost_interest_timer: float = 0.0
 
 func _ready() -> void:
 	# Detectar el jugador
@@ -213,6 +215,8 @@ func _can_see_player() -> bool:
 		return false
 
 	if _distance_to_player() > detection_range:
+		if lost_interest_timer >= lost_interest_timeout:
+			_set_state(EnemyState.NEUTRAL)
 		return false
 
 	# Desde el enemigo al jugador
@@ -225,14 +229,20 @@ func _can_see_player() -> bool:
 	var result = space.intersect_ray(query)
 
 	if not result:
+		lost_interest_timer = 0.0
 		return true
-
+	
 	if result.has("collider"):
 		var collider = result.collider
+		var sees_player = (collider == player)
 
-		# El primer collider es el propio
-		return collider == player or collider.is_a_parent_of(player) or player.is_a_parent_of(collider)
-
+		if sees_player:
+			lost_interest_timer = 0.0
+			return true
+		else:
+			if lost_interest_timer >= lost_interest_timeout:
+				_set_state(EnemyState.NEUTRAL)
+			return false
 	return false
 
 func _play_animation(animation_name: String) -> void:

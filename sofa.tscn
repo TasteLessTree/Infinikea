@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://4trtbr2vbbjj"]
+
+[ext_resource type="PackedScene" uid="uid://b7hx1phcbrbk3" path="res://models/Two seat sofa.glb" id="1_64a6s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_64a6s"]
+size = Vector3(2.2533722, 0.53115845, 0.9698944)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1mjm"]
+size = Vector3(1.8572998, 0.52233887, 0.1430664)
+
+[node name="RigidBody3D" type="RigidBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.4428855, 0, 0, 0, 1.4428855, 0, 0, 0, 1.4428855, 0.036140442, 0.43677917, -0.13750458)
+shape = SubResource("BoxShape3D_64a6s")
+
+[node name="Two seat sofa" parent="." instance=ExtResource("1_64a6s")]
+transform = Transform3D(0.16923034, 0, 0, 0, 0.16923034, 0, 0, 0, 0.16923034, -0.034724355, 0, -0.05179119)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.5518116, 0, 0, 0, 1.5518116, 0, 0, 0, 1.5518116, 0.026794434, 1.1642356, -0.5557972)
+shape = SubResource("BoxShape3D_l1mjm")

@@ -1,32 +1,16 @@
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-[gd_scene load_steps=17 format=3 uid="uid://bqvkyf6bec5nt"]
-=======
-[gd_scene load_steps=15 format=3 uid="uid://bqvkyf6bec5nt"]
->>>>>>> parent of 64725e4 (Modelos)
-=======
-[gd_scene load_steps=17 format=3 uid="uid://bqvkyf6bec5nt"]
->>>>>>> Stashed changes
+[gd_scene format=3 uid="uid://bqvkyf6bec5nt"]
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://csjtnhdjkglwj" path="res://scripts/world_environment.gd" id="1_tipki"]
-[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/pausa.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/main_menu.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/menus/pausa.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
-[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
+[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://resources/linterna.tres" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="7_choun"]
+[ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/pruebas/mesa_test.tscn" id="9_85g3d"]
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://ujj3stynqk15" path="res://scenes/lampara.tscn" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://txrkuo0oh400" path="res://scenes/silla.tscn" id="12_trceg"]
-=======
->>>>>>> parent of 64725e4 (Modelos)
-=======
-[ext_resource type="PackedScene" uid="uid://drkky6yafa1yc" path="res://scenes/ceiling_light.tscn" id="10_choun"]
-[ext_resource type="PackedScene" uid="uid://4trtbr2vbbjj" path="res://sofa.tscn" id="12_eb6dy"]
->>>>>>> Stashed changes
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,129 +26,119 @@ sky = SubResource("Sky_tbgi4")
 tonemap_mode = 2
 volumetric_fog_enabled = true
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_choun"]
+vertices = PackedVector3Array(-29, 59.414707, 29.165947, 29.25, 59.414707, 29.165947, 29, 59.31471, -31.084053, -29, 59.31471, -31.084053, -29, 1.1147068, 1.915947, -3, 1.1147068, 1.915947, -2.25, 1.1147068, 0.91594696, -1, 1.1147068, -28.834053, -29, 1.1147068, -28.834053, -0.75, 1.1147068, 0.91594696, 0.75, 1.1147068, 0.91594696, 1, 1.1147068, -28.834053, 2.25, 1.1147068, 0.91594696, 3, 1.1147068, 1.915947, 28.75, 1.1147068, 1.915947, 28.75, 1.1147068, -28.834053, -1, 1.1147068, 28.915947, -0.75, 1.1147068, 3.165947, -2.25, 1.1147068, 3.165947, -29, 1.1147068, 28.915947, 2.25, 1.1147068, 3.165947, 0.75, 1.1147068, 3.165947, 1, 1.1147068, 28.915947, 28.75, 1.1147068, 28.915947)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(7, 9, 6), PackedInt32Array(9, 7, 10), PackedInt32Array(10, 7, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(15, 12, 11), PackedInt32Array(12, 10, 11), PackedInt32Array(18, 17, 16), PackedInt32Array(5, 18, 4), PackedInt32Array(4, 18, 19), PackedInt32Array(19, 18, 16), PackedInt32Array(22, 21, 20), PackedInt32Array(13, 14, 20), PackedInt32Array(20, 14, 23), PackedInt32Array(20, 23, 22), PackedInt32Array(17, 21, 16), PackedInt32Array(16, 21, 22)]
+cell_height = 0.1
+agent_radius = 1.0
+
 [sub_resource type="BoxMesh" id="BoxMesh_0wfyh"]
 size = Vector3(60, 2, 60)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sugp2"]
 size = Vector3(60, 2, 60)
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=282840584]
 
-[node name="Silla2" parent="." instance=ExtResource("12_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7807846, 5.120905, -8.693001)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1178240634]
 environment = SubResource("Environment_tefeu")
 script = ExtResource("1_tipki")
 
-[node name="ambient_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment"]
+[node name="ambient_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1143431806]
 stream = ExtResource("1_o6xl0")
 
-[node name="Suelo" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Suelo"]
-mesh = SubResource("BoxMesh_0wfyh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Suelo"]
-shape = SubResource("BoxShape3D_sugp2")
-
-[node name="Pared" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 29.125084, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pared"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
-mesh = SubResource("BoxMesh_0wfyh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Pared"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
-shape = SubResource("BoxShape3D_sugp2")
-
-[node name="Player" parent="." instance=ExtResource("3_tefeu")]
+[node name="Player" parent="." unique_id=1343184284 instance=ExtResource("3_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="grainy_filter" parent="." instance=ExtResource("1_jyhfs")]
+[node name="grainy_filter" parent="." unique_id=1383390990 instance=ExtResource("1_jyhfs")]
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
+[node name="CLMainMenu" type="CanvasLayer" parent="." unique_id=1321545136]
 
-[node name="MainMenu" parent="MainMenu" instance=ExtResource("2_sugp2")]
+[node name="MainMenu" parent="CLMainMenu" unique_id=184970387 instance=ExtResource("2_sugp2")]
 
-[node name="PauseMenu" type="CanvasLayer" parent="."]
+[node name="CLPauseMenu" type="CanvasLayer" parent="." unique_id=1248910996]
 
-[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("2_0wfyh")]
+[node name="PauseMenu" parent="CLPauseMenu" unique_id=1018310003 instance=ExtResource("2_0wfyh")]
 
-[node name="Ground3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, -11.525738, 0)
+[node name="CLGameOver" type="CanvasLayer" parent="." unique_id=1347557667]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground3"]
+[node name="GameOver" parent="CLGameOver" unique_id=1663538140 instance=ExtResource("7_ya4ey")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1979560424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0067653656)
+navigation_mesh = SubResource("NavigationMesh_choun")
+
+[node name="Suelo" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1361737002]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0067653656)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Suelo" unique_id=1022425878]
+mesh = SubResource("BoxMesh_0wfyh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Suelo" unique_id=571841867]
+shape = SubResource("BoxShape3D_sugp2")
+
+[node name="Pared" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1561517072]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 29.125084, -0.0067653656)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Pared" unique_id=1718150682]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
 mesh = SubResource("BoxMesh_0wfyh")
-skeleton = NodePath("../../Ground3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Pared" unique_id=718879855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
 shape = SubResource("BoxShape3D_sugp2")
 
-[node name="Ground4" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 27.814705, 0)
+[node name="Ground3" type="StaticBody3D" parent="NavigationRegion3D" unique_id=665467617]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 27.13787, -0.0067653656)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground3" unique_id=201755949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
+mesh = SubResource("BoxMesh_0wfyh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground3" unique_id=410192747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
+shape = SubResource("BoxShape3D_sugp2")
+
+[node name="Ground4" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1938475421]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 27.814705, -0.0067653656)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground4" unique_id=554315206]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25180817, -30.949556, 1.3584314e-06)
 mesh = SubResource("BoxMesh_0wfyh")
-skeleton = NodePath("../../Ground4")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground4" unique_id=775898779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
 shape = SubResource("BoxShape3D_sugp2")
 
-[node name="Ground5" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, 0, 28.975334, 0)
+[node name="Ground5" type="StaticBody3D" parent="NavigationRegion3D" unique_id=204241348]
+transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, 0, 28.975334, -0.0067653656)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground5" unique_id=760117352]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
+mesh = SubResource("BoxMesh_0wfyh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground5" unique_id=466193638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
+shape = SubResource("BoxShape3D_sugp2")
+
+[node name="Ground6" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1336155192]
+transform = Transform3D(0.06474404, 0, 0, 0, 8.490155e-09, 0.06474404, 0, -0.06474404, 8.490155e-09, 0, 2.8344436, -0.0067653656)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Ground6" unique_id=1923766598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
 mesh = SubResource("BoxMesh_0wfyh")
 skeleton = NodePath("../../Ground5")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Ground6" unique_id=709262429]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
 shape = SubResource("BoxShape3D_sugp2")
 
-[node name="Ground6" type="StaticBody3D" parent="."]
-transform = Transform3D(0.06474404, 0, 0, 0, 8.490155e-09, 0.06474404, 0, -0.06474404, 8.490155e-09, 0, 2.8344436, 0)
+[node name="Mesa" parent="NavigationRegion3D" unique_id=1155797663 instance=ExtResource("9_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.047367, 1.0171909, -11.366068)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
-mesh = SubResource("BoxMesh_0wfyh")
-skeleton = NodePath("../../Ground5")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
-shape = SubResource("BoxShape3D_sugp2")
-
-[node name="Mesa" parent="." instance=ExtResource("9_85g3d")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.047367, 1.0171909, -11.3593025)
-
-[node name="Linterna" parent="." instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, -1.3255104)
+[node name="Linterna_pickup" parent="NavigationRegion3D" unique_id=349453081 instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -0.9285029, 1.2454005, 8.667725)
 item_data = ExtResource("6_o6xl0")
 
-[node name="Linterna_pickup2" parent="." instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -8.572065, -1.1920929e-07, -1.1920929e-07)
-item_data = ExtResource("6_o6xl0")
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-
-[node name="lampara" parent="." instance=ExtResource("11_ya4ey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.482832, 22.11308, -9.983586)
-
-[node name="Silla" parent="." instance=ExtResource("12_trceg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.66037, 1.0210859, -28.617868)
-=======
->>>>>>> parent of 64725e4 (Modelos)
-=======
-
-[node name="Node3D" parent="." instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8023243, 18.540834, -11.863071)
-
-[node name="RigidBody3D" parent="." instance=ExtResource("12_eb6dy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4336486, 1.002357, -1.0566392)
->>>>>>> Stashed changes
+[connection signal="player_hit" from="NavigationRegion3D/Enemy" to="CLGameOver/GameOver" method="pausar"]
+ 

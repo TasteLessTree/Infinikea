@@ -1,15 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bcrj1f2mnugh8"]
+[gd_scene format=3 uid="uid://bcrj1f2mnugh8"]
 
 [ext_resource type="PackedScene" uid="uid://obqklrrhoyfj" path="res://models/Table_Chair.glb" id="1_4xn15"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4xn15"]
 size = Vector3(2.2607422, 1.1366882, 2.9501343)
 
-[node name="Node3D" type="RigidBody3D"]
+[node name="Node3D" type="RigidBody3D" unique_id=2028265636]
 
-[node name="Table_Chair" parent="." instance=ExtResource("1_4xn15")]
+[node name="Table_Chair" parent="." unique_id=214433270 instance=ExtResource("1_4xn15")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23019826, -1.1920929e-07, 0.02775693)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1830765612]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110762656, 0.5479584, 0.016571045)
 shape = SubResource("BoxShape3D_4xn15")

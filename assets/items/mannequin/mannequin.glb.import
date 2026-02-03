@@ -3,11 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< Updated upstream
 uid="uid://blgisf24sq3u8"
-=======
-uid="uid://dieqxsumywya4"
->>>>>>> Stashed changes
 path="res://.godot/imported/mannequin.glb-dfc986950bd14be6edc74995ac29f70f.scn"
 
 [deps]
@@ -42,5 +38,5 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
+gltf/naming_version=0
 gltf/embedded_image_handling=1

@@ -3,14 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://csjtnhdjkglwj" path="res://scripts/world_environment.gd" id="1_tipki"]
-[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/pausa.tscn" id="2_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/main_menu.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/menus/pausa.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
-[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
+[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://resources/linterna.tres" id="6_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="8_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/objetos/mesa_test.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://drkky6yafa1yc" path="res://scenes/objetos/ceiling_light.tscn" id="10_choun"]
-[ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://Resources/maniqui.tres" id="11_ya4ey"]
+[ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://resources/maniqui.tres" id="11_ya4ey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -62,9 +64,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="CLGameOver" type="CanvasLayer" parent="." unique_id=1347557667]
 
+[node name="GameOver" parent="CLGameOver" unique_id=1663538140 instance=ExtResource("7_trceg")]
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1979560424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0067653656)
 navigation_mesh = SubResource("NavigationMesh_choun")
+
+[node name="Node3D" parent="NavigationRegion3D" unique_id=1332282568 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 0, 1.0754681, -23.161129)
+player_path = NodePath("../../Player")
 
 [node name="Suelo" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1361737002]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0067653656)
@@ -144,3 +152,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.461044, 26.462503, -5.997
 [node name="Maniqui" parent="." unique_id=216130261 instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -5.6959867, 2.7047846, 0.006765127)
 item_data = ExtResource("11_ya4ey")
+
+[connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]

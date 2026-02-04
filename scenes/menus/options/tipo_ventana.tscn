@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dprl4yapmo05r"]
+
+[ext_resource type="PackedScene" uid="uid://cnia7mjbiregc" path="res://scenes/menus/options/ventana.tscn" id="1_io0k6"]
+[ext_resource type="Script" uid="uid://cve0eijip5dwk" path="res://scripts/menus/options/tipo_ventana.gd" id="2_gf5kv"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_6ualj"]
+
+[node name="Tipo_Ventana" instance=ExtResource("1_io0k6")]
+script = ExtResource("2_gf5kv")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("3_6ualj")
+text = "Modo de la ventana"
+
+[node name="OptionButton" parent="HBoxContainer" index="2"]
+theme_override_fonts/font = ExtResource("3_6ualj")

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://0k14o5886m0r"]
+[gd_scene format=3 uid="uid://0k14o5886m0r"]
 
-[ext_resource type="Script" uid="uid://dgftl1xhbvcgd" path="res://scripts/Options_menu/fov.gd" id="1_sek5x"]
+[ext_resource type="Script" uid="uid://dgftl1xhbvcgd" path="res://scripts/menus/options/fov.gd" id="1_sek5x"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="2_rkm47"]
 
 [node name="Fov" type="Control"]
 layout_mode = 3
@@ -19,6 +20,7 @@ offset_bottom = 40.0
 [node name="Fov_lbl" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rkm47")
 theme_override_font_sizes/font_size = 32
 text = "FOV"
 
@@ -38,6 +40,7 @@ layout_mode = 2
 [node name="Fov_value" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(264, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rkm47")
 theme_override_font_sizes/font_size = 32
 text = "75"
 

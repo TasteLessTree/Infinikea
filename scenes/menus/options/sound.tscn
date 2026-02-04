@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://3kox5e8dy0oe"]
+[gd_scene format=3 uid="uid://3kox5e8dy0oe"]
 
-[ext_resource type="Script" uid="uid://7hvfp4g1jxhw" path="res://scripts/Options_menu/sound.gd" id="1_d8lq7"]
+[ext_resource type="Script" uid="uid://7hvfp4g1jxhw" path="res://scripts/menus/options/sound.gd" id="1_d8lq7"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="2_sfod6"]
 
 [node name="Audio_Slider" type="Control"]
 layout_mode = 3
@@ -21,6 +22,7 @@ theme_override_constants/separation = 42
 [node name="Audio_Name" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sfod6")
 theme_override_font_sizes/font_size = 32
 text = "Volumen maestro"
 
@@ -40,5 +42,6 @@ layout_mode = 2
 [node name="Audio_Value" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sfod6")
 theme_override_font_sizes/font_size = 32
 text = "100"

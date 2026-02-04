@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cp04ka20n28jj"]
 
 [ext_resource type="Shader" uid="uid://d0k4e32p1jicv" path="res://material/shaders/opciones.gdshader" id="1_m653e"]
-[ext_resource type="Script" uid="uid://cmbhssa26ne7g" path="res://scripts/pause_menu.gd" id="1_vrcbp"]
-[ext_resource type="PackedScene" uid="uid://dkxoun78frvvd" path="res://scenes/Options_menu/options_menu.tscn" id="3_1vvwb"]
+[ext_resource type="Script" uid="uid://cmbhssa26ne7g" path="res://scripts/menus/pause_menu.gd" id="1_vrcbp"]
+[ext_resource type="PackedScene" uid="uid://dkxoun78frvvd" path="res://scenes/menus/options/options_menu.tscn" id="3_1vvwb"]
+[ext_resource type="FontFile" uid="uid://gdk1upb382y" path="res://assets/fonts/NotoSans-Bold.ttf" id="3_d1dax"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="4_eqlbv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vrcbp"]
 shader = ExtResource("1_m653e")
@@ -105,6 +107,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_d1dax")
 theme_override_font_sizes/font_size = 32
 text = "Pausa"
 horizontal_alignment = 1
@@ -112,16 +115,19 @@ vertical_alignment = 1
 
 [node name="Continuar" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
 text = "Continuar"
 
 [node name="Opciones" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
 text = "Opciones"
 
 [node name="Salir" type="Button" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
 text = "Salir"
 

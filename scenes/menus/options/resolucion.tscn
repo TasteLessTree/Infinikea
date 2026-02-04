@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dn8yhvey3ug5t"]
+
+[ext_resource type="PackedScene" uid="uid://cnia7mjbiregc" path="res://scenes/menus/options/ventana.tscn" id="1_u368f"]
+[ext_resource type="Script" uid="uid://bt2ob4yfrgxy8" path="res://scripts/menus/options/resolucion.gd" id="2_523xg"]
+[ext_resource type="FontFile" uid="uid://c1iv5wc6n2uwv" path="res://assets/fonts/NotoSans-Regular.ttf" id="3_nwcql"]
+
+[node name="Resolucion" instance=ExtResource("1_u368f")]
+script = ExtResource("2_523xg")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+theme_override_fonts/font = ExtResource("3_nwcql")
+text = "Resolución"
+
+[node name="OptionButton" parent="HBoxContainer" index="2"]
+theme_override_fonts/font = ExtResource("3_nwcql")

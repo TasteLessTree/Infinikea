@@ -10,7 +10,7 @@ extends CharacterBody3D
 @onready var sfx_jump = $Sonidos/sfx_jump
 @onready var sfx_gasping = $Sonidos/sfx_gasping
 @onready var ray = $Head/Camera3D/Vision
-@onready var label = $Head/Camera3D/Vision/Label
+@onready var label = $Head/Camera3D/Vision/Prompt
 
 @export var playerSpeed: float = 8.0
 @export var friction: float = 20.0

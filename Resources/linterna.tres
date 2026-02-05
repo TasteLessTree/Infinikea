@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bmwu8ahun77kv"]
 
 [ext_resource type="Texture2D" uid="uid://sg7dwdai2ivs" path="res://assets/items/linterna/linterna_icono.png" id="1_0tbko"]
-[ext_resource type="PackedScene" uid="uid://da3kolporgwi1" path="res://assets/items/linterna/scene.glb" id="2_0tbko"]
+[ext_resource type="PackedScene" uid="uid://dl2yjpe3aserm" path="res://assets/items/linterna/modelo_linterna.tscn" id="2_0tbko"]
 [ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/ItemData.gd" id="3_jwkyi"]
 
 [resource]

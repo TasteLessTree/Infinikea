@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://dl2yjpe3aserm"]
+[gd_scene format=4 uid="uid://dl2yjpe3aserm"]
 
 [ext_resource type="Material" uid="uid://4ypek0oytg5x" path="res://material/linterna_material.tres" id="1_sng6i"]
-[ext_resource type="Material" path="res://material/glow.tres" id="2_mxaii"]
+[ext_resource type="Material" uid="uid://dkoha1i4la3h" path="res://material/glow.tres" id="2_mxaii"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hai11"]
 resource_name = "Flashlight"
@@ -56,19 +56,19 @@ _surfaces = [{
 [sub_resource type="BoxShape3D" id="BoxShape3D_mxaii"]
 size = Vector3(0.16308594, 0.12158203, 0.4752884)
 
-[node name="ModeloLinterna" type="RigidBody3D"]
+[node name="ModeloLinterna" type="RigidBody3D" unique_id=358703955]
 
-[node name="flashlight_low" type="MeshInstance3D" parent="."]
+[node name="flashlight_low" type="MeshInstance3D" parent="." unique_id=1952225137]
 transform = Transform3D(-0.05332391, 0, -4.6617283e-09, 0, 0.05332388, 0, 4.6617243e-09, 0, -0.053323954, 0, 0, 0)
 layers = 2
 material_override = ExtResource("1_sng6i")
 mesh = SubResource("ArrayMesh_mxaii")
 skeleton = NodePath("")
 
-[node name="brillo" type="MeshInstance3D" parent="flashlight_low"]
+[node name="brillo" type="MeshInstance3D" parent="flashlight_low" unique_id=501066229]
 material_override = ExtResource("2_mxaii")
 mesh = SubResource("ArrayMesh_sng6i")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=226216829]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0063476563, 0.0006723404, -0.018627167)
 shape = SubResource("BoxShape3D_mxaii")

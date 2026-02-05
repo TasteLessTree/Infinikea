@@ -23,7 +23,10 @@ func show_item(item_data: ItemData):
 	
 	if item_data.mesh_scene:
 		current_item_instance = item_data.mesh_scene.instantiate()
-		_remover_colisiones(current_item_instance)
+		if current_item_instance is RigidBody3D:
+			current_item_instance.freeze = true # Congela el cuerpo
+			current_item_instance.process_mode = Node.PROCESS_MODE_DISABLED # Opcional:
+			_remover_colisiones(current_item_instance)
 		current_item_instance.position = Vector3.ZERO
 		current_item_instance.rotation = Vector3.ZERO
 		add_child(current_item_instance)
@@ -59,6 +62,6 @@ func _desactivar_linterna_visual():
 	
 func _remover_colisiones(nodo: Node):
 	for child in nodo.get_children():
-		if child is CollisionShape3D or child is CollisionPolygon3D or child is StaticBody3D:
+		if child is CollisionShape3D or child is CollisionPolygon3D or child is StaticBody3D or child is RigidBody3D:
 			child.queue_free() # Elimina la colisión solo de la instancia en la mano
 		_remover_colisiones(child) # Recursivo para sub-nodos

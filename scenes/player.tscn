@@ -41,7 +41,7 @@ spot_angle = 14.352548
 spot_angle_attenuation = 0.7845841
 
 [node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.37821186, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.99213654, 0.04733703, 0, -0.12516008, 0.3752378, 0, 0, 0)
 target_position = Vector3(0, 0, -5)
 script = ExtResource("5_y4r1p")
 

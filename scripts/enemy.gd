@@ -65,6 +65,15 @@ func _physics_process(delta: float) -> void:
 	# Actualizar temporizadores
 	scream_timer = max(0.0, scream_timer - delta)
 
+	# Si no ve al jugador, incrementar el temporizador
+	if state == EnemyState.CHASING:
+		if not _can_see_player():
+			lost_interest_timeout += delta
+			if lost_interest_timer >= lost_interest_timeout:
+				_set_state(EnemyState.SEARCHING)
+		else:
+			lost_interest_timer = 0.0
+
 	# Comportamiento
 	match state:
 		EnemyState.IDLE:
@@ -215,8 +224,6 @@ func _can_see_player() -> bool:
 		return false
 
 	if _distance_to_player() > detection_range:
-		if lost_interest_timer >= lost_interest_timeout:
-			_set_state(EnemyState.NEUTRAL)
 		return false
 
 	# Desde el enemigo al jugador
@@ -229,20 +236,12 @@ func _can_see_player() -> bool:
 	var result = space.intersect_ray(query)
 
 	if not result:
-		lost_interest_timer = 0.0
 		return true
 	
 	if result.has("collider"):
 		var collider = result.collider
-		var sees_player = (collider == player)
+		return collider == player or player.is_a_parent_of(collider)
 
-		if sees_player:
-			lost_interest_timer = 0.0
-			return true
-		else:
-			if lost_interest_timer >= lost_interest_timeout:
-				_set_state(EnemyState.NEUTRAL)
-			return false
 	return false
 
 func _play_animation(animation_name: String) -> void:

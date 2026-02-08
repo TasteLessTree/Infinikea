@@ -7,12 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player.tscn" id="3_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/interactuables.tscn" id="5_tefeu"]
-[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://Resources/linterna.tres" id="6_o6xl0"]
+[ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://resources/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="8_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/objetos/mesa_test.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://drkky6yafa1yc" path="res://scenes/objetos/ceiling_light.tscn" id="10_choun"]
-[ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://Resources/maniqui.tres" id="11_ya4ey"]
+[ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://resources/maniqui.tres" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dqmorwf2flrxs" path="res://scenes/objetos/cocina.tscn" id="15_jkv2x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -156,5 +156,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.461044, 26.462503, -5.997
 [node name="Maniqui" parent="." unique_id=216130261 instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -5.6959867, 2.7047846, 0.006765127)
 item_data = ExtResource("11_ya4ey")
+
+[node name="Ground7" type="StaticBody3D" parent="." unique_id=903807489]
+transform = Transform3D(0.09162725, 0, 0, 0, 0.0627084, 0.002619437, 0, -0.00056803954, 0.28917122, -30.92214, -0.09453058, -8.578467)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground7" unique_id=1490456406]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.077288, 1.3584314e-06)
+mesh = SubResource("BoxMesh_0wfyh")
+skeleton = NodePath("../../NavigationRegion3D/Ground5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground7" unique_id=967173985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -31.060892, 1.3577147e-06)
+shape = SubResource("BoxShape3D_sugp2")
 
 [connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]

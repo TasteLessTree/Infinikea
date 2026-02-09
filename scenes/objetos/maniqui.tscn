@@ -6,7 +6,7 @@
 height = 1.6826172
 radius = 0.28271484
 
-[node name="Node3D" type="RigidBody3D" unique_id=846629575]
+[node name="Node3D" type="Area3D" unique_id=2091519899]
 
 [node name="mannequin" parent="." unique_id=1756160190 instance=ExtResource("1_3mw57")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09175968, 0, 0.0054796934)

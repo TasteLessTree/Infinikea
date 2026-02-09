@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwxmfx0guewti"
-path="res://.godot/imported/proyector.jpg-b764daf00f3260ce6565f0b3528db3b1.ctex"
+uid="uid://bo1j8vorewhqc"
+path="res://.godot/imported/inonolint-removebg-preview.png-28248012db64bb34a0a24c74feb7265c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/proyector.jpg"
-dest_files=["res://.godot/imported/proyector.jpg-b764daf00f3260ce6565f0b3528db3b1.ctex"]
+source_file="res://iconos/inonolint-removebg-preview.png"
+dest_files=["res://.godot/imported/inonolint-removebg-preview.png-28248012db64bb34a0a24c74feb7265c.ctex"]
 
 [params]
 

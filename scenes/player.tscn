@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://42xnfibqkyl1" path="res://scripts/mano.gd" id="2_fjrip"]
 [ext_resource type="AudioStream" uid="uid://dyx553eddhbxs" path="res://assets/sounds/sfx/flashlight_on_off.mp3" id="5_smehm"]
 [ext_resource type="AudioStream" uid="uid://cji3ux2eptujo" path="res://assets/sounds/sfx/footsteps.mp3" id="5_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://assets/proyector.jpg" id="5_ur7pv"]
+[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://iconos/proyector.jpg" id="5_ur7pv"]
 [ext_resource type="Script" uid="uid://cv1dph8pvjwmn" path="res://scripts/rayo.gd" id="5_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://dqmu4a8wvsycw" path="res://assets/sounds/sfx/jumping.mp3" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://bifjdwi5t40xm" path="res://assets/sounds/sfx/gasping.mp3" id="9_ur7pv"]
@@ -41,8 +41,9 @@ spot_angle = 14.352548
 spot_angle_attenuation = 0.7845841
 
 [node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
-transform = Transform3D(1, 0, 0, 0, 0.99213654, 0.04733703, 0, -0.12516008, 0.3752378, 0, 0, 0)
+transform = Transform3D(1.0165012, 0, 0, 0, 1.008508, 0.048118144, 0, -0.12722537, 0.38142964, 0, 0, -0.23164225)
 target_position = Vector3(0, 0, -5)
+debug_shape_thickness = 5
 script = ExtResource("5_y4r1p")
 
 [node name="Prompt" type="Label" parent="Head/Camera3D/Vision" unique_id=1452538261]

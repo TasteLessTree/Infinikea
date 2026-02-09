@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Inventario="*res://scenes/inventario.tscn"
+CicloDiaNoche="*uid://5rjxmm6ijejx"
 
 [display]
 
@@ -33,7 +34,8 @@ import/blender/enabled=false
 
 [global_group]
 
-interactuable=""
+interactuable="Items que puedes recoger"
+luces_techo="Cambiar la energía de las luces del techo"
 
 [input]
 

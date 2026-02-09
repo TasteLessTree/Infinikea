@@ -54,6 +54,9 @@ func _ready() -> void:
 	# Estado inicial
 	_set_state(EnemyState.NEUTRAL)
 
+	# Conectar con la señal del ciclo de día y noche
+	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
+
 func _physics_process(delta: float) -> void:
 	# Detectar el jugador
 	if player_path and has_node(player_path):
@@ -104,7 +107,7 @@ func _set_state(new_state: int) -> void:
 		EnemyState.IDLE:
 			_play_animation("idle")
 			velocity = Vector3.ZERO
-			nav_agent.set_avoidance_enable(false)
+			nav_agent.set_avoidance_enabled(false)
 
 		EnemyState.NEUTRAL:
 			_play_animation("walk")
@@ -123,20 +126,33 @@ func _set_state(new_state: int) -> void:
 """ --- Estados --- """
 # Idle
 func _process_idle(_delta: float) -> void:
-	# TODO: cambiar a chasing si es de noche y ha detectado al jugador
-	pass
+	if Time.get_ticks_msec() / 1000.0 >= next_wander_time:
+		_set_state(EnemyState.NEUTRAL)
+		print("ENEMIGO salió IDLE")
 
 # Neutral
 func _process_neutral(delta: float) -> void:
 	_wander_tick(delta, walking_speed)
 
-	# TODO: también comprobar si es de noche
-	if _can_see_player() and _distance_to_player() <= detection_range:
-		# Neutral y noche pasamos a chasing por que hemos detectado al jugador
-		_set_state(EnemyState.CHASING)
+	if CicloDiaNoche.get_es_de_noche():
+		if _can_see_player() and _distance_to_player() <= detection_range:
+			# Neutral y noche pasamos a chasing por que hemos detectado al jugador
+			_set_state(EnemyState.CHASING)
+	else:
+		# Generar un número aleatorio [1, 10000] si es igual a 1, no hacer nada (idle)
+		if 1 == (randi() % 10000 + 1):
+			print("ENEMIGO en IDLE")
+			_set_state(EnemyState.IDLE)
+		else:
+			_set_state(EnemyState.NEUTRAL)
 
 # Searching
 func _process_searching(delta: float) -> void:
+	# Si no es de noche, neutral
+	if not CicloDiaNoche.get_es_de_noche():
+		_set_state(EnemyState.NEUTRAL)
+		return
+
 	_wander_tick(delta, walking_speed)
 
 	# Gritar si está cerca
@@ -154,6 +170,11 @@ func _process_searching(delta: float) -> void:
 
 # Chasing
 func _process_chasing(delta: float) -> void:
+	# Si no es de noche, neutral
+	if not CicloDiaNoche.get_es_de_noche():
+		_set_state(EnemyState.NEUTRAL)
+		return
+
 	# El objetivo es el jugador
 	if player:
 		nav_agent.set_target_position(player.global_transform.origin)
@@ -213,12 +234,14 @@ func _move_towards(target_pos: Vector3, speed: float, delta: float) -> void:
 		velocity.z = lerp(velocity.z, 0.0, 0.2)
 
 """ --- Dirección y utilidades --- """
+# Distancia al jugador
 func _distance_to_player() -> float:
 	if player:
 		return global_position.distance_to(player.global_position)
 	else:
 		return 9999.0
 
+# Puede ver al jugador
 func _can_see_player() -> bool:
 	if player == null:
 		return false
@@ -227,7 +250,6 @@ func _can_see_player() -> bool:
 		return false
 
 	# Desde el enemigo al jugador
-	# TODO: Modificar los vectores 3D si no detectan al jugador (de momento funciona bien)
 	var from_pos = global_position + Vector3(0, 1.4, 0)
 	var to_pos = player.global_position + Vector3(0, 1.3, 0)
 	var space = get_world_3d().direct_space_state
@@ -244,10 +266,12 @@ func _can_see_player() -> bool:
 
 	return false
 
+# Animaciones
 func _play_animation(animation_name: String) -> void:
 	if animation_player and animation_player.has_animation(animation_name):
 		animation_player.play(animation_name)
 
+# Dirección
 func _look_towards(target: Vector3, delta: float) -> void:
 	var look_pos = Vector3(target.x, global_position.y, target.z)
 	var desired = global_transform.looking_at(look_pos, Vector3.UP)
@@ -265,8 +289,17 @@ func _look_towards(target: Vector3, delta: float) -> void:
 	slerped_basis = slerped_basis.scaled(original_basis)
 	global_transform.basis = slerped_basis
 
+# Atacar
 func _hit_player() -> void:
 	if _can_see_player() and _distance_to_player() <= attack_range:
 		_play_animation("attack")
 		sfx_attack.play() # TODO: Buscar un sonido
 		emit_signal("player_hit")
+
+# Ciclo de día y noche
+func _on_ciclo_cambiado(noche: bool) -> void:
+	if noche:
+		_set_state(EnemyState.SEARCHING)
+	else:
+		if state == EnemyState.CHASING or state == EnemyState.SEARCHING:
+			_set_state(EnemyState.NEUTRAL)

@@ -58,6 +58,8 @@ func _ready() -> void:
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
 
 func _physics_process(delta: float) -> void:
+	_print_estado(state)
+	print("Timeout: %f | Timer: %f" % [lost_interest_timeout, lost_interest_timer])
 	# Detectar el jugador
 	if player_path and has_node(player_path):
 		player = get_node(player_path) as Node3D
@@ -71,7 +73,7 @@ func _physics_process(delta: float) -> void:
 	# Si no ve al jugador, incrementar el temporizador
 	if state == EnemyState.CHASING:
 		if not _can_see_player():
-			lost_interest_timeout += delta
+			lost_interest_timer += delta
 			if lost_interest_timer >= lost_interest_timeout:
 				_set_state(EnemyState.SEARCHING)
 		else:
@@ -95,6 +97,20 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
 
 	move_and_slide()
+
+func _print_estado(estado: EnemyState) -> void:
+	match estado:
+		EnemyState.IDLE:
+			print("IDLE")
+
+		EnemyState.NEUTRAL:
+			print("NEUTRAL")
+
+		EnemyState.SEARCHING:
+			print("SEARCHING")
+
+		EnemyState.CHASING:
+			print("CHASING")
 
 # Cambiar el estado
 func _set_state(new_state: int) -> void:
@@ -126,9 +142,9 @@ func _set_state(new_state: int) -> void:
 """ --- Estados --- """
 # Idle
 func _process_idle(_delta: float) -> void:
-	if Time.get_ticks_msec() / 1000.0 >= next_wander_time:
+	var tiempo = randf_range(1.0, 10.0) * 1000.0
+	if Time.get_ticks_msec() / tiempo >= next_wander_time:
 		_set_state(EnemyState.NEUTRAL)
-		print("ENEMIGO salió IDLE")
 
 # Neutral
 func _process_neutral(delta: float) -> void:
@@ -139,9 +155,8 @@ func _process_neutral(delta: float) -> void:
 			# Neutral y noche pasamos a chasing por que hemos detectado al jugador
 			_set_state(EnemyState.CHASING)
 	else:
-		# Generar un número aleatorio [1, 10000] si es igual a 1, no hacer nada (idle)
-		if 1 == (randi() % 10000 + 1):
-			print("ENEMIGO en IDLE")
+		# Generar un número aleatorio [1, 30] si es igual a 1, no hacer nada (idle)
+		if 1 == (randi() % 45 + 1):
 			_set_state(EnemyState.IDLE)
 		else:
 			_set_state(EnemyState.NEUTRAL)
@@ -262,7 +277,7 @@ func _can_see_player() -> bool:
 	
 	if result.has("collider"):
 		var collider = result.collider
-		return collider == player or player.is_a_parent_of(collider)
+		return collider == player # or player.is_a_parent_of(collider)
 
 	return false
 

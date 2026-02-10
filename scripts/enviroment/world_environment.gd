@@ -13,7 +13,9 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 
 	if noche:
 		twin.tween_property(env, "ambient_light_color", Color(0.35, 0.45, 0.5), 1.5)
-		twin.parallel().tween_property(env, "ambient_light_energy", 0.4, 1.5)
+		twin.parallel().tween_property(env, "ambient_light_energy", 0.04, 1.5)
+		twin.parallel().tween_property(env, "background_energy_multiplier", 0.05, 1.0)
 	else:
 		twin.tween_property(env, "ambient_light_color", Color(1.0, 0.95, 0.85), 1.5)
-		twin.parallel().tween_property(env, "ambient_light_energy", 1.2, 1.5)
+		twin.parallel().tween_property(env, "ambient_light_energy", 1.0, 1.5)
+		twin.parallel().tween_property(env, "background_energy_multiplier", 1.001, 1.0)

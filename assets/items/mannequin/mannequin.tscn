@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1rqtxtbt3xhp"]
+
+[ext_resource type="PackedScene" uid="uid://blgisf24sq3u8" path="res://assets/items/mannequin/mannequin.glb" id="1_6eftw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6eftw"]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.454
+
+[node name="mannequin" unique_id=1128780342 instance=ExtResource("1_6eftw")]
+
+[node name="Ch36" parent="Armature/Skeleton3D" index="0"]
+material_overlay = SubResource("StandardMaterial3D_6eftw")

@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Prompt
 
+
 @export var playerSpeed: float = 8.0
 @export var friction: float = 20.0
 @export var player_acc: float = 5.0
@@ -33,6 +34,10 @@ var direction: Vector3 = Vector3.ZERO
 var y_velocity: float = 6.0
 var head_y_axis: float = 0.0
 var camera_x_axis: float = 0.0
+var crouch_height: float = 0.5
+var stand_height: float = 2.0
+var crouching = false
+var crouch_speed: float = 3.5
 
 var stamina: float = staminaMax
 var is_sprinting: bool = false
@@ -52,8 +57,17 @@ func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
+func crouch():
+	if Input.is_action_just_pressed("crouch"):
+		crouching = !crouching
+		if crouching:
+			$CollisionShape3D.shape.height = crouch_height
+		else:
+			$CollisionShape3D.shape.height = stand_height
 
 func _physics_process(delta):
+	crouch()
+	
 	ray_scanning(delta)
 	var input_x = Input.get_axis("move_left", "move_right")
 	var input_z = Input.get_axis("move_forward", "move_back")
@@ -65,7 +79,7 @@ func _physics_process(delta):
 	
 	# Lógica de Sprint y Stamina [cite: 5, 6]
 	var want_sprint = Input.is_action_pressed("sprint")
-	if want_sprint and stamina > 0.0 and is_on_floor():
+	if want_sprint and stamina > 0.0 and is_on_floor() and not crouching:
 		is_sprinting = true
 		regen_cooldown_timer = 0.0
 	else:
@@ -145,6 +159,8 @@ func _process(_delta):
 	$Head/Camera3D/Mano.rotation.x = -deg_to_rad(clamped_pitch)
 
 func _get_walk_speed():
+	if crouching:
+		return crouch_speed
 	if is_sprinting:
 		return sprintSpeed
 	else:

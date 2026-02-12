@@ -1,7 +1,7 @@
 extends CollisionObject3D
 class_name Interactuable
 
-@onready var mesh_instance_node: MeshInstance3D = $MeshInstance3D
+@onready var mesh_instance_node = $MeshInstance3D
 @export var item_data: ItemData
 
 func _ready():
@@ -34,4 +34,5 @@ func spawn_item_with_collision(scene) ->Node3D:
 		
 		self.add_child(inst)
 		self.add_child(col_shape)
+		
 	return inst

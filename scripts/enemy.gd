@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var sfx_scream: AudioStreamPlayer = $sfx_scream
 @onready var sfx_attack: AudioStreamPlayer = $sfx_attack
 @onready var raycast_origin: RayCast3D = $RayCast3D
+@onready var timer: Timer = $Timer
 
 @export var player_path: NodePath
 @export var turn_speed: float = 6.0
@@ -58,26 +59,8 @@ func _ready() -> void:
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
 
 func _physics_process(delta: float) -> void:
-	_print_estado(state)
-	print("Timeout: %f | Timer: %f" % [lost_interest_timeout, lost_interest_timer])
-	# Detectar el jugador
-	if player_path and has_node(player_path):
-		player = get_node(player_path) as Node3D
-	else:
-		if get_tree().root.has_node("root"):
-			pass # Si no lo detecta lo dejamos cómo null
-
 	# Actualizar temporizadores
 	scream_timer = max(0.0, scream_timer - delta)
-
-	# Si no ve al jugador, incrementar el temporizador
-	if state == EnemyState.CHASING:
-		if not _can_see_player():
-			lost_interest_timer += delta
-			if lost_interest_timer >= lost_interest_timeout:
-				_set_state(EnemyState.SEARCHING)
-		else:
-			lost_interest_timer = 0.0
 
 	# Comportamiento
 	match state:
@@ -97,20 +80,6 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
 
 	move_and_slide()
-
-func _print_estado(estado: EnemyState) -> void:
-	match estado:
-		EnemyState.IDLE:
-			print("IDLE")
-
-		EnemyState.NEUTRAL:
-			print("NEUTRAL")
-
-		EnemyState.SEARCHING:
-			print("SEARCHING")
-
-		EnemyState.CHASING:
-			print("CHASING")
 
 # Cambiar el estado
 func _set_state(new_state: int) -> void:
@@ -142,7 +111,7 @@ func _set_state(new_state: int) -> void:
 """ --- Estados --- """
 # Idle
 func _process_idle(_delta: float) -> void:
-	var tiempo = randf_range(1.0, 10.0) * 1000.0
+	var tiempo = randf_range(10.0, 15.0) * 1000.0
 	if Time.get_ticks_msec() / tiempo >= next_wander_time:
 		_set_state(EnemyState.NEUTRAL)
 
@@ -155,11 +124,7 @@ func _process_neutral(delta: float) -> void:
 			# Neutral y noche pasamos a chasing por que hemos detectado al jugador
 			_set_state(EnemyState.CHASING)
 	else:
-		# Generar un número aleatorio [1, 30] si es igual a 1, no hacer nada (idle)
-		if 1 == (randi() % 45 + 1):
-			_set_state(EnemyState.IDLE)
-		else:
-			_set_state(EnemyState.NEUTRAL)
+		_on_timer_timeout()
 
 # Searching
 func _process_searching(delta: float) -> void:
@@ -173,7 +138,8 @@ func _process_searching(delta: float) -> void:
 	# Gritar si está cerca
 	if _can_see_player() and _distance_to_player() <= scream_range and scream_timer <= 0.0:
 		_play_animation("scream")
-		sfx_scream.play() # TODO: Buscar un sonido
+		if sfx_scream:
+			sfx_scream.play() # TODO: Buscar un sonido
 		scream_timer = scream_cooldown
 
 		# Tras gritar, perseguimos
@@ -190,9 +156,16 @@ func _process_chasing(delta: float) -> void:
 		_set_state(EnemyState.NEUTRAL)
 		return
 
-	# El objetivo es el jugador
-	if player:
-		nav_agent.set_target_position(player.global_transform.origin)
+	var can_see = _can_see_player()
+
+	if can_see:
+		nav_agent.target_position = player.global_position
+		lost_interest_timer = 0.0
+	else:
+		lost_interest_timer += delta
+		if lost_interest_timer >= lost_interest_timeout:
+			_set_state(EnemyState.SEARCHING)
+			return
 	
 	# Continuar con la ruta
 	if nav_agent.is_navigation_finished():
@@ -202,9 +175,10 @@ func _process_chasing(delta: float) -> void:
 		_move_towards(next_point, running_speed, delta)
 
 	# Comprobar si puede atacar
-	if _can_see_player() and _distance_to_player() <= attack_range:
+	if can_see and _distance_to_player() <= attack_range:
 		_play_animation("attack")
-		sfx_attack.play() # TODO: Buscar un sonido
+		if sfx_attack:
+			sfx_attack.play() # TODO: Buscar un sonido
 
 """ --- Movimiento --- """
 func _pick_new_wander_target() -> void:
@@ -269,7 +243,7 @@ func _can_see_player() -> bool:
 	var to_pos = player.global_position + Vector3(0, 1.3, 0)
 	var space = get_world_3d().direct_space_state
 	var exclude = [self.get_rid()]
-	var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 0x7FFFFFFF, exclude)
+	var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 3, exclude)
 	var result = space.intersect_ray(query)
 
 	if not result:
@@ -308,7 +282,8 @@ func _look_towards(target: Vector3, delta: float) -> void:
 func _hit_player() -> void:
 	if _can_see_player() and _distance_to_player() <= attack_range:
 		_play_animation("attack")
-		sfx_attack.play() # TODO: Buscar un sonido
+		if sfx_attack:
+			sfx_attack.play() # TODO: Buscar un sonido
 		emit_signal("player_hit")
 
 # Ciclo de día y noche
@@ -318,3 +293,10 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 	else:
 		if state == EnemyState.CHASING or state == EnemyState.SEARCHING:
 			_set_state(EnemyState.NEUTRAL)
+
+# Pequeña probabilidad de quedarse IDLE
+func _on_timer_timeout() -> void:
+	if randi() % 100 == 0:
+		_set_state(EnemyState.IDLE)
+	else:
+		_set_state(EnemyState.NEUTRAL)

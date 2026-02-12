@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://diatqy1tnodjp" path="res://iconos/maniqui-removebg-preview.png" id="1_50rsk"]
 [ext_resource type="PackedScene" uid="uid://1rqtxtbt3xhp" path="res://assets/items/mannequin/mannequin.tscn" id="2_50rsk"]
-[ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/ItemData.gd" id="3_ql170"]
+[ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/items/ItemData.gd" id="3_ql170"]
 
 [resource]
 script = ExtResource("3_ql170")

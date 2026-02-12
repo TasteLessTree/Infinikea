@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ce7jfupig3v3v"]
 
-[ext_resource type="Script" uid="uid://b7br3p777dmog" path="res://scripts/interactuables.gd" id="1_eslx8"]
+[ext_resource type="Script" uid="uid://b7br3p777dmog" path="res://scripts/items/interactuables.gd" id="1_eslx8"]
 
 [node name="Interactuables" type="RigidBody3D" unique_id=1958856511 groups=["interactuable"]]
 script = ExtResource("1_eslx8")

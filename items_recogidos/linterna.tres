@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://bmwu8ahun77kv"]
 
 [ext_resource type="Texture2D" uid="uid://bo1j8vorewhqc" path="res://iconos/inonolint-removebg-preview.png" id="1_0tbko"]
-[ext_resource type="PackedScene" uid="uid://c2tefgptqrm4a" path="res://flashlight_glow.tscn" id="2_0tbko"]
-[ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/ItemData.gd" id="3_jwkyi"]
+[ext_resource type="PackedScene" uid="uid://c2tefgptqrm4a" path="res://assets/items/linterna/flashlight_glow.tscn" id="2_0tbko"]
+[ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/items/ItemData.gd" id="3_jwkyi"]
 
 [resource]
 script = ExtResource("3_jwkyi")

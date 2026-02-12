@@ -20,7 +20,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
-Inventario="*res://scenes/inventario.tscn"
+Inventario="*res://scenes/player/inventario.tscn"
 
 [display]
 

@@ -13,7 +13,7 @@ extends CharacterBody3D
 @onready var label = $Head/Camera3D/Vision/Label
 
 
-@export var playerSpeed: float = 8.0
+@export var playerSpeed: float = 7.0
 @export var friction: float = 20.0
 @export var player_acc: float = 5.0
 @export var move_speed: float = 6.0
@@ -22,7 +22,7 @@ extends CharacterBody3D
 @export var camera_sens: float = 0.05
 @export var jumpForce: float = 8.0
 @export var camera_acc: float = 1.5
-@export var sprintSpeed: float = 12.0 
+@export var sprintSpeed: float = 10.0 
 @export var staminaMax: float = 100.0
 @export var staminaDrainRate: float = 20.0
 @export var staminaRegenRate: float = 15.0

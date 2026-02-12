@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c2tefgptqrm4a"]
+
+[ext_resource type="PackedScene" uid="uid://drcin2xialxr5" path="res://assets/items/linterna/Flashlight.glb" id="1_0fb61"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vulpm"]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.035
+
+[node name="Flashlight" unique_id=285023315 instance=ExtResource("1_0fb61")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="flashlight_low" parent="." index="0" unique_id=49358205]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_vulpm")

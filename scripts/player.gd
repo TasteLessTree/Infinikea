@@ -12,6 +12,7 @@ extends CharacterBody3D
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Label
 
+
 @export var playerSpeed: float = 8.0
 @export var friction: float = 20.0
 @export var player_acc: float = 5.0
@@ -66,8 +67,6 @@ func crouch():
 
 func _physics_process(delta):
 	crouch()
-	var target_head_height = crouch_height if crouching else stand_height
-	head.position.y = lerp(head.position.y, target_head_height, 7.0 * delta)
 	
 	ray_scanning(delta)
 	var input_x = Input.get_axis("move_left", "move_right")

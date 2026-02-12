@@ -57,10 +57,9 @@ _surfaces = [{
 height = 0.48620605
 radius = 0.071777344
 
-[node name="ModeloLinterna" type="Area3D" unique_id=2076346170]
+[node name="ModeloLinterna" type="RigidBody3D" unique_id=761072576]
 
 [node name="flashlight_low" type="MeshInstance3D" parent="." unique_id=1952225137]
-transform = Transform3D(-0.05332391, 0, -4.6617283e-09, 0, 0.05332388, 0, 4.6617243e-09, 0, -0.053323954, 0, 0, 0)
 layers = 2
 material_override = ExtResource("1_sng6i")
 mesh = SubResource("ArrayMesh_mxaii")

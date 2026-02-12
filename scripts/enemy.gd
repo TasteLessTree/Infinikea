@@ -133,13 +133,19 @@ func _process_searching(delta: float) -> void:
 		_set_state(EnemyState.NEUTRAL)
 		return
 
+	# Detectar al maniquí
+	var targer_mannequin = _get_visible_mannequin()
+	if targer_mannequin:
+		_move_to_and_attack(targer_mannequin, delta)
+		return
+
 	_wander_tick(delta, walking_speed)
 
 	# Gritar si está cerca
 	if _can_see_player() and _distance_to_player() <= scream_range and scream_timer <= 0.0:
-		_play_animation("scream")
 		if sfx_scream:
 			sfx_scream.play() # TODO: Buscar un sonido
+		_play_animation("scream")
 		scream_timer = scream_cooldown
 
 		# Tras gritar, perseguimos
@@ -174,11 +180,17 @@ func _process_chasing(delta: float) -> void:
 		var next_point = nav_agent.get_next_path_position()
 		_move_towards(next_point, running_speed, delta)
 
+	# Detectar al maniquí
+	var targer_mannequin = _get_visible_mannequin()
+	if targer_mannequin:
+		_move_to_and_attack(targer_mannequin, delta)
+		return
+
 	# Comprobar si puede atacar
 	if can_see and _distance_to_player() <= attack_range:
-		_play_animation("attack")
 		if sfx_attack:
-			sfx_attack.play() # TODO: Buscar un sonido
+			sfx_attack.play()
+		_play_animation("attack")
 
 """ --- Movimiento --- """
 func _pick_new_wander_target() -> void:
@@ -251,7 +263,7 @@ func _can_see_player() -> bool:
 	
 	if result.has("collider"):
 		var collider = result.collider
-		return collider == player # or player.is_a_parent_of(collider)
+		return collider == player
 
 	return false
 
@@ -281,9 +293,9 @@ func _look_towards(target: Vector3, delta: float) -> void:
 # Atacar
 func _hit_player() -> void:
 	if _can_see_player() and _distance_to_player() <= attack_range:
-		_play_animation("attack")
 		if sfx_attack:
-			sfx_attack.play() # TODO: Buscar un sonido
+			sfx_attack.play()
+		_play_animation("attack")
 		emit_signal("player_hit")
 
 # Ciclo de día y noche
@@ -300,3 +312,61 @@ func _on_timer_timeout() -> void:
 		_set_state(EnemyState.IDLE)
 	else:
 		_set_state(EnemyState.NEUTRAL)
+
+# Detectar maniquíes
+func _get_visible_mannequin() -> Node3D:
+	var interactuables = get_tree().get_nodes_in_group("interactuable")
+
+	for obj in interactuables:
+		if obj.get("item_data") and obj.item_data.get("item_name") == "Maniqui":
+			var distance = global_position.distance_to(obj.global_position)
+
+			if distance <= detection_range:
+				var from_pos = global_position + Vector3(0, 1.4, 0)
+				var to_pos = obj.global_position + Vector3(0, 1.3, 0)
+				var space = get_world_3d().direct_space_state
+				var exclude = [self.get_rid()]
+				var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 3, exclude)
+				var result = space.intersect_ray(query)
+
+				if not result or result.collider == obj:
+					return obj
+	return null
+
+""""var mannequin_pos = obj.global_transform.origin
+			var distance = global_position.distance_to(mannequin_pos)
+
+			if distance <= detection_range:
+				var from_pos = global_position + Vector3(0, 1.4, 0)
+				var to_pos = mannequin_pos + Vector3(0, 1.3, 0)
+				var space = get_world_3d().direct_space_state
+				var exclude = [self.get_rid()]
+				var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 3, exclude)
+				var result = space.intersect_ray(query)
+
+				if not result or result.collider == obj:
+					return true
+
+	return false"""
+
+# Atacar al maniquí
+func _attack_mannequin(target: Node3D) -> void:
+	velocity = Vector3.ZERO
+	_look_towards(target.global_position, get_physics_process_delta_time())
+	if sfx_attack:
+		sfx_attack.play()
+	_play_animation("attack")
+
+	target.queue_free()
+	_set_state(EnemyState.SEARCHING)
+
+# Moverse hacia el maniquí
+func _move_to_and_attack(target: Node3D, delta: float) -> void:
+	var distance = global_position.distance_to(target.global_position)
+
+	if distance <= attack_range:
+		_attack_mannequin(target)
+	else:
+		nav_agent.target_position = target.global_position
+		var next_point = nav_agent.get_next_path_position()
+		_move_towards(next_point, running_speed, delta)

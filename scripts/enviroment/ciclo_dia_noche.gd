@@ -3,7 +3,7 @@ extends Node
 signal cambio_estado(es_de_noche)
 
 @export var duracion_total: float = 120.0
-@export var porcion_dia: float = 0.23
+@export var porcion_dia: float = 0.25
 
 var tiempo_transcurrido: float = 0.0
 var es_de_noche: bool = false

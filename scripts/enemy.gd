@@ -112,8 +112,11 @@ func _set_state(new_state: int) -> void:
 # Idle
 func _process_idle(_delta: float) -> void:
 	var tiempo = randf_range(10.0, 15.0) * 1000.0
-	if Time.get_ticks_msec() / tiempo >= next_wander_time:
-		_set_state(EnemyState.NEUTRAL)
+	if Time.get_ticks_msec() / (1000.0 * tiempo) >= next_wander_time:
+		if CicloDiaNoche.get_es_de_noche():
+			_set_state(EnemyState.SEARCHING)
+		else:
+			_set_state(EnemyState.NEUTRAL)
 
 # Neutral
 func _process_neutral(delta: float) -> void:
@@ -358,7 +361,8 @@ func _attack_mannequin(target: Node3D) -> void:
 	_play_animation("attack")
 
 	target.queue_free()
-	_set_state(EnemyState.SEARCHING)
+	# Se queda quieto un momento después de romper el maniquí
+	_set_state(EnemyState.IDLE)
 
 # Moverse hacia el maniquí
 func _move_to_and_attack(target: Node3D, delta: float) -> void:

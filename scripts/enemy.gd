@@ -16,14 +16,14 @@ extends CharacterBody3D
 signal player_hit
 
 # Estados del enemigo
-enum EnemyState { IDLE, NEUTRAL, SEARCHING, CHASING }
+enum EnemyState { IDLE, NEUTRAL, SEARCHING, SCREAMING, CHASING, ATTACKING_MANNEQUIN }
 var state: int = EnemyState.IDLE
 
 # Configurables
 @export_range(0.1, 20.0, 0.1) var walking_speed: float = 2.0
 @export_range(0.1, 40.0, 0.1) var running_speed: float = 7.5
 @export_range(0.1, 30.0, 0.1) var detection_range: float = 12.0
-@export_range(0.1, 10.0, 0.1) var scream_range: float = 4.0
+@export_range(0.1, 20.0, 0.1) var scream_range: float = 10.0
 @export_range(0.1, 6.0, 0.1) var attack_range: float = 1.8
 
 # Elegir un punto aleatorio (en un radio) para moverse
@@ -39,6 +39,7 @@ var next_wander_time: float = 0.0
 var scream_timer: float = 0.0
 var current_target: Vector3 = Vector3.ZERO
 var lost_interest_timer: float = 0.0
+var is_screaming: bool = false
 
 func _ready() -> void:
 	# Detectar el jugador
@@ -48,9 +49,7 @@ func _ready() -> void:
 		if get_tree().root.has_node("root"):
 			pass # Si no lo detecta lo dejamos cómo null
 
-	# Iniciar temporizadores de caminar y gritar
-	next_wander_time = Time.get_ticks_msec() / 1000.0 + randf_range(0.0, wander_retarget_time)
-	scream_timer = 0.0
+	animation_player.animation_finished.connect(_on_animation_finished)
 
 	# Estado inicial
 	_set_state(EnemyState.NEUTRAL)
@@ -59,7 +58,7 @@ func _ready() -> void:
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
 
 func _physics_process(delta: float) -> void:
-	# Actualizar temporizadores
+	# Actualizar temporizador del grito
 	scream_timer = max(0.0, scream_timer - delta)
 
 	# Comportamiento
@@ -73,15 +72,21 @@ func _physics_process(delta: float) -> void:
 		EnemyState.SEARCHING:
 			_process_searching(delta)
 
+		EnemyState.SCREAMING:
+			_process_screaming(delta)
+
 		EnemyState.CHASING:
 			_process_chasing(delta)
 
+		EnemyState.ATTACKING_MANNEQUIN:
+			_process_attack_mannequin(delta)
+
 	# Desplazamiento
-	velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
+	# velocity = velocity.move_toward(Vector3.ZERO, 10 * delta) if state == EnemyState.IDLE else velocity
 
 	move_and_slide()
 
-# Cambiar el estado
+# Cambiar estado
 func _set_state(new_state: int) -> void:
 	if new_state == state:
 		return
@@ -104,9 +109,16 @@ func _set_state(new_state: int) -> void:
 			nav_agent.set_avoidance_enabled(true)
 			_pick_new_wander_target()
 
+		EnemyState.SCREAMING:
+			_play_animation("scream")
+			nav_agent.set_avoidance_enabled(false)
+
 		EnemyState.CHASING:
 			_play_animation("run")
 			nav_agent.set_avoidance_enabled(true)
+
+		EnemyState.ATTACKING_MANNEQUIN:
+			nav_agent.set_avoidance_enabled(false)
 
 """ --- Estados --- """
 # Idle
@@ -129,6 +141,7 @@ func _process_neutral(delta: float) -> void:
 	else:
 		_on_timer_timeout()
 
+
 # Searching
 func _process_searching(delta: float) -> void:
 	# Si no es de noche, neutral
@@ -146,23 +159,27 @@ func _process_searching(delta: float) -> void:
 
 	# Gritar si está cerca
 	if _can_see_player() and _distance_to_player() <= scream_range and scream_timer <= 0.0:
-		if sfx_scream:
-			sfx_scream.play() # TODO: Buscar un sonido
-		_play_animation("scream")
-		scream_timer = scream_cooldown
-
-		# Tras gritar, perseguimos
-		_set_state(EnemyState.CHASING)
+		_set_state(EnemyState.SCREAMING)
 
 	# Detectar al jugador desde lejos, pero no grita
 	if _can_see_player() and _distance_to_player() <= detection_range and _distance_to_player() > scream_range:
 		_set_state(EnemyState.CHASING)
+
+# Screaming
+func _process_screaming(_delta: float) -> void:
+	velocity = Vector3.ZERO
 
 # Chasing
 func _process_chasing(delta: float) -> void:
 	# Si no es de noche, neutral
 	if not CicloDiaNoche.get_es_de_noche():
 		_set_state(EnemyState.NEUTRAL)
+		return
+
+	# Detectar al maniquí
+	var targer_mannequin = _get_visible_mannequin()
+	if targer_mannequin:
+		_move_to_and_attack(targer_mannequin, delta)
 		return
 
 	var can_see = _can_see_player()
@@ -183,17 +200,16 @@ func _process_chasing(delta: float) -> void:
 		var next_point = nav_agent.get_next_path_position()
 		_move_towards(next_point, running_speed, delta)
 
-	# Detectar al maniquí
-	var targer_mannequin = _get_visible_mannequin()
-	if targer_mannequin:
-		_move_to_and_attack(targer_mannequin, delta)
-		return
-
 	# Comprobar si puede atacar
 	if can_see and _distance_to_player() <= attack_range:
-		if sfx_attack:
-			sfx_attack.play()
-		_play_animation("attack")
+		_hit_player()
+
+func _process_attack_mannequin(delta: float) -> void:
+	var mannequin = _get_visible_mannequin()
+	if mannequin:
+		_move_to_and_attack(mannequin, delta)
+		return
+	_set_state(EnemyState.SEARCHING)
 
 """ --- Movimiento --- """
 func _pick_new_wander_target() -> void:
@@ -243,7 +259,7 @@ func _distance_to_player() -> float:
 	if player:
 		return global_position.distance_to(player.global_position)
 	else:
-		return 9999.0
+		return INF
 
 # Puede ver al jugador
 func _can_see_player() -> bool:
@@ -306,8 +322,7 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 	if noche:
 		_set_state(EnemyState.SEARCHING)
 	else:
-		if state == EnemyState.CHASING or state == EnemyState.SEARCHING:
-			_set_state(EnemyState.NEUTRAL)
+		_set_state(EnemyState.NEUTRAL)
 
 # Pequeña probabilidad de quedarse IDLE
 func _on_timer_timeout() -> void:
@@ -336,22 +351,6 @@ func _get_visible_mannequin() -> Node3D:
 					return obj
 	return null
 
-""""var mannequin_pos = obj.global_transform.origin
-			var distance = global_position.distance_to(mannequin_pos)
-
-			if distance <= detection_range:
-				var from_pos = global_position + Vector3(0, 1.4, 0)
-				var to_pos = mannequin_pos + Vector3(0, 1.3, 0)
-				var space = get_world_3d().direct_space_state
-				var exclude = [self.get_rid()]
-				var query = PhysicsRayQueryParameters3D.create(from_pos, to_pos, 3, exclude)
-				var result = space.intersect_ray(query)
-
-				if not result or result.collider == obj:
-					return true
-
-	return false"""
-
 # Atacar al maniquí
 func _attack_mannequin(target: Node3D) -> void:
 	velocity = Vector3.ZERO
@@ -362,6 +361,7 @@ func _attack_mannequin(target: Node3D) -> void:
 
 	target.queue_free()
 	# Se queda quieto un momento después de romper el maniquí
+	velocity = Vector3.ZERO
 	_set_state(EnemyState.IDLE)
 
 # Moverse hacia el maniquí
@@ -374,3 +374,8 @@ func _move_to_and_attack(target: Node3D, delta: float) -> void:
 		nav_agent.target_position = target.global_position
 		var next_point = nav_agent.get_next_path_position()
 		_move_towards(next_point, running_speed, delta)
+
+func _on_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "scream" and state == EnemyState.SCREAMING:
+		scream_timer = scream_cooldown
+		_set_state(EnemyState.CHASING)

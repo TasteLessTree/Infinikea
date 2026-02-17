@@ -23,7 +23,7 @@ config/icon="uid://mc1jtvpp64kn"
 
 [autoload]
 
-Inventario="*res://scenes/inventario.tscn"
+Inventario="*uid://1e6j51g5jhrn"
 CicloDiaNoche="*uid://5rjxmm6ijejx"
 
 [display]

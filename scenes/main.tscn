@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/objetos/mesa_test.tscn" id="9_85g3d"]
 [ext_resource type="PackedScene" uid="uid://drkky6yafa1yc" path="res://scenes/objetos/ceiling_light.tscn" id="10_choun"]
 [ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://items_recogidos/maniqui.tres" id="11_ya4ey"]
-[ext_resource type="PackedScene" uid="uid://ch755ilg64n8w" path="res://models/ventana.tscn" id="15_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://dqmorwf2flrxs" path="res://scenes/objetos/cocina.tscn" id="15_jkv2x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -276,9 +275,6 @@ item_data = ExtResource("6_o6xl0")
 
 [node name="Node3D" parent="." unique_id=709765691 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7794952, 18.880444, 25.443186)
-
-[node name="mesh_ventana" parent="." unique_id=466007373 instance=ExtResource("15_jbj1t")]
-transform = Transform3D(-2.4593072e-08, 0, 2.5512552, 0, 0.562624, 0, -0.5626239, 0, -1.1151891e-07, -31.220545, 2.66198, 31.846289)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=90594203]
 transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.9659259, -0.50000006, 0.8365163, 0.22414371, -34.96412, 5.0359507, 32.75043)

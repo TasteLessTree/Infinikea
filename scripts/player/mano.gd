@@ -3,8 +3,6 @@ extends Node3D
 @onready var linterna = $SpotLight3D
 @onready var sfx_flashlight = $"../../../Sonidos/sfx_flashlight"
 
-
-
 var spotlight_on: bool = false
 var current_item_instance: Node3D = null
 
@@ -32,8 +30,6 @@ func show_item(item_data: ItemData):
 		current_item_instance.position = Vector3.ZERO
 		current_item_instance.rotation = Vector3.ZERO
 		add_child(current_item_instance)
-		
-		add_child(current_item_instance) 
 		
 		# --- LÓGICA PARA EL MATERIAL OVERLAY ---
 		# Buscamos el nodo 'brillo' que es un MeshInstance3D

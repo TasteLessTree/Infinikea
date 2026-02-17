@@ -2,16 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://d4c3qax71botx" path="res://models/ceiling_light.glb" id="1_548kw"]
 
-[node name="Node3D" type="Node3D" unique_id=1625573157]
+[node name="Node3D" type="Node3D" unique_id=403741326]
 
-[node name="ceiling_light" parent="." unique_id=1298793414 instance=ExtResource("1_548kw")]
+[node name="ceiling_light" parent="." unique_id=825517877 instance=ExtResource("1_548kw")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, 0.0033954978, 0, 0.030179977)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=203367551 groups=["luces_techo"]]
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=630895003]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-light_energy = 2.0
-light_volumetric_fog_energy = 5.535
+light_energy = 3.0
+light_volumetric_fog_energy = 3.0
 spot_range = 25.462503
-spot_attenuation = 0.75
-spot_angle = 25.40298
-spot_angle_attenuation = 0.6155722
+spot_angle = 25.0

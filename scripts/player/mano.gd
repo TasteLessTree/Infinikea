@@ -48,7 +48,7 @@ func show_item(item_data: ItemData):
 		
 	if (item_data.item_name == "Linterna"):
 		# No alteramos 'spotlight_on' aquí para que mantenga su estado al cambiar de slot
-		linterna.light_energy = 1.5 if spotlight_on else 0
+		linterna.light_energy = 2 if spotlight_on else 0
 
 		
 	else:
@@ -70,7 +70,7 @@ func _input(_event: InputEvent):
 			#Inventario.slot_selected.connect(_update_held_item)
 			sfx_flashlight.play() 
 			spotlight_on = !spotlight_on
-			linterna.light_energy = 1.5 if spotlight_on else 0
+			linterna.light_energy = 2 if spotlight_on else 0
 		
 		
 func _desactivar_linterna_visual():

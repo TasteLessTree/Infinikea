@@ -2,10 +2,13 @@ extends WorldEnvironment
 
 @onready var ambient_lightbulb: AudioStreamPlayer = $ambient_lightbulb
 @onready var env: Environment = environment
+@onready var directional_light_3d: DirectionalLight3D = $"../DirectionalLight3D"
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
 
 func _ready() -> void:
 	ambient_lightbulb.play()
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
+	_set_sun()
 
 # Ciclo de día y noche
 func _on_ciclo_cambiado(noche: bool) -> void:
@@ -19,3 +22,6 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 		twin.tween_property(env, "ambient_light_color", Color(1.0, 0.95, 0.85), 1.5)
 		twin.parallel().tween_property(env, "ambient_light_energy", 1.0, 1.5)
 		twin.parallel().tween_property(env, "background_energy_multiplier", 1.0, 1.0)
+
+func _set_sun():
+	animation_player.play("ciclo_dia_noche")

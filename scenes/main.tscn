@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kd1d1tbuc220" path="res://scenes/grainy_filter.tscn" id="1_jyhfs"]
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
-[ext_resource type="Script" uid="uid://csjtnhdjkglwj" path="res://scripts/world_environment.gd" id="1_tipki"]
+[ext_resource type="Script" uid="uid://csjtnhdjkglwj" path="res://scripts/enviroment/world_environment.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/menus/pausa.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player/player.tscn" id="3_tefeu"]
@@ -283,5 +283,3 @@ shadow_enabled = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=980350972]
 root_node = NodePath("../WorldEnvironment")
 libraries/ = SubResource("AnimationLibrary_muem4")
-
-[connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]

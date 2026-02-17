@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 Inventario="*res://scenes/player/inventario.tscn"
+CicloDiaNoche="*uid://5rjxmm6ijejx"
 
 [display]
 

@@ -22,17 +22,12 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 	if noche:
 		twin.tween_property(env, "ambient_light_color", Color(0.35, 0.45, 0.5), 1.5)
 		twin.parallel().tween_property(env, "ambient_light_energy", 0.04, 1.5)
-		twin.parallel().tween_property(env, "background_energy_multiplier", 0.05, 1.5)
+		twin.parallel().tween_property(env, "background_energy_multiplier", 0.25, 1.5)
 
 		var sky_material = env.sky.sky_material as ProceduralSkyMaterial
 		if sky_material:
 			twin.tween_property(sky_material, "sky_top_color", Color(0.02, 0.02, 0.05), 1.5)
 			twin.tween_property(sky_material, "sky_horizon_color", Color(0.1, 0.1, 0.15), 1.5)
-
-		# Niebla
-		twin.tween_property(env, "fog_enabled", true, 0.1)
-		twin.tween_property(env, "fog_light_color", Color(0.05, 0.05, 0.08), 1.5)
-		twin.tween_property(env, "fog_density", 0.02, 1.5)
 	else:
 		twin.tween_property(env, "ambient_light_color", Color(1.0, 0.9, 0.8), 1.5)
 		twin.parallel().tween_property(env, "ambient_light_energy", 1.0, 1.5)
@@ -42,8 +37,6 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 		if sky_mat:
 			twin.tween_property(sky_mat, "sky_top_color", Color(0.4, 0.6, 0.9), 1.5)
 			twin.tween_property(sky_mat, "sky_horizon_color", Color(0.8, 0.8, 0.7), 1.5)
-
-		twin.tween_property(env, "fog_density", 0.0, 2.0)
 
 func _set_sun():
 	animation_player.play("ciclo_dia_noche")

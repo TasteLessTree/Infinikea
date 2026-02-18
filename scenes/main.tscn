@@ -18,8 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ikea_logo.glb" id="16_jbj1t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(1, 0.9576499, 0.37593004, 1)
+sky_top_color = Color(0.6651851, 0.7977378, 0.95468724, 1)
+sky_horizon_color = Color(2.231445, 2.231445, 2.1077058, 1)
 sky_curve = 0.12613468
 ground_bottom_color = Color(0, 0, 0, 1)
 ground_horizon_color = Color(0.9233648, 1, 0.6716841, 1)
@@ -30,7 +30,7 @@ sky_material = SubResource("ProceduralSkyMaterial_jyhfs")
 [sub_resource type="Environment" id="Environment_tefeu"]
 background_mode = 2
 sky = SubResource("Sky_tbgi4")
-ambient_light_color = Color(1, 0.9776916, 0.9309246, 1)
+ambient_light_color = Color(1, 0.95468724, 0.9063318, 1)
 tonemap_mode = 2
 volumetric_fog_enabled = true
 
@@ -57,7 +57,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jbj1t"]
 resource_name = "ciclo_dia_noche"
-length = 24.0
+length = 120.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -66,10 +66,10 @@ tracks/0/path = NodePath("../DirectionalLight3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 24),
+"times": PackedFloat32Array(0, 120.13333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.8325957, 2.6179938, 0), Vector3(4.4505897, 2.6179938, 0)]
+"values": [Vector3(-0.6981317, -1.7453293, 0), Vector3(5.5850534, -1.7453293, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_muem4"]
@@ -283,7 +283,7 @@ item_data = ExtResource("6_o6xl0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7794952, 18.880444, 25.443186)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=90594203]
-transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.9659259, -0.50000006, 0.8365163, 0.22414371, -60.161522, 33.078, 21.47355)
+transform = Transform3D(-0.8660255, -0.48296297, -0.12940945, 0, -0.25881884, 0.9659259, -0.5000001, 0.83651626, 0.22414371, -60.161522, 33.09113, 21.484179)
 shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=980350972]

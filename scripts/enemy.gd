@@ -201,8 +201,8 @@ func _process_chasing(delta: float) -> void:
 		_move_towards(next_point, running_speed, delta)
 
 	# Comprobar si puede atacar
-	if can_see and _distance_to_player() <= attack_range:
-		_hit_player()
+	if _player_in_range():
+		hit_player()
 
 func _process_attack_mannequin(delta: float) -> void:
 	var mannequin = _get_visible_mannequin()
@@ -310,12 +310,17 @@ func _look_towards(target: Vector3, delta: float) -> void:
 	global_transform.basis = slerped_basis
 
 # Atacar
-func _hit_player() -> void:
-	if _can_see_player() and _distance_to_player() <= attack_range:
+func hit_player() -> void:
+	if _player_in_range():
 		if sfx_attack:
 			sfx_attack.play()
 		_play_animation("attack")
 		emit_signal("player_hit")
+
+func _player_in_range() -> bool:
+	if _can_see_player() and _distance_to_player() <= attack_range:
+		return true
+	return false
 
 # Ciclo de día y noche
 func _on_ciclo_cambiado(noche: bool) -> void:

@@ -117,4 +117,3 @@ crouch={
 
 textures/decals/filter=2
 textures/light_projectors/filter=2
-occlusion_culling/use_occlusion_culling=true

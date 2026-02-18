@@ -89,6 +89,7 @@ bus = &"Sfx"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
 
 [node name="grainy_filter" parent="." unique_id=1383390990 instance=ExtResource("1_jyhfs")]
+visible = false
 
 [node name="CLMainMenu" type="CanvasLayer" parent="." unique_id=1321545136]
 

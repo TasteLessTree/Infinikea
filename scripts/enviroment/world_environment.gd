@@ -10,8 +10,9 @@ func _ready() -> void:
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
 	animation_player.pause()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var progreso = CicloDiaNoche.tiempo_transcurrido / CicloDiaNoche.duracion_total
+	animation_player.play("ciclo_dia_noche")
 	animation_player.seek(progreso * animation_player.current_animation_length, true)
 
 # Ciclo de día y noche

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://j5yuxudqkawe"]
+
+[ext_resource type="Texture2D" uid="uid://eosfn55y1ddn" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_BaseColor.jpg" id="1_cv2mo"]
+[ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="2_k0ag3"]
+[ext_resource type="Texture2D" uid="uid://dtfqvyvnb1vr1" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_Metallic.jpg" id="3_0qm3o"]
+[ext_resource type="Texture2D" uid="uid://bajcrxoxa5m5b" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_Roughness.jpg" id="4_588vn"]
+
+[resource]
+render_priority = -5
+albedo_texture = ExtResource("1_cv2mo")
+metallic = 1.0
+metallic_texture = ExtResource("3_0qm3o")
+roughness_texture = ExtResource("4_588vn")
+ao_enabled = true
+ao_texture = ExtResource("2_k0ag3")

@@ -28,6 +28,7 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 		if sky_material:
 			twin.tween_property(sky_material, "sky_top_color", Color(0.02, 0.02, 0.05), 1.5)
 			twin.tween_property(sky_material, "sky_horizon_color", Color(0.1, 0.1, 0.15), 1.5)
+		twin.parallel().tween_property(env, "background_energy_multiplier", 0.25, 1.0)
 	else:
 		twin.tween_property(env, "ambient_light_color", Color(1.0, 0.9, 0.8), 1.5)
 		twin.parallel().tween_property(env, "ambient_light_energy", 1.0, 1.5)

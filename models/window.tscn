@@ -189,57 +189,57 @@ shadow_mesh = SubResource("ArrayMesh_0oowt")
 
 [node name="uploads_files_5307339_FENSTER" parent="." unique_id=1103923394 instance=ExtResource("1_160ky")]
 
-[node name="RAHMEN" parent="uploads_files_5307339_FENSTER" index="0" unique_id=846643782]
+[node name="RAHMEN" parent="uploads_files_5307339_FENSTER" index="0" unique_id=1071645586]
 material_overlay = SubResource("StandardMaterial3D_xgys5")
 
-[node name="Cube_020" parent="uploads_files_5307339_FENSTER/RAHMEN" index="0" unique_id=1751568248]
+[node name="Cube_020" parent="uploads_files_5307339_FENSTER/RAHMEN" index="0" unique_id=710575827]
 material_overlay = SubResource("StandardMaterial3D_ppsdv")
 
-[node name="Cube_021" parent="uploads_files_5307339_FENSTER/RAHMEN" index="1" unique_id=1931740918]
+[node name="Cube_021" parent="uploads_files_5307339_FENSTER/RAHMEN" index="1" unique_id=203217339]
 material_overlay = SubResource("StandardMaterial3D_rvvtu")
 
-[node name="Cube_022" parent="uploads_files_5307339_FENSTER/RAHMEN" index="2" unique_id=1853154714]
+[node name="Cube_022" parent="uploads_files_5307339_FENSTER/RAHMEN" index="2" unique_id=276512352]
 material_overlay = SubResource("StandardMaterial3D_w54ee")
 
-[node name="FLÜ_001" parent="uploads_files_5307339_FENSTER" index="1" unique_id=1744468758]
+[node name="FLÜ_001" parent="uploads_files_5307339_FENSTER" index="1" unique_id=570485067]
 material_overlay = SubResource("StandardMaterial3D_8rgkw")
 
-[node name="INLAY_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="0" unique_id=276664125]
+[node name="INLAY_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="0" unique_id=1406236245]
 material_overlay = SubResource("StandardMaterial3D_uhdnp")
 
-[node name="SCHE_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="1" unique_id=1768077863]
+[node name="SCHE_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="1" unique_id=558089968]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.20999989, -0.00032144517, -0.02774008)
 material_overlay = SubResource("StandardMaterial3D_28lmr")
 mesh = SubResource("ArrayMesh_eq73q")
 
-[node name="STRE1_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="2" unique_id=1027088279]
+[node name="STRE1_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="2" unique_id=946279970]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.21000019, -0.00032141726, -0.02774008)
 material_overlay = SubResource("StandardMaterial3D_rs7vj")
 mesh = SubResource("ArrayMesh_rugt8")
 
-[node name="STRE2_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="3" unique_id=1528618459]
+[node name="STRE2_001" parent="uploads_files_5307339_FENSTER/FLÜ_001" index="3" unique_id=2019319766]
 mesh = SubResource("ArrayMesh_rugt8")
 
-[node name="FLÜ" parent="uploads_files_5307339_FENSTER" index="2" unique_id=495316080]
+[node name="FLÜ" parent="uploads_files_5307339_FENSTER" index="2" unique_id=665471061]
 material_overlay = SubResource("StandardMaterial3D_ddj0n")
 
-[node name="INLAY" parent="uploads_files_5307339_FENSTER/FLÜ" index="0" unique_id=1202597747]
+[node name="INLAY" parent="uploads_files_5307339_FENSTER/FLÜ" index="0" unique_id=472570616]
 material_overlay = SubResource("StandardMaterial3D_d3uwy")
 
-[node name="SCHE" parent="uploads_files_5307339_FENSTER/FLÜ" index="1" unique_id=1008556235]
+[node name="SCHE" parent="uploads_files_5307339_FENSTER/FLÜ" index="1" unique_id=1432033972]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 0.20999993, -0.00032147497, -0.027740078)
 material_overlay = SubResource("StandardMaterial3D_o684h")
 mesh = SubResource("ArrayMesh_i5hoc")
 
-[node name="STRE1" parent="uploads_files_5307339_FENSTER/FLÜ" index="2" unique_id=103308325]
+[node name="STRE1" parent="uploads_files_5307339_FENSTER/FLÜ" index="2" unique_id=2123815751]
 transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.21000014, -0.00032144706, -0.027740078)
 material_overlay = SubResource("StandardMaterial3D_j234o")
 mesh = SubResource("ArrayMesh_nsged")
 
-[node name="STRE2" parent="uploads_files_5307339_FENSTER/FLÜ" index="3" unique_id=1977830458]
+[node name="STRE2" parent="uploads_files_5307339_FENSTER/FLÜ" index="3" unique_id=1992813686]
 mesh = SubResource("ArrayMesh_nsged")
 
-[node name="Plane" parent="uploads_files_5307339_FENSTER" index="3" unique_id=1789702246]
+[node name="Plane" parent="uploads_files_5307339_FENSTER" index="3" unique_id=1921430208]
 mesh = SubResource("ArrayMesh_jdgwi")
 
 [editable path="uploads_files_5307339_FENSTER"]

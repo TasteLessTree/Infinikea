@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://mt41345lvt7k" path="res://scripts/player/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://42xnfibqkyl1" path="res://scripts/player/mano.gd" id="2_fjrip"]
+[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://iconos/proyector.jpg" id="3_5gtgg"]
 [ext_resource type="AudioStream" uid="uid://dyx553eddhbxs" path="res://assets/sounds/sfx/flashlight_on_off.mp3" id="5_smehm"]
 [ext_resource type="AudioStream" uid="uid://cji3ux2eptujo" path="res://assets/sounds/sfx/footsteps.mp3" id="5_tuyoq"]
-[ext_resource type="Texture2D" uid="uid://bwxmfx0guewti" path="res://iconos/proyector.jpg" id="5_ur7pv"]
 [ext_resource type="Script" uid="uid://cv1dph8pvjwmn" path="res://scripts/player/rayo.gd" id="5_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://dqmu4a8wvsycw" path="res://assets/sounds/sfx/jumping.mp3" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://bifjdwi5t40xm" path="res://assets/sounds/sfx/gasping.mp3" id="9_ur7pv"]
@@ -33,10 +33,16 @@ transform = Transform3D(-0.99531215, 0, -0.09671455, 0, 1, 0, 0.09671455, 0, -0.
 layers = 99
 light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
 light_energy = 0.0
-light_volumetric_fog_energy = 7.0
-light_projector = ExtResource("5_ur7pv")
+light_volumetric_fog_energy = 0.5
+light_projector = ExtResource("3_5gtgg")
 shadow_enabled = true
+shadow_bias = 0.0
+shadow_normal_bias = 0.0
+shadow_transmittance_bias = -16.0
+shadow_opacity = 0.0
+shadow_blur = 0.0
 spot_range = 30.0
+spot_attenuation = 0.5
 spot_angle = 14.352548
 spot_angle_attenuation = 0.7845841
 

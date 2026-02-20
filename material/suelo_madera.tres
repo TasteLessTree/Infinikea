@@ -13,3 +13,4 @@ metallic_texture = ExtResource("3_0qm3o")
 roughness_texture = ExtResource("4_588vn")
 ao_enabled = true
 ao_texture = ExtResource("2_k0ag3")
+uv1_scale = Vector3(10, 10, 10)

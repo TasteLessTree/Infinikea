@@ -38,7 +38,7 @@ var crouch_height: float = 0.5
 var stand_height: float = 2.0
 var crouching = false
 var crouch_speed: float = 3.5
-
+var opened = false
 var stamina: float = staminaMax
 var is_sprinting: bool = false
 var regen_cooldown_timer: float = 0.0

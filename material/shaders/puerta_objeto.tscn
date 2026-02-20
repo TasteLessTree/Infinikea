@@ -1,26 +1,26 @@
 [gd_scene format=3 uid="uid://ch2g4ubfjyoln"]
 
+[ext_resource type="Script" uid="uid://dgnjtbtyjes5h" path="res://scripts/puerta.gd" id="1_2x4ox"]
 [ext_resource type="PackedScene" uid="uid://30cd8kq0ae4r" path="res://assets/texturas/textura_puerta/AUTOMATIC_SLIDING_DOOR_MAX.glb" id="1_77odk"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_055st"]
-size = Vector3(1.548645, 2.8257904, 0.08093262)
+[sub_resource type="SphereShape3D" id="SphereShape3D_5uiif"]
 
-[node name="Node3D" type="Node3D" unique_id=1720297136]
+[node name="Node3D" type="Node3D" unique_id=103582319]
+script = ExtResource("1_2x4ox")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1328418208]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1990893228]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5691223, 1.4908295, -0.00970459)
-shape = SubResource("BoxShape3D_055st")
-
-[node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="StaticBody3D" unique_id=1051839393 instance=ExtResource("1_77odk")]
+[node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="." unique_id=1051839393 instance=ExtResource("1_77odk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36726993, 0, -0.89667034)
 
-[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1208542986]
+[node name="Plane01" parent="AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1078672081]
 visible = false
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=707374992]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0402997, 1.4757512, -0.01940918)
-shape = SubResource("BoxShape3D_055st")
+[node name="Area3D" type="Area3D" parent="." unique_id=1529519783]
 
-[editable path="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1195030421]
+transform = Transform3D(5.0385766, 0, 0, 0, 5.0385766, 0, 0, 0, 5.0385766, 0, 1.4382583, 0)
+shape = SubResource("SphereShape3D_5uiif")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_Area_body_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_Area_body_exited"]
+
+[editable path="AUTOMATIC_SLIDING_DOOR_MAX"]

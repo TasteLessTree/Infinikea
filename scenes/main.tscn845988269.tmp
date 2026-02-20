@@ -378,7 +378,10 @@ transform = Transform3D(-1.8692192e-07, 0, 12.338223, 0, 3.2346916, 0, -4.276275
 [node name="Ventana2" parent="." unique_id=780046825 instance=ExtResource("11_jkv2x")]
 transform = Transform3D(-1.8823188e-07, 0, 15.735028, 0, 3.2065217, 0, -4.3062434, 0, -6.877999e-07, -29.436815, 0.85297036, 15.017207)
 
-[node name="Node3D2" parent="." unique_id=1679073402 instance=ExtResource("20_gqmmt")]
-transform = Transform3D(-8.036671e-08, 0, -1.838576, 0, 1.838576, 0, 1.838576, 0, -8.036671e-08, -30.982765, 0.7245388, 23.372896)
+[node name="Puerta" parent="." unique_id=1720297136 instance=ExtResource("20_gqmmt")]
+transform = Transform3D(-8.4866926e-08, 0, -1.7486149, 0, 1.7896783, 0, 1.9415289, 0, -7.643438e-08, -31.543165, 0.7575083, 23.343931)
 
 [connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]
+
+[editable path="Puerta"]
+[editable path="Puerta/StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX"]

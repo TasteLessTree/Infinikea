@@ -39,3 +39,7 @@ func cambiar_iluminacion(noche: bool) -> void:
 
 func get_es_de_noche() -> bool:
 	return es_de_noche
+
+func set_es_de_noche(noche: bool) -> void:
+	es_de_noche = noche
+	cambio_estado.emit(es_de_noche)

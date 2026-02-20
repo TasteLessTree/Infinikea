@@ -271,6 +271,10 @@ size = Vector3(3.5615783, 3.5439873, 1.1397095)
 [node name="Node3D" parent="NavigationRegion3D/CSGCombiner3D" unique_id=775452705 instance=ExtResource("11_jkv2x")]
 transform = Transform3D(-1.0287539e-07, 0, 6.71466, 0, 2.3535151, 0, -2.3535151, 0, -2.9350713e-07, -29.197329, 1.0970998, 32.132076)
 
+[node name="Node3D2" parent="NavigationRegion3D" unique_id=1302014333 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.0999591, 0, 0, 0, 1.0999591, 0, 0, 0, 1.0999591, -36.556618, 2.2550073, 21.100307)
+player_path = NodePath("../../Player")
+
 [node name="Maniqui" parent="." unique_id=216130261 instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -5.6959867, 2.7047846, 0.006765127)
 item_data = ExtResource("11_ya4ey")
@@ -283,7 +287,7 @@ item_data = ExtResource("6_o6xl0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7794952, 18.880444, 25.443186)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=90594203]
-transform = Transform3D(-0.8660255, -0.48296297, -0.12940945, 0, -0.25881884, 0.9659259, -0.5000001, 0.83651626, 0.22414371, -60.161522, 33.09113, 21.484179)
+transform = Transform3D(-0.8660255, -0.48296294, -0.12940945, 0, -0.25881884, 0.9659259, -0.5000001, 0.8365162, 0.22414371, -60.161522, 33.09113, 21.484179)
 shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=980350972]

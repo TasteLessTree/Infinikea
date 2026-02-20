@@ -13,6 +13,8 @@ func mostrar_menu_principal() -> void:
 	music_main_menu.play()
 
 func iniciar_juego() -> void:
+	Inventario.clear_inventory()
+	CicloDiaNoche.set_es_de_noche(false)
 	is_main_menu = false
 	get_tree().paused = false
 	visible = false

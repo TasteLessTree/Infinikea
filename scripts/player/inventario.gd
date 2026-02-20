@@ -25,3 +25,9 @@ func select_slot(index: int):
 	# print(index)
 	selected_slot = clamp(index, 0, HOTBAR_SIZE -1)
 	slot_selected.emit(selected_slot)
+
+func clear_inventory() -> void:
+	for i in HOTBAR_SIZE:
+		hotbar[i] = null
+	selected_slot = 0
+	inventory_changed.emit()

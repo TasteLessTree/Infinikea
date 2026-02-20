@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dfc5rvu3lleo3"]
+
+[ext_resource type="PackedScene" uid="uid://30cd8kq0ae4r" path="res://assets/texturas/textura_puerta/AUTOMATIC_SLIDING_DOOR_MAX.glb" id="1_hopcu"]
+[ext_resource type="Script" uid="uid://dgnjtbtyjes5h" path="res://scripts/puerta.gd" id="1_p0i63"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0i63"]
+size = Vector3(1.6273499, 2.977478, 0.07318115)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxiuk"]
+size = Vector3(1.590332, 2.8417358, 0.08557129)
+
+[node name="Node3D" type="Node3D" unique_id=308216262]
+script = ExtResource("1_p0i63")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=864617950]
+
+[node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="StaticBody3D" unique_id=1051839393 instance=ExtResource("1_hopcu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52802217, 0, -0.86208653)
+
+[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1208542986]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=976857822]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76633465, 1.4727468, 0.021310955)
+shape = SubResource("BoxShape3D_p0i63")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=23818425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8642137, 1.563446, 0.019592285)
+shape = SubResource("BoxShape3D_sxiuk")
+
+[editable path="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX"]

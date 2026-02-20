@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="12_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dqmorwf2flrxs" path="res://scenes/objetos/cocina.tscn" id="15_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ikea_logo.glb" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://ch2g4ubfjyoln" path="res://material/shaders/puerta_objeto.tscn" id="20_gqmmt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -376,5 +377,8 @@ transform = Transform3D(-1.8692192e-07, 0, 12.338223, 0, 3.2346916, 0, -4.276275
 
 [node name="Ventana2" parent="." unique_id=780046825 instance=ExtResource("11_jkv2x")]
 transform = Transform3D(-1.8823188e-07, 0, 15.735028, 0, 3.2065217, 0, -4.3062434, 0, -6.877999e-07, -29.436815, 0.85297036, 15.017207)
+
+[node name="Node3D2" parent="." unique_id=1720297136 instance=ExtResource("20_gqmmt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -31.816416, 0.7245393, 23.471264)
 
 [connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]

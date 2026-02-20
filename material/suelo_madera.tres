@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bajcrxoxa5m5b" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_Roughness.jpg" id="4_588vn"]
 
 [resource]
+render_priority = -5
 albedo_texture = ExtResource("1_cv2mo")
 metallic = 1.0
 metallic_texture = ExtResource("3_0qm3o")
 roughness_texture = ExtResource("4_588vn")
 ao_enabled = true
 ao_texture = ExtResource("2_k0ag3")
-uv1_scale = Vector3(10, 10, 10)

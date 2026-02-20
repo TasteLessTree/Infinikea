@@ -29,7 +29,7 @@ func cambiar_iluminacion(noche: bool) -> void:
 	# Obtener los nodos del grupo
 	var luces = get_tree().get_nodes_in_group("luces_techo")
 
-	var energia_objetivo = 1.0 if noche else 2.0
+	var energia_objetivo = 0.75 if noche else 2.0
 
 	for luz in luces:
 		if luz is SpotLight3D:
@@ -42,4 +42,12 @@ func get_es_de_noche() -> bool:
 
 func set_es_de_noche(noche: bool) -> void:
 	es_de_noche = noche
+
+	# Reiciar el ciclo
+	if es_de_noche:
+		tiempo_transcurrido = duracion_total * porcion_dia
+	else:
+		tiempo_transcurrido = 0.0
+
+	cambiar_iluminacion(es_de_noche)
 	cambio_estado.emit(es_de_noche)

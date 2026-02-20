@@ -24,6 +24,28 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.658, 0)
 current = true
 
+[node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
+transform = Transform3D(1.0165013, 0, 0, 0, 0.9955593, 0.053015474, 0, -0.12559186, 0.42025048, 0, 0, -0.23164225)
+target_position = Vector3(0, 0, -5)
+debug_shape_thickness = 5
+script = ExtResource("5_y4r1p")
+
+[node name="Prompt" type="Label" parent="Head/Camera3D/Vision" unique_id=1452538261]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 26.5
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 24
+text = "Prompt
+[E]"
+horizontal_alignment = 1
+
 [node name="Mano" type="Node3D" parent="Head/Camera3D" unique_id=2147334846]
 transform = Transform3D(-0.9974145, 0, 0.071862996, 0, 1, 0, -0.071862996, 0, -0.9974145, 0.51590705, -0.34819943, -0.580344)
 script = ExtResource("2_fjrip")
@@ -45,28 +67,6 @@ spot_range = 30.0
 spot_attenuation = 0.5
 spot_angle = 14.352548
 spot_angle_attenuation = 0.7845841
-
-[node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
-transform = Transform3D(1.0165012, 0, 0, 0, 1.008508, 0.048118144, 0, -0.12722537, 0.38142964, 0, 0, -0.23164225)
-target_position = Vector3(0, 0, -5)
-debug_shape_thickness = 5
-script = ExtResource("5_y4r1p")
-
-[node name="Prompt" type="Label" parent="Head/Camera3D/Vision" unique_id=1452538261]
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 26.5
-offset_bottom = 119.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 24
-text = "Prompt
-[E]"
-horizontal_alignment = 1
 
 [node name="Player" type="Node3D" parent="." unique_id=1013374960]
 

@@ -12,7 +12,6 @@ extends CharacterBody3D
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Prompt
 
-
 @export var playerSpeed: float = 7.0
 @export var friction: float = 20.0
 @export var player_acc: float = 5.0
@@ -53,7 +52,7 @@ func _input(event):
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 
-func _ready() -> void:	
+func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	

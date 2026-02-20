@@ -69,33 +69,10 @@ func _ready() -> void:
 	# Conectar con la señal del ciclo de día y noche
 	CicloDiaNoche.cambio_estado.connect(_on_ciclo_cambiado)
 
-# DEPURACIÓN
-func _print_estado(estado: EnemyState) -> void:
-	match estado:
-		EnemyState.IDLE:
-			print("IDLE")
- 
-		EnemyState.NEUTRAL:
-			print("NEUTRAL")
- 
-		EnemyState.SEARCHING:
-			print("SEARCHING")
- 
-		EnemyState.SCREAMING:
-			print("SCREAMING")
-
-		EnemyState.CHASING:
-			print("CHASING")
-
-		EnemyState.ATTACKING_MANNEQUIN:
-			print("ATTACKING MANNEQUIN")
-
 func _physics_process(delta: float) -> void:
 	# Actualizar temporizador del grito
 	scream_timer = max(0.0, scream_timer - delta)
 	attack_cooldown = max(0.0, attack_cooldown - delta)
-
-	_print_estado(state)
 
 	# Gravedad
 	velocity.y -= gravity * delta
@@ -171,7 +148,7 @@ func _set_state(new_state: int) -> void:
 """ --- Estados --- """
 # Idle
 func _process_idle(_delta: float) -> void:
-	var tiempo = randf_range(10.0, 15.0)
+	var tiempo = randf_range(1.0, 5.0)
 	if Time.get_ticks_msec() / (1000.0 * tiempo) >= next_wander_time:
 		if CicloDiaNoche.get_es_de_noche():
 			_set_state(EnemyState.SEARCHING)
@@ -210,7 +187,8 @@ func _process_searching(delta: float) -> void:
 		has_triggered_scream = false
 
 # Screaming
-func _process_screaming(_delta: float) -> void:
+func _process_screaming(delta: float) -> void:
+	_look_towards(player.global_position, delta)
 	velocity = Vector3.ZERO
 
 # Chasing

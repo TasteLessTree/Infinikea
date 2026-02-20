@@ -60,6 +60,7 @@ radius = 0.071777344
 [node name="ModeloLinterna" type="RigidBody3D" unique_id=761072576]
 
 [node name="flashlight_low" type="MeshInstance3D" parent="." unique_id=1952225137]
+transform = Transform3D(0.703851, 0, 0, 0, 0.703851, 0, 0, 0, 0.703851, 0, 0, 0)
 layers = 2
 material_override = ExtResource("1_sng6i")
 mesh = SubResource("ArrayMesh_mxaii")

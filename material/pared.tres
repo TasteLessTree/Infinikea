@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://chb1jtt8c5a0m"]
+
+[ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="1_qw3lr"]
+
+[resource]
+albedo_color = Color(0.84313726, 0.84313726, 0.84313726, 1)
+ao_enabled = true
+ao_texture = ExtResource("1_qw3lr")
+uv1_scale = Vector3(5, 5, 5)

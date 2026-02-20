@@ -185,8 +185,6 @@ shadow_mesh = SubResource("ArrayMesh_0oowt")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jdgwi"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_160ky"]
-
 [node name="Node3D" type="Node3D" unique_id=775452705]
 
 [node name="uploads_files_5307339_FENSTER" parent="." unique_id=1103923394 instance=ExtResource("1_160ky")]
@@ -243,10 +241,5 @@ mesh = SubResource("ArrayMesh_nsged")
 
 [node name="Plane" parent="uploads_files_5307339_FENSTER" index="3" unique_id=1921430208]
 mesh = SubResource("ArrayMesh_jdgwi")
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1946797257]
-transform = Transform3D(0.42445454, 0, 0, 0, 0.40178037, 0, 0, 0, 0.40178037, -0.3052079, 1.1755238, -0.1390627)
-operation = 2
-mesh = SubResource("BoxMesh_160ky")
 
 [editable path="uploads_files_5307339_FENSTER"]

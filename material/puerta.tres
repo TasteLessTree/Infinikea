@@ -1,9 +1,0 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://cih4uht4pf62i"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uxald"]
-load_path = "res://.godot/imported/metal_metallic.jpg-cc3884182d0cd17d3df60af450490281.s3tc.ctex"
-
-[resource]
-albedo_color = Color(0.92897075, 0.99999994, 0.99796087, 1)
-metallic = 1.0
-metallic_texture = SubResource("CompressedTexture2D_uxald")

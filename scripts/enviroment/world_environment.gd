@@ -6,7 +6,7 @@ extends WorldEnvironment
 @onready var sfx_lights_off: AudioStreamPlayer = $sfx_lights_off
 @onready var sfx_lights_on: AudioStreamPlayer = $sfx_lights_on
 @onready var animation_player: AnimationPlayer = $"AnimationPlayer"
-@onready var directional_light_3d: DirectionalLight3D = $"../DirectionalLight3D"
+@onready var directional_light_3d: DirectionalLight3D = $"../Sol/DirectionalLight3D"
 
 func _ready() -> void:
 	ambient_lightbulb.play()
@@ -24,7 +24,7 @@ func _on_ciclo_cambiado(noche: bool) -> void:
 
 	if noche:
 		# Efectos visuales
-		twin.tween_property(env, "ambient_light_color", Color(0.35, 0.45, 0.5), 1.5)
+		twin.tween_property(env, "ambient_light_color", Color(0.196, 0.264, 0.297, 1.0), 1.5)
 		twin.parallel().tween_property(env, "ambient_light_energy", 0.04, 1.5)
 		twin.parallel().tween_property(env, "background_energy_multiplier", 0.25, 1.5)
 

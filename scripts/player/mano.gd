@@ -66,14 +66,22 @@ func _input(_event: InputEvent):
 	# 2. Solo permitir el input si el item actual es la linterna
 	if Input.is_action_just_pressed("use_item"):
 		if item_actual.item_name == "Linterna":
-			#Inventario.slot_selected.connect(_update_held_item)
-			sfx_flashlight.play() 
-			spotlight_on = !spotlight_on
-			linterna.light_energy = 2 if spotlight_on else 0
+			usar_linterna()
+		
 		# 3. Poner en el suelo un maniquí
 		elif item_actual.item_name == "Maniqui":
 			colocar_maniqui(item_actual)
-
+		
+		# 4. Comer un perrito caliente
+		elif item_actual.item_name == "Hot Dog":
+			comer_hot_dog()
+		
+func usar_linterna():
+	#Inventario.slot_selected.connect(_update_held_item)
+	sfx_flashlight.play() 
+	spotlight_on = !spotlight_on
+	linterna.light_energy = 2 if spotlight_on else 0
+	
 func colocar_maniqui(item_data: ItemData):
 	if raycast.is_colliding():
 		var punto_colision = raycast.get_collision_point()
@@ -97,6 +105,16 @@ func colocar_maniqui(item_data: ItemData):
 		
 		Inventario.remove_item(Inventario.selected_slot) # Lo elimina del inventario físico
 		clear_item() # Lo elimina de la mano del jugador
+
+func comer_hot_dog():
+	Inventario.remove_item(Inventario.selected_slot) # Lo elimina del inventario físico
+	clear_item() # Lo elimina de la mano del jugador
+	
+	# Buscar al jugador
+	var player = owner as Player
+	
+	if player:
+		player.aplicar_buff_hot_dog()
 
 func _desactivar_linterna_visual():
 	linterna.light_energy = 0

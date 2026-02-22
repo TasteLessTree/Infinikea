@@ -29,7 +29,7 @@ func cambiar_iluminacion(noche: bool) -> void:
 	# Obtener los nodos del grupo
 	var luces = get_tree().get_nodes_in_group("luces_techo")
 
-	var energia_objetivo = 0.75 if noche else 2.0
+	var energia_objetivo = 0.25 if noche else 2.0
 
 	for luz in luces:
 		if luz is SpotLight3D:

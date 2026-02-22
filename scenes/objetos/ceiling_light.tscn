@@ -13,5 +13,5 @@ light_energy = 2.0
 light_volumetric_fog_energy = 5.535
 spot_range = 25.462503
 spot_attenuation = 0.75
-spot_angle = 25.40298
+spot_angle = 17.434437
 spot_angle_attenuation = 0.6155722

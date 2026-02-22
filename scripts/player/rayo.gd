@@ -11,3 +11,12 @@ func _physics_process(_delta):
 		
 		if collider is Interactuable:
 			prompt.text = collider.item_data.item_name + "\n [E]" 
+		
+		elif collider.has_method("action_use"):
+			prompt.text = "Puerta \n [E]" 
+		
+		if collider.has_method("action_use") and Input.is_action_just_pressed("interactuar"):
+			collider.action_use()
+
+
+	

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bhtbtea8mwp27"]
+
+[ext_resource type="PackedScene" uid="uid://d30dwwaff4x12" path="res://assets/items/hot_dog/hot_dog.glb" id="1_u623l"]
+
+[node name="Sketchfab_Scene" unique_id=1707445334 instance=ExtResource("1_u623l")]
+
+[node name="Sketchfab_model" parent="." index="0" unique_id=1898466387]
+transform = Transform3D(4.1516542, 0, 0, 0, 9.218524e-16, 4.1516542, 0, -4.1516542, 9.218524e-16, 0, 0, 0)

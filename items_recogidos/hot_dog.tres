@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://doh0an20gfikb"]
+
+[ext_resource type="Texture2D" uid="uid://bo1j8vorewhqc" path="res://iconos/inonolint-removebg-preview.png" id="1_e2ai6"]
+[ext_resource type="PackedScene" uid="uid://bhtbtea8mwp27" path="res://assets/items/hot_dog/hot_dog.tscn" id="2_e2ai6"]
+[ext_resource type="Script" uid="uid://bq5nmdir3dt6n" path="res://scripts/items/ItemData.gd" id="3_b1q21"]
+
+[resource]
+script = ExtResource("3_b1q21")
+item_name = "Hot Dog"
+icon = ExtResource("1_e2ai6")
+mesh_scene = ExtResource("2_e2ai6")

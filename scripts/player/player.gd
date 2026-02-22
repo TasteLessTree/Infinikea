@@ -12,7 +12,6 @@ extends CharacterBody3D
 @onready var ray = $Head/Camera3D/Vision
 @onready var label = $Head/Camera3D/Vision/Prompt
 
-
 @export var playerSpeed: float = 7.0
 @export var friction: float = 20.0
 @export var player_acc: float = 5.0
@@ -36,13 +35,16 @@ var head_y_axis: float = 0.0
 var camera_x_axis: float = 0.0
 var crouch_height: float = 0.5
 var stand_height: float = 2.0
-var crouching = false
 var crouch_speed: float = 3.5
-var opened = false
 var stamina: float = staminaMax
-var is_sprinting: bool = false
 var regen_cooldown_timer: float = 0.0
 var step_distance_accum: float = 0.0
+var speed_multiplier: float = 1.0
+
+var crouching = false
+var opened = false
+var is_sprinting: bool = false
+var hot_dog_buff: bool = false
 
 # Distancia entre pasos
 const STEP_DISTANCE: float = 2.75
@@ -53,7 +55,7 @@ func _input(event):
 		camera_x_axis += event.relative.y * camera_sens
 		camera_x_axis = clamp(camera_x_axis, -90.0, 90)
 
-func _ready() -> void:	
+func _ready() -> void:
 	stamina_bar.show_percentage = false
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -86,9 +88,12 @@ func _physics_process(delta):
 		is_sprinting = false
 		
 	if is_sprinting:
-		stamina = max(stamina - staminaDrainRate * delta, 0.0)
+		# Solo baja la estamina si no tienes el buff del hotdog
+		if not hot_dog_buff:
+			stamina = max(stamina - staminaDrainRate * delta, 0.0)
 		if stamina <= 25.0:
-			sfx_gasping.play()
+			if sfx_gasping:
+				sfx_gasping.play()
 		if stamina <= 0.0:
 			is_sprinting = false # No puedes correr si no hay estamina
 			regen_cooldown_timer = regenCooldown
@@ -147,7 +152,7 @@ func ray_scanning(_delta):
 			return
 		
 		if Input.is_action_just_pressed("interactuar"):
-			print(collider.name)
+			# print(collider.name)
 			
 			if collider.is_in_group("interactuable"):
 				collider.interact()
@@ -157,11 +162,30 @@ func _process(_delta):
 	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
 	
 	$Head/Camera3D/Mano.rotation.x = -deg_to_rad(clamped_pitch)
+	
+	if hot_dog_buff:
+		stamina_bar.modulate = Color.GOLD
+	else:
+		stamina_bar.modulate = Color.WHITE
 
 func _get_walk_speed():
+	var base_speed = playerSpeed
+
 	if crouching:
-		return crouch_speed
-	if is_sprinting:
-		return sprintSpeed
-	else:
-		return playerSpeed
+		base_speed = crouch_speed
+	elif is_sprinting:
+		base_speed = sprintSpeed
+
+	return base_speed * speed_multiplier
+
+func aplicar_buff_hot_dog():
+	stamina = 100
+	hot_dog_buff = true
+	speed_multiplier = 1.55 # Velocidad incrementa en un 55%
+	
+	# Esperar 5 segundos
+	await get_tree().create_timer(5.0).timeout
+	
+	# Resetear valores
+	hot_dog_buff = false
+	speed_multiplier = 1.0

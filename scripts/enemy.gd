@@ -347,6 +347,7 @@ func _start_attack() -> void:
 	_play_animation("attack")
 	attack_cooldown = attack_cooldown_time
 
+# El jugador está en rango
 func _player_in_range() -> bool:
 	if _can_see_player() and _distance_to_player() <= attack_range:
 		return true

@@ -116,13 +116,5 @@ shadow_enabled = true
 [node name="Mapa" parent="." unique_id=960938120 instance=ExtResource("16_jbj1t")]
 
 [node name="Enemy" parent="." unique_id=1332282568 instance=ExtResource("8_a8y0u")]
-transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 1.4171066, 0.8453319, -29.78812)
-player_path = NodePath("../Player")
-
-[node name="Enemy3" parent="." unique_id=2070218114 instance=ExtResource("8_a8y0u")]
-transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, -13.640581, 0.8453319, -29.78812)
-player_path = NodePath("../Player")
-
-[node name="Enemy2" parent="." unique_id=1596882780 instance=ExtResource("8_a8y0u")]
-transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, -45.95465, 4.404601, 14.874117)
+transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 10.429243, 0.6110889, -28.49249)
 player_path = NodePath("../Player")

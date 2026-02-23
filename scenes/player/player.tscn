@@ -26,7 +26,7 @@ current = true
 
 [node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
 transform = Transform3D(1.0165013, 0, 0, 0, 0.9955593, 0.053015474, 0, -0.12559186, 0.42025048, 0, 0, -0.23164225)
-target_position = Vector3(0, 0, -6)
+target_position = Vector3(0, 0, -6.5)
 debug_shape_thickness = 5
 script = ExtResource("5_y4r1p")
 

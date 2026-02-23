@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://items_recogidos/maniqui.tres" id="11_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="12_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dqmorwf2flrxs" path="res://scenes/objetos/cocina.tscn" id="15_jkv2x"]
+[ext_resource type="Resource" uid="uid://doh0an20gfikb" path="res://items_recogidos/hot_dog.tres" id="15_y6deb"]
 [ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ikea_logo.glb" id="16_jbj1t"]
 [ext_resource type="PackedScene" uid="uid://ch2g4ubfjyoln" path="res://material/shaders/puerta_objeto.tscn" id="20_gqmmt"]
 
@@ -187,6 +188,10 @@ item_data = ExtResource("11_ya4ey")
 [node name="Linterna_pickup" parent="Interactuables" unique_id=349453081 instance=ExtResource("5_tefeu")]
 transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -10.1415415, 4.6650324, 19.246487)
 item_data = ExtResource("6_o6xl0")
+
+[node name="Interactuables" parent="Interactuables" unique_id=1958856511 instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5789788, 0)
+item_data = ExtResource("15_y6deb")
 
 [node name="Logo" type="Node" parent="." unique_id=1028257998]
 

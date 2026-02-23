@@ -4,8 +4,11 @@
 [ext_resource type="AudioStream" uid="uid://b6olv6xj3cmri" path="res://assets/sounds/ambient/fluorescent_lightbulb_hum_buzz.mp3" id="1_o6xl0"]
 [ext_resource type="Script" uid="uid://csjtnhdjkglwj" path="res://scripts/enviroment/world_environment.gd" id="1_tipki"]
 [ext_resource type="PackedScene" uid="uid://cp04ka20n28jj" path="res://scenes/menus/pausa.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://dpicoju583b1l" path="res://assets/sounds/ambient/jazz_ambient.mp3" id="2_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://cdypj5r6ag3y3" path="res://scenes/menus/main_menu.tscn" id="2_sugp2"]
 [ext_resource type="PackedScene" uid="uid://cbqcjkv0fl233" path="res://scenes/player/player.tscn" id="3_tefeu"]
+[ext_resource type="AudioStream" uid="uid://cdu4frgatbjsj" path="res://assets/sounds/sfx/power_off.mp3" id="4_y6deb"]
+[ext_resource type="AudioStream" uid="uid://8aa317gxlf01" path="res://assets/sounds/sfx/ikea_opens.mp3" id="5_og1vs"]
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/player/interactuables.tscn" id="5_tefeu"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://items_recogidos/linterna.tres" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_trceg"]
@@ -39,6 +42,44 @@ ambient_light_energy = 5.0
 tonemap_mode = 2
 volumetric_fog_enabled = true
 
+[sub_resource type="Animation" id="Animation_jkv2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sol/DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-8.115781, 2.6179938, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jbj1t"]
+resource_name = "ciclo_dia_noche"
+length = 24.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sol/DirectionalLight3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.8325957, 2.6179938, 0), Vector3(4.4505897, 2.6179938, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_muem4"]
+_data = {
+&"RESET": SubResource("Animation_jkv2x"),
+&"ciclo_dia_noche": SubResource("Animation_jbj1t")
+}
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_choun"]
 cell_height = 0.1
 agent_radius = 0.25
@@ -70,52 +111,26 @@ ao_enabled = true
 ao_texture = ExtResource("12_dp3eg")
 uv1_scale = Vector3(5, 5, 5)
 
-[sub_resource type="Animation" id="Animation_jkv2x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-8.115781, 2.6179938, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_jbj1t"]
-resource_name = "ciclo_dia_noche"
-length = 24.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../DirectionalLight3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 24),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-1.8325957, 2.6179938, 0), Vector3(4.4505897, 2.6179938, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_muem4"]
-_data = {
-&"RESET": SubResource("Animation_jkv2x"),
-&"ciclo_dia_noche": SubResource("Animation_jbj1t")
-}
-
 [node name="Main" type="Node" unique_id=282840584]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1178240634]
 environment = SubResource("Environment_tefeu")
 script = ExtResource("1_tipki")
 
+[node name="ambient_store_music" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=2136100005]
+stream = ExtResource("2_pm3ni")
+
 [node name="ambient_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1143431806]
 stream = ExtResource("1_o6xl0")
+
+[node name="sfx_lights_off" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1004784558]
+stream = ExtResource("4_y6deb")
+
+[node name="sfx_lights_on" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=820562415]
+stream = ExtResource("5_og1vs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=980350972]
+libraries/ = SubResource("AnimationLibrary_muem4")
 
 [node name="Player" parent="." unique_id=1343184284 instance=ExtResource("3_tefeu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
@@ -133,6 +148,69 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
 [node name="CLGameOver" type="CanvasLayer" parent="." unique_id=1347557667]
 
 [node name="GameOver" parent="CLGameOver" unique_id=1663538140 instance=ExtResource("7_trceg")]
+
+[node name="Sol" type="Node" parent="." unique_id=700188148]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Sol" unique_id=90594203]
+transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.9659259, -0.50000006, 0.8365163, 0.22414371, -60.161522, 33.078, 21.47355)
+shadow_enabled = true
+
+[node name="Luces" type="Node" parent="." unique_id=524339166]
+
+[node name="Luz2" parent="Luces" unique_id=1625573157 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.93111, 19.042196, 24.255129)
+
+[node name="Luz3" parent="Luces" unique_id=1255594620 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.78521, 18.912075, -11.272488)
+
+[node name="Luz_Comedor" parent="Luces" unique_id=1495619180 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.113773, 18.865171, -15.811956)
+
+[node name="Luz" parent="Luces" unique_id=925597982 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.638529, 18.922705, -29.936865)
+
+[node name="Luz4" parent="Luces" unique_id=1313131132 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.517227, 18.856775, -29.836206)
+
+[node name="Luz5" parent="Luces" unique_id=1231029647 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2553616, 18.92354, -16.140293)
+
+[node name="Luz6" parent="Luces" unique_id=1366783289 instance=ExtResource("10_choun")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.34973, 18.923538, -27.080109)
+
+[node name="Interactuables" type="Node" parent="." unique_id=1362322826]
+
+[node name="Maniqui" parent="Interactuables" unique_id=216130261 instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -5.6959867, 2.7047846, 0.006765127)
+item_data = ExtResource("11_ya4ey")
+
+[node name="Linterna_pickup" parent="Interactuables" unique_id=349453081 instance=ExtResource("5_tefeu")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -10.1415415, 4.6650324, 19.246487)
+item_data = ExtResource("6_o6xl0")
+
+[node name="Logo" type="Node" parent="." unique_id=1028257998]
+
+[node name="ikea_logo" parent="Logo" unique_id=564681394 instance=ExtResource("16_jbj1t")]
+transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.322077, 0, -8.4459464e-07, -31.513025, 9.339205, 13.115564)
+
+[node name="ikea_logo2" parent="Logo" unique_id=267106072 instance=ExtResource("16_jbj1t")]
+transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.827982, 9.861493, 32.699818)
+
+[node name="Puertas" type="Node" parent="." unique_id=1818081882]
+
+[node name="Puerta" parent="Puertas" unique_id=1679073402 instance=ExtResource("20_gqmmt")]
+transform = Transform3D(-8.036671e-08, 0, -1.838576, 0, 1.838576, 0, 1.838576, 0, -8.036671e-08, -30.982765, 0.7245388, 23.372896)
+
+[node name="Puerta2" parent="Puertas" unique_id=2132731247 instance=ExtResource("20_gqmmt")]
+transform = Transform3D(-1.6241906, 0, 1.2467278e-07, 0, 1.4260901, 0, -1.4199126e-07, 0, -1.4260901, -20.228706, 0.69645286, 37.3791)
+
+[node name="Ventanas" type="Node" parent="." unique_id=1631557698]
+
+[node name="Ventana" parent="Ventanas" unique_id=775452705 instance=ExtResource("11_jkv2x")]
+transform = Transform3D(-1.8692192e-07, 0, 12.338223, 0, 3.2346916, 0, -4.2762756, 0, -5.393209e-07, -29.742537, 0.68546057, 31.74722)
+
+[node name="Ventana2" parent="Ventanas" unique_id=780046825 instance=ExtResource("11_jkv2x")]
+transform = Transform3D(-1.8823188e-07, 0, 15.735028, 0, 3.2065217, 0, -4.3062434, 0, -6.877999e-07, -29.436815, 0.85297036, 15.017207)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1979560424]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.82842445, 0.2245388, -0.35725594)
@@ -326,62 +404,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30.
 operation = 2
 size = Vector3(5, 4.8651123, 1.14)
 
-[node name="Maniqui" parent="." unique_id=216130261 instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.7484555e-07, 0, 1.7484555e-07, 1, -5.6959867, 2.7047846, 0.006765127)
-item_data = ExtResource("11_ya4ey")
-
-[node name="Linterna_pickup" parent="." unique_id=349453081 instance=ExtResource("5_tefeu")]
-transform = Transform3D(1, 0, 0, 0, -1, 8.742278e-08, 0, -8.742278e-08, -1, -10.1415415, 4.6650324, 19.246487)
-item_data = ExtResource("6_o6xl0")
-
 [node name="Node3D" parent="." unique_id=709765691 instance=ExtResource("10_choun")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7794952, 18.880444, 25.443186)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=90594203]
-transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.9659259, -0.50000006, 0.8365163, 0.22414371, -60.161522, 33.078, 21.47355)
-shadow_enabled = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=980350972]
-root_node = NodePath("../WorldEnvironment")
-libraries/ = SubResource("AnimationLibrary_muem4")
-
-[node name="ikea_logo" parent="." unique_id=564681394 instance=ExtResource("16_jbj1t")]
-transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.322077, 0, -8.4459464e-07, -31.513025, 9.339205, 13.115564)
-
-[node name="ikea_logo2" parent="." unique_id=267106072 instance=ExtResource("16_jbj1t")]
-transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.827982, 9.861493, 32.699818)
-
-[node name="Luz2" parent="." unique_id=1625573157 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.93111, 19.042196, 24.255129)
-
-[node name="Luz3" parent="." unique_id=1255594620 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.78521, 18.912075, -11.272488)
-
-[node name="Luz_Comedor" parent="." unique_id=1495619180 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.113773, 18.865171, -15.811956)
-
-[node name="Luz" parent="." unique_id=925597982 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.638529, 18.922705, -29.936865)
-
-[node name="Luz4" parent="." unique_id=1313131132 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.517227, 18.856775, -29.836206)
-
-[node name="Luz5" parent="." unique_id=1231029647 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2553616, 18.92354, -16.140293)
-
-[node name="Luz6" parent="." unique_id=1366783289 instance=ExtResource("10_choun")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.34973, 18.923538, -27.080109)
-
-[node name="Ventana" parent="." unique_id=775452705 instance=ExtResource("11_jkv2x")]
-transform = Transform3D(-1.8692192e-07, 0, 12.338223, 0, 3.2346916, 0, -4.2762756, 0, -5.393209e-07, -29.742537, 0.68546057, 31.74722)
-
-[node name="Ventana2" parent="." unique_id=780046825 instance=ExtResource("11_jkv2x")]
-transform = Transform3D(-1.8823188e-07, 0, 15.735028, 0, 3.2065217, 0, -4.3062434, 0, -6.877999e-07, -29.436815, 0.85297036, 15.017207)
-
-[node name="Puerta" parent="." unique_id=1679073402 instance=ExtResource("20_gqmmt")]
-transform = Transform3D(-8.036671e-08, 0, -1.838576, 0, 1.838576, 0, 1.838576, 0, -8.036671e-08, -30.982765, 0.7245388, 23.372896)
-
-[node name="Puerta2" parent="." unique_id=2132731247 instance=ExtResource("20_gqmmt")]
-transform = Transform3D(-1.6241906, 0, 1.2467278e-07, 0, 1.4260901, 0, -1.4199126e-07, 0, -1.4260901, -20.228706, 0.69645286, 37.3791)
 
 [connection signal="player_hit" from="NavigationRegion3D/Node3D" to="CLGameOver/GameOver" method="pausar"]

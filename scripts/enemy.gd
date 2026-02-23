@@ -32,7 +32,7 @@ var state: int = EnemyState.IDLE
 # Temporizadores
 @export var wander_retarget_time: float = 2.0
 @export var scream_cooldown: float = 3.0
-@export var lost_interest_timeout: float = 5.0
+@export var lost_interest_timeout: float = 7.83
 @export var attack_cooldown_time: float = 1.0
 
 # Gravedad

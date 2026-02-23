@@ -51,3 +51,22 @@ func set_es_de_noche(noche: bool) -> void:
 
 	cambiar_iluminacion(es_de_noche)
 	cambio_estado.emit(es_de_noche)
+
+# Guardar
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"is_singleton" : true,
+		"tiempo_transcurrido" : tiempo_transcurrido,
+		"es_de_noche" : es_de_noche
+	}
+
+	return save_dict
+
+# Cargar
+func load_data(data: Dictionary) -> void:
+	tiempo_transcurrido = float(data["tiempo_transcurrido"])
+	es_de_noche = bool(data["es_de_noche"])
+	cambiar_iluminacion(es_de_noche)
+	cambio_estado.emit(es_de_noche)

@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://cdu4frgatbjsj" path="res://assets/sounds/sfx/power_off.mp3" id="4_y6deb"]
 [ext_resource type="AudioStream" uid="uid://8aa317gxlf01" path="res://assets/sounds/sfx/ikea_opens.mp3" id="5_og1vs"]
 [ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="8_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://crdcn1oi5m0r7" path="res://layouts/mapa.tscn" id="16_jbj1t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
@@ -113,3 +114,15 @@ transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.96
 shadow_enabled = true
 
 [node name="Mapa" parent="." unique_id=960938120 instance=ExtResource("16_jbj1t")]
+
+[node name="Enemy" parent="." unique_id=1332282568 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 1.4171066, 0.8453319, -29.78812)
+player_path = NodePath("../Player")
+
+[node name="Enemy3" parent="." unique_id=2070218114 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, -13.640581, 0.8453319, -29.78812)
+player_path = NodePath("../Player")
+
+[node name="Enemy2" parent="." unique_id=1596882780 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, -45.95465, 4.404601, 14.874117)
+player_path = NodePath("../Player")

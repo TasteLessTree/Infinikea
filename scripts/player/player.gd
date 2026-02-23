@@ -189,3 +189,36 @@ func aplicar_buff_hot_dog():
 	# Resetear valores
 	hot_dog_buff = false
 	speed_multiplier = 1.0
+
+# Guardar
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"pos_z" : position.z,
+		"head_y_axis" : head_y_axis,
+		"camera_x_axis" : camera_x_axis,
+		"camera_sens" : camera_sens,
+		"stamina" : stamina,
+		"is_sprinting" : is_sprinting,
+		"crouching" : crouching,
+		"hot_dog_buff" : hot_dog_buff,
+		"speed_multiplier" : speed_multiplier,
+		"inventory" : Inventario.save_inventory()
+	}
+
+	return save_dict
+
+# Cargar
+func load_data(data: Dictionary) -> void:
+	global_position = Vector3(data["pos_x"], data["pos_y"], data["pos_z"])
+	head_y_axis = float(data["head_y_axis"])
+	camera_x_axis = float(data["camera_x_axis"])
+	stamina = float(data["stamina"])
+	is_sprinting = bool(data["is_sprinting"])
+	crouching = bool(data["crouching"])
+	hot_dog_buff = bool(data["hot_dog_buff"])
+	speed_multiplier = float(data["speed_multiplier"])
+	Inventario.load_inventory(data["inventory"])

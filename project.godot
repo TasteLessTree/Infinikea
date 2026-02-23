@@ -25,6 +25,7 @@ config/icon="uid://mc1jtvpp64kn"
 
 Inventario="*uid://1e6j51g5jhrn"
 CicloDiaNoche="*uid://5rjxmm6ijejx"
+SaveManager="*uid://bhi53ammsvfgu"
 
 [display]
 
@@ -39,6 +40,7 @@ import/blender/enabled=false
 
 interactuable="Items que puedes recoger"
 luces_techo="Cambiar la energía de las luces del techo"
+Persist="Persistencia jugador/enemigo"
 
 [input]
 

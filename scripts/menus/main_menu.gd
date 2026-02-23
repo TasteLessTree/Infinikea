@@ -2,6 +2,7 @@ extends Control
 
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var music_main_menu = $music_main_menu
+@onready var continuar: Button = $PanelContainer/VBoxContainer/Continuar
 
 var is_main_menu: bool = true
 
@@ -15,6 +16,9 @@ func mostrar_menu_principal() -> void:
 func iniciar_juego() -> void:
 	Inventario.clear_inventory()
 	CicloDiaNoche.set_es_de_noche(false)
+	desactivar_menu()
+
+func desactivar_menu() -> void:
 	is_main_menu = false
 	get_tree().paused = false
 	visible = false
@@ -23,6 +27,10 @@ func iniciar_juego() -> void:
 
 func _ready() -> void:
 	handle_signals()
+	if FileAccess.file_exists(SaveManager.SAVE_PATH):
+		continuar.disabled = false
+	else:
+		continuar.disabled = true
 	mostrar_menu_principal()
 	
 func _process(_delta: float) -> void:
@@ -46,9 +54,13 @@ func on_exit_options_menu() -> void:
 	options_menu.visible = false
 
 func _on_continuar_pressed() -> void:
-	pass
+	SaveManager.load_game()
+	desactivar_menu()
 
 func _on_nueva_partida_pressed() -> void:
+	# Sobre-escribir el archivo de guardado
+	if FileAccess.file_exists(SaveManager.SAVE_PATH):
+		DirAccess.remove_absolute(SaveManager.SAVE_PATH)
 	iniciar_juego()
 
 func handle_signals() -> void:

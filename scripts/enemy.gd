@@ -436,3 +436,37 @@ func _check_detection_reactio() -> void:
 
 	has_triggered_scream = true
 	_set_state(EnemyState.SCREAMING)
+
+""" --- Guardar y cargar --- """
+# Guardar
+func save() -> Dictionary:
+	var save_dict = {
+		"filename" : get_scene_file_path(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"pos_z" : position.z,
+		"current_target_x" : current_target.x,
+		"current_target_y" : current_target.y,
+		"current_target_z" : current_target.z,
+		"state" : state,
+		"scream_timer": scream_timer,
+		"attack_cooldown" : attack_cooldown,
+		"next_wander_time" : next_wander_time,
+		"has_triggered_scream" : has_triggered_scream,
+		"lost_interest_timer" : lost_interest_timer,
+	}
+
+	return save_dict
+
+# Cargar
+func load_data(data: Dictionary) -> void:
+	position = Vector3(data["pos_x"], data["pos_y"], data["pos_z"])
+	current_target = Vector3(data["current_target_x"], data["current_target_y"], data["current_target_z"])
+	state = int(data["state"])
+	scream_timer = data["scream_timer"]
+	attack_cooldown = data["attack_cooldown"]
+	next_wander_time = data["next_wander_time"]
+	has_triggered_scream = data["has_triggered_scream"]
+	lost_interest_timer = data["lost_interest_timer"]
+	_set_state(state)

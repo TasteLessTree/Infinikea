@@ -12,7 +12,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
 
-[node name="Player" type="CharacterBody3D" unique_id=534045582]
+[node name="Player" type="CharacterBody3D" unique_id=534045582 groups=["Persist"]]
 script = ExtResource("1_3vyb7")
 player_acc = 2.0
 camera_sens = 0.15

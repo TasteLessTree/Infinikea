@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://b77gpjwser4k5"]
+
+[ext_resource type="PackedScene" uid="uid://tn30u1apwvi5" path="res://layouts/uploads_files_5523804_Monitor+Exzyte+3D.glb" id="1_3f5d4"]
+[ext_resource type="Material" uid="uid://cirvqatdijwll" path="res://material/metal/metal.tres" id="1_pd0qh"]
+[ext_resource type="Texture2D" uid="uid://cl0wg64pbupfb" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_AmbientOcclusion.jpg" id="2_kn7lx"]
+[ext_resource type="Texture2D" uid="uid://djxt64has665b" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_Metallic.jpg" id="3_dfjvm"]
+[ext_resource type="Texture2D" uid="uid://cwla3k44p2bcc" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_Roughness.jpg" id="4_oecch"]
+[ext_resource type="PackedScene" uid="uid://cv46n7mbqj5b2" path="res://layouts/uploads_files_4125776_cash.glb" id="6_cosip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fr4vb"]
+albedo_color = Color(0.13725491, 0.65882355, 0.85882354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y8ckk"]
+albedo_color = Color(0.13725491, 0.65882355, 0.85882354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn7lx"]
+albedo_color = Color(0.13725491, 0.65882355, 0.85882354, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfjvm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3f5d4"]
+metallic = 1.0
+metallic_texture = ExtResource("3_dfjvm")
+roughness_texture = ExtResource("4_oecch")
+ao_enabled = true
+ao_texture = ExtResource("2_kn7lx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd0qh"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjwcn"]
+albedo_color = Color(0.04714392, 0.24893793, 0.56245184, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8g4e"]
+albedo_color = Color(0.047058824, 0.24705882, 0.56078434, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1556134803]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2086077918]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=347415412]
+transform = Transform3D(1.7305958, 0, 0, 0, 1, 0, 0, 0, 1.5128251, 0.499, 0.7, -2.5841355)
+size = Vector3(1, 1.65, 5.207)
+material = ExtResource("1_pd0qh")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1687644678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5128251, 1.958, 0.7, -0.35877013)
+size = Vector3(1.992, 1.65, 2.251)
+material = ExtResource("1_pd0qh")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1542836637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.5128251, 1.932, 0.7, -5.5302386)
+size = Vector3(1.992, 1.65, 1.3021641)
+material = ExtResource("1_pd0qh")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1195616447]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3675337, -0.07766724, -2.9770095)
+height = 0.10040283
+sides = 17
+material = SubResource("StandardMaterial3D_fr4vb")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=46126977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4011543, 0.5249177, -2.9821026)
+radius = 0.091796875
+height = 1.1345949
+sides = 17
+material = ExtResource("1_pd0qh")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=1335864566]
+transform = Transform3D(1.2367563, 0, 0, 0, 1.2367563, 0, 0, 0, 1.2367563, 2.4061217, 1.1333982, -2.9822624)
+height = 0.10040283
+sides = 17
+material = SubResource("StandardMaterial3D_y8ckk")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=2086648779]
+transform = Transform3D(-5.3173835e-08, 1.2164756, -5.3173835e-08, 0, -5.3173835e-08, -1.2164756, -1.2164756, -5.3173835e-08, 2.324302e-15, 2.8846352, 1.7023569, -3.0145419)
+height = 0.10040283
+sides = 17
+material = SubResource("StandardMaterial3D_kn7lx")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=88576286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7130353, 3.3927426, -1.7815177)
+radius = 0.091796875
+height = 3.952594
+sides = 17
+material = SubResource("StandardMaterial3D_dfjvm")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=511443648]
+transform = Transform3D(1, 0, 0, 0, 1.004909, -0.13314326, 0, 0.12239044, 1.093197, 1.263582, 1.901479, -0.11495106)
+operation = 2
+size = Vector3(2.6435547, 1, 2.1637268)
+material = SubResource("StandardMaterial3D_3f5d4")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCombiner3D" unique_id=428118504]
+transform = Transform3D(-2.279488e-08, 0, 2.720959, 0, 0.5214861, 0, -0.52148604, 0, -1.189369e-07, 2.625306, 0.5275867, 1.8471806)
+polygon = PackedVector2Array(0.020445943, 0.8446835, 0, 1, 1, 1, 1, 0, 0.800216, 0.053559303, 0.6942252, 0.7243606)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2082116501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4803381, 1.0565712, -4.726763)
+material_override = ExtResource("1_pd0qh")
+size = Vector3(1.0395508, 1, 2.6236305)
+material = SubResource("StandardMaterial3D_pd0qh")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=522698925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27233887, 0.6622273, -2.5874023)
+size = Vector3(0.28833008, 1.2344055, 7.5947266)
+material = SubResource("StandardMaterial3D_rjwcn")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2003685563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2418165, 0.65503895, -6.0679545)
+size = Vector3(3.0336914, 1.2154541, 1)
+material = SubResource("StandardMaterial3D_i8g4e")
+
+[node name="uploads_files_5523804_Monitor+Exzyte+3D" parent="." unique_id=554774932 instance=ExtResource("1_3f5d4")]
+transform = Transform3D(-1.5417195e-08, 0, 0.35270432, 0, 0.35270432, 0, -0.35270432, 0, -1.5417195e-08, -0.0041627884, 1.5645031, -2.7469351)
+
+[node name="Plane" parent="uploads_files_5523804_Monitor+Exzyte+3D" index="5" unique_id=766317016]
+transform = Transform3D(10.077339, 0, 0, 0, 8.603151, 0, 0, 0, 8.603151, 0, 1.3904448, 0)
+visible = false
+
+[node name="uploads_files_4125776_cash" parent="." unique_id=1752309419 instance=ExtResource("6_cosip")]
+transform = Transform3D(-3.1662008e-08, 0, -0.72434217, 0, 0.72434217, 0, 0.72434217, 0, -3.1662008e-08, 2.1522233, 1.5639269, -5.481679)
+
+[editable path="uploads_files_5523804_Monitor+Exzyte+3D"]

@@ -4,6 +4,8 @@ signal inventory_changed
 signal slot_selected(slot_index: int)
 # signal item_drop(item)
 
+@onready var ui: CanvasLayer = $UI
+
 const HOTBAR_SIZE: int = 4
 var hotbar: Array[ItemData]
 var selected_slot: int = 1
@@ -64,3 +66,9 @@ func load_inventory(items_data: Array) -> void:
 			hotbar[i] = null
 
 	inventory_changed.emit()
+
+func hide_inventory():
+	ui.visible = false
+
+func show_inventory():
+	ui.visible = true

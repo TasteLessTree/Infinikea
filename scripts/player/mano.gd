@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var linterna = $SpotLight3D
 @onready var sfx_flashlight = $"../../../Sonidos/sfx_flashlight"
+@onready var sfx_eating = $"../../../Sonidos/sfx_eating"
 @onready var raycast = $"../Vision"
 
 const INTERACTUABLE_SCENE = preload("res://scenes/player/interactuables.tscn")
@@ -69,7 +70,7 @@ func _input(_event: InputEvent):
 			usar_linterna()
 		
 		# 3. Poner en el suelo un maniquí
-		elif item_actual.item_name == "Maniqui":
+		elif item_actual.item_name == "Maniquí":
 			colocar_maniqui(item_actual)
 		
 		# 4. Comer un perrito caliente
@@ -109,6 +110,9 @@ func colocar_maniqui(item_data: ItemData):
 func comer_hot_dog():
 	Inventario.remove_item(Inventario.selected_slot) # Lo elimina del inventario físico
 	clear_item() # Lo elimina de la mano del jugador
+	
+	if sfx_eating:
+		sfx_eating.play()
 	
 	# Buscar al jugador
 	var player = owner as Player

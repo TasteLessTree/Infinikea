@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cv1dph8pvjwmn" path="res://scripts/player/rayo.gd" id="5_y4r1p"]
 [ext_resource type="AudioStream" uid="uid://dqmu4a8wvsycw" path="res://assets/sounds/sfx/jumping.mp3" id="7_ur7pv"]
 [ext_resource type="AudioStream" uid="uid://bifjdwi5t40xm" path="res://assets/sounds/sfx/gasping.mp3" id="9_ur7pv"]
+[ext_resource type="AudioStream" uid="uid://b242sbnkqi68b" path="res://assets/sounds/sfx/eating.mp3" id="10_h17s1"]
 [ext_resource type="Texture2D" uid="uid://is8uligluxvj" path="res://assets/texturas/textura_linterna/crosshair.png" id="10_y4r1p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3vyb7"]
@@ -136,4 +137,8 @@ parameters/looping = false
 
 [node name="sfx_flashlight" type="AudioStreamPlayer" parent="Sonidos" unique_id=1744804549]
 stream = ExtResource("5_smehm")
+bus = &"Sfx"
+
+[node name="sfx_eating" type="AudioStreamPlayer" parent="Sonidos" unique_id=157531687]
+stream = ExtResource("10_h17s1")
 bus = &"Sfx"

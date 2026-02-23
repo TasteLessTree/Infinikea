@@ -61,7 +61,21 @@ func _on_nueva_partida_pressed() -> void:
 	# Sobre-escribir el archivo de guardado
 	if FileAccess.file_exists(SaveManager.SAVE_PATH):
 		DirAccess.remove_absolute(SaveManager.SAVE_PATH)
-	iniciar_juego()
+	desactivar_menu()
+	mostrar_cinematica()
+
+func mostrar_cinematica() -> void:
+	visible = false
+	music_main_menu.stop()
+	get_tree().paused = false
+
+	var cutscene = preload("res://scenes/cutscene/intro.tscn").instantiate()
+	get_tree().root.add_child(cutscene)
+
+	cutscene.cutscene_finished.connect(_on_cutscene_finished)
 
 func handle_signals() -> void:
 	options_menu.exit_option_menu.connect(on_exit_options_menu)
+
+func _on_cutscene_finished() -> void:
+	iniciar_juego()

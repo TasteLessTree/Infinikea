@@ -97,7 +97,7 @@ bus = &"Sfx"
 
 [node name="sfx_lights_on" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=820562415]
 stream = ExtResource("5_og1vs")
-volume_db = -5.0
+volume_db = -15.0
 bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=980350972]

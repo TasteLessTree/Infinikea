@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ch2g4ubfjyoln" path="res://material/shaders/puerta_objeto.tscn" id="7_v6fg2"]
 [ext_resource type="Material" uid="uid://chb1jtt8c5a0m" path="res://material/pared.tres" id="8_36oek"]
 [ext_resource type="PackedScene" uid="uid://dfc5rvu3lleo3" path="res://models/puerta.tscn" id="8_qm2yp"]
+[ext_resource type="PackedScene" path="res://scenes/objetos/exit_door.tscn" id="8_xqxua"]
 [ext_resource type="Material" uid="uid://j5yuxudqkawe" path="res://material/suelo_madera.tres" id="9_l75da"]
 [ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="10_losum"]
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/objetos/mesa_test.tscn" id="11_ufccg"]
@@ -146,6 +147,9 @@ transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.24331
 
 [node name="Puerta" parent="Mapa1/NavigationRegion3D/Puertas" unique_id=2132731247 instance=ExtResource("7_v6fg2")]
 transform = Transform3D(-8.2143984e-08, 0, -1.8792351, 0, 1.8792351, 0, 1.8792351, 0, -8.2143984e-08, -30.716673, 0.52580166, 23.739471)
+
+[node name="Exit Door" parent="Mapa1/NavigationRegion3D/Puertas/Puerta" unique_id=2013744247 instance=ExtResource("8_xqxua")]
+transform = Transform3D(1, 0, 1.0658141e-14, 0, 1, 0, -1.0658141e-14, 0, 1, -9.248968, 0, -23.92683)
 
 [node name="Puerta2" parent="Mapa1/NavigationRegion3D/Puertas" unique_id=645466031 instance=ExtResource("7_v6fg2")]
 transform = Transform3D(-1.6241906, 0, 1.2467278e-07, 0, 1.4260901, 0, -1.4199126e-07, 0, -1.4260901, -19.359314, 0.4860022, 37.3791)

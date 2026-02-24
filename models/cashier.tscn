@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cwla3k44p2bcc" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_Roughness.jpg" id="4_oecch"]
 [ext_resource type="PackedScene" uid="uid://cv46n7mbqj5b2" path="res://layouts/uploads_files_4125776_cash.glb" id="6_cosip"]
 [ext_resource type="PackedScene" uid="uid://c7kxtxmk4sgpe" path="res://models/uploads_files_4413812_bar_stool.glb" id="7_cosip"]
+[ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ikea_logo.glb" id="8_oecch"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfjvm"]
 
@@ -26,7 +27,11 @@ albedo_color = Color(0.04714392, 0.24893793, 0.56245184, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i8g4e"]
 albedo_color = Color(0.047058824, 0.24705882, 0.56078434, 1)
 
-[node name="Node3D" type="Node3D" unique_id=1556134803]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oecch"]
+size = Vector3(3.5216675, 1.5471497, 8.0234375)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1435947834]
+transform = Transform3D(0.7090842, 0, 0, 0, 0.7090842, 0, 0, 0, 0.7090842, 0, 0, 0)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=2086077918]
 
@@ -46,7 +51,7 @@ size = Vector3(1.992, 1.65, 1.3021641)
 material = ExtResource("1_pd0qh")
 
 [node name="CSGCylinder3D5" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=88576286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7130353, 3.3927426, -1.7815177)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7130353, 2.8356414, -1.7815177)
 radius = 0.091796875
 height = 3.952594
 sides = 17
@@ -78,10 +83,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2418165, 0.65503895, -6.067
 size = Vector3(3.0336914, 1.2154541, 1)
 material = SubResource("StandardMaterial3D_i8g4e")
 
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1059558937]
+transform = Transform3D(0.75675756, 0, 0, 0, 0.75675756, 0, 0, 0, 0.75675756, 2.7056115, 4.793032, -1.7811642)
+
 [node name="uploads_files_5523804_Monitor+Exzyte+3D" parent="." unique_id=554774932 instance=ExtResource("1_3f5d4")]
 transform = Transform3D(-1.5417195e-08, 0, 0.35270432, 0, 0.35270432, 0, -0.35270432, 0, -1.5417195e-08, -0.0041627884, 1.5645031, -2.7469351)
 
-[node name="Plane" parent="uploads_files_5523804_Monitor+Exzyte+3D" index="5" unique_id=1639812780]
+[node name="Plane" parent="uploads_files_5523804_Monitor+Exzyte+3D" index="5" unique_id=766317016]
 transform = Transform3D(10.077339, 0, 0, 0, 8.603151, 0, 0, 0, 8.603151, 0, 1.3904448, 0)
 visible = false
 
@@ -91,8 +99,18 @@ transform = Transform3D(-3.1662008e-08, 0, -0.72434217, 0, 0.72434217, 0, 0.7243
 [node name="uploads_files_4413812_bar_stool" parent="." unique_id=2000424491 instance=ExtResource("7_cosip")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2749891, 0, -8.800276)
 
-[node name="Bar_Stool" parent="uploads_files_4413812_bar_stool/Bar Stool_001" parent_id_path=PackedInt32Array(2000424491, 1572269770) index="0" unique_id=1202190425]
+[node name="Bar_Stool" parent="uploads_files_4413812_bar_stool/Bar Stool_001" parent_id_path=PackedInt32Array(2000424491, 131848161) index="0" unique_id=1018789073]
 transform = Transform3D(-2.6577672e-07, -6.0802627, 2.6577672e-07, 0, -2.6577672e-07, -6.0802627, 6.0802627, -2.6577672e-07, 1.1617472e-14, 2.3772743, 0, 12.894236)
+
+[node name="ikea_logo" parent="." unique_id=564681394 instance=ExtResource("8_oecch")]
+transform = Transform3D(0.71534723, 0, 0, 0, 0.71534723, 0, 0, 0, 0.71534723, 2.328974, 4.636273, -1.4032056)
+
+[node name="ikea_logo2" parent="." unique_id=1528403539 instance=ExtResource("8_oecch")]
+transform = Transform3D(-0.7077011, 0, -6.1869194e-08, 0, 0.7077011, 0, 6.1869194e-08, 0, -0.7077011, 3.0762653, 4.636273, -2.154961)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=927591134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2608337, 0.80757236, -2.5673828)
+shape = SubResource("BoxShape3D_oecch")
 
 [editable path="uploads_files_5523804_Monitor+Exzyte+3D"]
 [editable path="uploads_files_4413812_bar_stool"]

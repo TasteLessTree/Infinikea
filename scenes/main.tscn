@@ -84,15 +84,21 @@ script = ExtResource("1_tipki")
 
 [node name="ambient_store_music" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=2136100005]
 stream = ExtResource("2_pm3ni")
+volume_db = -10.0
+bus = &"Music"
 
 [node name="ambient_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1143431806]
 stream = ExtResource("1_o6xl0")
+bus = &"Ambient"
 
 [node name="sfx_lights_off" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1004784558]
 stream = ExtResource("4_y6deb")
+bus = &"Sfx"
 
 [node name="sfx_lights_on" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=820562415]
 stream = ExtResource("5_og1vs")
+volume_db = -5.0
+bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=980350972]
 libraries/ = SubResource("AnimationLibrary_muem4")

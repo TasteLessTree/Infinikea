@@ -85,7 +85,7 @@ script = ExtResource("1_tipki")
 [node name="ambient_store_music" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=2136100005]
 stream = ExtResource("2_pm3ni")
 volume_db = -10.0
-bus = &"Music"
+bus = &"Ambient"
 
 [node name="ambient_lightbulb" type="AudioStreamPlayer" parent="WorldEnvironment" unique_id=1143431806]
 stream = ExtResource("1_o6xl0")

@@ -90,9 +90,6 @@ stream = ExtResource("5_og1vs")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment" unique_id=980350972]
 libraries/ = SubResource("AnimationLibrary_muem4")
 
-[node name="Player" parent="." unique_id=1343184284 instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.247938, 2, 28.894945)
-
 [node name="grainy_filter" parent="." unique_id=1383390990 instance=ExtResource("1_jyhfs")]
 
 [node name="CLMainMenu" type="CanvasLayer" parent="." unique_id=1321545136]
@@ -115,36 +112,28 @@ shadow_enabled = true
 
 [node name="Enemy" parent="." unique_id=1332282568 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 10.429243, 0.6110889, -28.49249)
-player_path = NodePath("../Player")
-
-[node name="Enemy2" parent="." unique_id=1072692174 instance=ExtResource("8_a8y0u")]
-transform = Transform3D(1.3184159, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184159, -40.310394, 0.6110889, 18.417898)
-player_path = NodePath("../Player")
 
 [node name="Enemy3" parent="." unique_id=259279918 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1.572195e-08, 0, -1.3184158, 0, 1.3184158, 0, 1.3184158, 0, 1.572195e-08, -7.87236, 0.6110889, 25.41408)
-player_path = NodePath("../Player")
 
 [node name="Enemy4" parent="." unique_id=1035467398 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1.572195e-08, 0, -1.3184158, 0, 1.3184158, 0, 1.3184158, 0, 1.572195e-08, 2.5628643, 0.6110889, -0.718132)
-player_path = NodePath("../Player")
 
 [node name="Enemy5" parent="." unique_id=1540739039 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, -14.109018, 0.6110889, -22.136898)
-player_path = NodePath("../Player")
 
 [node name="Enemy6" parent="." unique_id=1757840749 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(-5.7629784e-08, 0, 1.3184158, 0, 1.3184158, 0, -1.3184158, 0, -5.7629784e-08, 22.034641, 0.6110889, -17.027441)
-player_path = NodePath("../Player")
 
 [node name="Enemy7" parent="." unique_id=1850278179 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(-1.3184158, 0, -1.1525957e-07, 0, 1.3184158, 0, 1.1525957e-07, 0, -1.3184158, 18.849075, 0.6110889, 5.35143)
-player_path = NodePath("../Player")
 
 [node name="Mapas" parent="." unique_id=1501249641 instance=ExtResource("12_eb6dy")]
 
+[node name="Player" parent="." unique_id=534045582 instance=ExtResource("3_tefeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.10607, 2.4350355, 24.167055)
+
 [connection signal="player_hit" from="Enemy" to="CLGameOver/GameOver" method="pausar"]
-[connection signal="player_hit" from="Enemy2" to="CLGameOver/GameOver" method="pausar"]
 [connection signal="player_hit" from="Enemy3" to="CLGameOver/GameOver" method="pausar"]
 [connection signal="player_hit" from="Enemy4" to="CLGameOver/GameOver" method="pausar"]
 [connection signal="player_hit" from="Enemy5" to="CLGameOver/GameOver" method="pausar"]

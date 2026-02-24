@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c0al3bdty0jv"]
+
+[ext_resource type="PackedScene" uid="uid://5ehkfsjuvx0g" path="res://layouts/railing.glb" id="1_v8xrq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1e0tv"]
+size = Vector3(3.1342773, 3.9129639, 0.05987549)
+
+[node name="Node3D" type="StaticBody3D" unique_id=942652481]
+
+[node name="Sketchfab_Scene" parent="." unique_id=1776116522 instance=ExtResource("1_v8xrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7124023, -2.4922996, -3.2691436)
+
+[node name="Railing3" parent="Sketchfab_Scene/Sketchfab_model/Railing_fbx/RootNode" parent_id_path=PackedInt32Array(1776116522, 367345615) index="0" unique_id=119793287]
+visible = false
+
+[node name="Railing1" parent="Sketchfab_Scene/Sketchfab_model/Railing_fbx/RootNode" parent_id_path=PackedInt32Array(1776116522, 367345615) index="1" unique_id=1327358711]
+visible = false
+
+[node name="Railing2" parent="Sketchfab_Scene/Sketchfab_model/Railing_fbx/RootNode" parent_id_path=PackedInt32Array(1776116522, 367345615) index="2" unique_id=431709129]
+transform = Transform3D(99.99999, 0, 0, 0, -1.6292068e-05, 99.99999, 0, -99.99999, -1.6292068e-05, -121.29652, 243.117, 323.35828)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1331903212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24633789, 2.003005, -0.16012573)
+shape = SubResource("BoxShape3D_1e0tv")
+
+[editable path="Sketchfab_Scene"]

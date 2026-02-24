@@ -26,7 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.658, 0)
 current = true
 
 [node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
-transform = Transform3D(1.0165013, 0, 0, 0, 0.9955593, 0.053015474, 0, -0.12559186, 0.42025048, 0, 0, -0.23164225)
+transform = Transform3D(1.0165013, 0, 0, 0, 0.99555933, 0.053015474, 0, -0.12559189, 0.42025045, 0, 0, -0.23164225)
 target_position = Vector3(0, 0, -6.5)
 debug_shape_thickness = 5
 script = ExtResource("5_y4r1p")
@@ -48,11 +48,11 @@ text = "Prompt
 horizontal_alignment = 1
 
 [node name="Mano" type="Node3D" parent="Head/Camera3D" unique_id=2147334846]
-transform = Transform3D(-0.9974145, 0, 0.071862996, 0, 1, 0, -0.071862996, 0, -0.9974145, 0.51590705, -0.34819943, -0.580344)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.51590705, -0.34819943, -0.580344)
 script = ExtResource("2_fjrip")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/Mano" unique_id=1950913028]
-transform = Transform3D(-0.99531215, 0, -0.09671455, 0, 1, 0, 0.09671455, 0, -0.99531215, -0.1105178, -0.10935533, 0.64407265)
+transform = Transform3D(-0.99531215, 0, -0.09671463, 0, 1, 0, 0.09671463, 0, -0.99531215, -0.1105178, -0.10935533, 0.64407265)
 layers = 99
 light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
 light_energy = 0.0

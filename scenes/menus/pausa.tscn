@@ -71,7 +71,7 @@ _data = {
 &"blur": SubResource("Animation_hegvj")
 }
 
-[node name="PauseMenu" type="Control"]
+[node name="PauseMenu" type="Control" unique_id=1906026047]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -81,7 +81,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vrcbp")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=279131679]
 material = SubResource("ShaderMaterial_vrcbp")
 layout_mode = 1
 anchors_preset = 15
@@ -90,7 +90,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1265062028]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 303.0
@@ -98,14 +98,14 @@ offset_top = 1.0
 offset_right = 793.0
 offset_bottom = 647.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1100783223]
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="Separador" type="Control" parent="PanelContainer/VBoxContainer"]
+[node name="Separador" type="Control" parent="PanelContainer/VBoxContainer" unique_id=435828563]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=2053511826]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_d1dax")
 theme_override_font_sizes/font_size = 32
@@ -113,33 +113,38 @@ text = "Pausa"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Continuar" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Continuar" type="Button" parent="PanelContainer/VBoxContainer" unique_id=2077530510]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
 text = "Continuar"
 
-[node name="Opciones" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Opciones" type="Button" parent="PanelContainer/VBoxContainer" unique_id=671328136]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
 text = "Opciones"
 
-[node name="Salir" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="Menú principal" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1006613214]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_eqlbv")
 theme_override_font_sizes/font_size = 20
-text = "Salir"
+text = "Menú principal"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_e4n35")
-}
+[node name="Guardar y Salir" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1117933368]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_eqlbv")
+theme_override_font_sizes/font_size = 20
+text = "Guardar y Salir"
 
-[node name="OptionsMenu" parent="." instance=ExtResource("3_1vvwb")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2076695499]
+libraries/ = SubResource("AnimationLibrary_e4n35")
+
+[node name="OptionsMenu" parent="." unique_id=1133896819 instance=ExtResource("3_1vvwb")]
 visible = false
 layout_mode = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Menú principal" to="." method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Guardar y Salir" to="." method="_on_guardar_y_salir_pressed"]

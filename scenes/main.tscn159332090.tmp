@@ -91,7 +91,7 @@ stream = ExtResource("5_og1vs")
 libraries/ = SubResource("AnimationLibrary_muem4")
 
 [node name="Player" parent="." unique_id=1343184284 instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.247938, 2, 28.894945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
 
 [node name="grainy_filter" parent="." unique_id=1383390990 instance=ExtResource("1_jyhfs")]
 

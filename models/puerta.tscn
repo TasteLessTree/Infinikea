@@ -17,7 +17,7 @@ script = ExtResource("1_p0i63")
 [node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="StaticBody3D" unique_id=1051839393 instance=ExtResource("1_hopcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52802217, 0, -0.86208653)
 
-[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1208542986]
+[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=2082442518]
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=976857822]

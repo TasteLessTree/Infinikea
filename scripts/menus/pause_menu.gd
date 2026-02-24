@@ -29,13 +29,18 @@ func _on_opciones_pressed() -> void:
 	options_menu.set_process(true)
 	options_menu.visible = true
 
-# ¿Puede que sea esto?
 func _on_exit_options_menu() -> void:
 	$PanelContainer/VBoxContainer.visible = true
 	$PanelContainer.self_modulate = 100
 	options_menu.visible = false
 
-func _on_salir_pressed() -> void:
+func _on_menu_principal_pressed() -> void:
+	SaveManager.save_game()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func _on_guardar_y_salir_pressed() -> void:
+	SaveManager.save_game()
 	get_tree().quit()
 
 func _process(_delta: float) -> void:

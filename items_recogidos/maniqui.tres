@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource("3_ql170")
-item_name = "Maniqui"
+item_name = "Maniquí"
 icon = ExtResource("1_50rsk")
 mesh_scene = ExtResource("2_50rsk")
 metadata/_custom_type_script = "uid://bq5nmdir3dt6n"

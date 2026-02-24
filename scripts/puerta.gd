@@ -1,6 +1,7 @@
 extends Node3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 var is_open = false
 var can_interact = true
 

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cggmrb5ps56u2"]
+
+[ext_resource type="PackedScene" uid="uid://mjmtlk5oe3bi" path="res://models/cafeteria/store__kitchen_counter_with_trays.glb" id="1_cp0py"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lg5nx"]
+size = Vector3(0.6451416, 0.6843262, 1.2119141)
+
+[node name="Node3D" type="StaticBody3D" unique_id=497585630]
+
+[node name="Sketchfab_Scene" parent="." unique_id=2010340108 instance=ExtResource("1_cp0py")]
+transform = Transform3D(0.3707056, 0, 0, 0, 0.3707056, 0, 0, 0, 0.3707056, -0.05447769, 0, -0.114358425)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1853224023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.039733887, -0.0076904297, -0.10595703)
+shape = SubResource("BoxShape3D_lg5nx")

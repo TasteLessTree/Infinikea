@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://5ttgxuamytal"]
+
+[ext_resource type="PackedScene" uid="uid://dotpfoyfakd5f" path="res://models/shopping_cart.glb" id="1_58u1a"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7lqy"]
+size = Vector3(1.4011841, 1.1590576, 0.75390625)
+
+[node name="Node3D" type="StaticBody3D" unique_id=267372256]
+
+[node name="Sketchfab_Scene" parent="." unique_id=2069700189 instance=ExtResource("1_58u1a")]
+transform = Transform3D(0.028359352, 0, 0, 0, 0.028359352, 0, 0, 0, 0.028359352, -0.0049265623, 0, -0.002266746)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=86212611]
+transform = Transform3D(0.74314475, 0, 0.66913056, 0, 1, 0, -0.66913056, 0, 0.74314475, 0.038391024, 0.61048454, 0.053846017)
+shape = SubResource("BoxShape3D_g7lqy")

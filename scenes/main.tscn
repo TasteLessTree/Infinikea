@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://8aa317gxlf01" path="res://assets/sounds/sfx/ikea_opens.mp3" id="5_og1vs"]
 [ext_resource type="PackedScene" uid="uid://chyjvuomerpn4" path="res://scenes/menus/game_over.tscn" id="7_trceg"]
 [ext_resource type="PackedScene" uid="uid://bcsisshdd4wx0" path="res://scenes/binary/enemy.scn" id="8_a8y0u"]
-[ext_resource type="PackedScene" uid="uid://crdcn1oi5m0r7" path="res://layouts/mapa.tscn" id="16_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://dwftfvb0atrdh" path="res://layouts/mapa_modificado.tscn" id="12_eb6dy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jyhfs"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -91,7 +91,7 @@ stream = ExtResource("5_og1vs")
 libraries/ = SubResource("AnimationLibrary_muem4")
 
 [node name="Player" parent="." unique_id=1343184284 instance=ExtResource("3_tefeu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.247938, 2, 28.894945)
 
 [node name="grainy_filter" parent="." unique_id=1383390990 instance=ExtResource("1_jyhfs")]
 
@@ -112,8 +112,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.216484, 2, 21.998999)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Sol" unique_id=90594203]
 transform = Transform3D(-0.8660254, -0.482963, -0.12940945, 0, -0.25881886, 0.9659259, -0.50000006, 0.8365163, 0.22414371, -60.161522, 33.078, 21.47355)
 shadow_enabled = true
-
-[node name="Mapa" parent="." unique_id=960938120 instance=ExtResource("16_jbj1t")]
 
 [node name="Enemy" parent="." unique_id=1332282568 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(1.3184158, 0, 0, 0, 1.3184158, 0, 0, 0, 1.3184158, 10.429243, 0.6110889, -28.49249)
@@ -142,6 +140,8 @@ player_path = NodePath("../Player")
 [node name="Enemy7" parent="." unique_id=1850278179 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(-1.3184158, 0, -1.1525957e-07, 0, 1.3184158, 0, 1.1525957e-07, 0, -1.3184158, 18.849075, 0.6110889, 5.35143)
 player_path = NodePath("../Player")
+
+[node name="Mapas" parent="." unique_id=1501249641 instance=ExtResource("12_eb6dy")]
 
 [connection signal="player_hit" from="Enemy" to="CLGameOver/GameOver" method="pausar"]
 [connection signal="player_hit" from="Enemy2" to="CLGameOver/GameOver" method="pausar"]

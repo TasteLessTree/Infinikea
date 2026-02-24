@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cirvqatdijwll"]
+
+[ext_resource type="Texture2D" uid="uid://vvuqp1ylxeu3" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_BaseColor.jpg" id="1_5rdum"]
+[ext_resource type="Texture2D" uid="uid://cl0wg64pbupfb" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_AmbientOcclusion.jpg" id="2_b8dva"]
+[ext_resource type="Texture2D" uid="uid://djxt64has665b" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_Metallic.jpg" id="3_7oq6x"]
+[ext_resource type="Texture2D" uid="uid://cwla3k44p2bcc" path="res://material/metal/Poliigon_MetalSteelBrushed_7174_Roughness.jpg" id="5_c70h2"]
+
+[resource]
+albedo_texture = ExtResource("1_5rdum")
+metallic = 1.0
+metallic_texture = ExtResource("3_7oq6x")
+roughness_texture = ExtResource("5_c70h2")
+normal_enabled = true
+ao_enabled = true
+ao_texture = ExtResource("2_b8dva")

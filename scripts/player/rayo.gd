@@ -25,3 +25,6 @@ func _physics_process(_delta):
 
 		if collider.has_method("terminar_partida") and Input.is_action_just_pressed("interactuar"):
 			collider.terminar_partida()
+		
+		if collider.has_method("easter_egg") and Input.is_action_just_pressed("interactuar"):
+			collider.easter_egg()

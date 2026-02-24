@@ -7,6 +7,7 @@ extends CharacterBody3D
 @onready var sfx_attack: AudioStreamPlayer = $sfx_attack
 @onready var raycast_origin: RayCast3D = $RayCast3D
 @onready var timer: Timer = $Timer
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @export var player_path: NodePath
 @export var turn_speed: float = 6.0
@@ -190,6 +191,9 @@ func _process_searching(delta: float) -> void:
 func _process_screaming(delta: float) -> void:
 	_look_towards(player.global_position, delta)
 	velocity = Vector3.ZERO
+
+func easter_egg():
+	audio_stream_player_3d.play()
 
 # Chasing
 func _process_chasing(delta: float) -> void:

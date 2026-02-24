@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://bcrj1f2mnugh8" path="res://scenes/objetos/mesa_test.tscn" id="9_632xr"]
 [ext_resource type="PackedScene" uid="uid://ce7jfupig3v3v" path="res://scenes/player/interactuables.tscn" id="10_tawv3"]
 [ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://items_recogidos/maniqui.tres" id="11_cnmu1"]
-[ext_resource type="PackedScene" uid="uid://cxhtmvqs5fswo" path="res://scenes/objetos/exit_door.tscn" id="11_sdm1p"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://items_recogidos/linterna.tres" id="12_sdm1p"]
 [ext_resource type="Resource" uid="uid://doh0an20gfikb" path="res://items_recogidos/hot_dog.tres" id="13_4yuqp"]
 
@@ -258,9 +257,6 @@ item_data = ExtResource("12_sdm1p")
 [node name="Hot_dog" parent="NavigationRegion3D/Interactuables" unique_id=867307333 instance=ExtResource("10_tawv3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5789788, 0)
 item_data = ExtResource("13_4yuqp")
-
-[node name="Exit Door" parent="NavigationRegion3D" unique_id=2013744247 instance=ExtResource("11_sdm1p")]
-transform = Transform3D(1.5092402, 0, 0, 0, 1.5092402, 0, 0, 0, 1.5092402, -43.34607, 0.42605853, 21.990711)
 
 [node name="Ventanas" type="Node" parent="." unique_id=464273693]
 

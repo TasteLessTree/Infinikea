@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://csvax143d14ic"]
+
+[ext_resource type="FontFile" uid="uid://cp5n84evqiuy2" path="res://assets/fonts/NotoSans-Medium.ttf" id="1_btjy7"]
+[ext_resource type="Script" uid="uid://c8d48d3vugrij" path="res://scripts/cutscenes/ending_cutscene.gd" id="1_dh001"]
+
+[node name="Ending" type="Control" unique_id=825177831]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dh001")
+
+[node name="FadeRect" type="ColorRect" parent="." unique_id=669015316]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 5.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Image" type="TextureRect" parent="." unique_id=833391811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="Background" type="ColorRect" parent="." unique_id=1659049747]
+modulate = Color(1, 1, 1, 0.56)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -281.0
+offset_right = -2.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+
+[node name="Label" type="Label" parent="." unique_id=786056463]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -264.0
+offset_right = -32.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_btjy7")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1754132762]

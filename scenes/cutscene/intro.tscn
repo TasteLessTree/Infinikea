@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cp5n84evqiuy2" path="res://assets/fonts/NotoSans-Medium.ttf" id="2_a08vw"]
 
 [node name="Intro" type="Control" unique_id=631451596]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_l1pkc")

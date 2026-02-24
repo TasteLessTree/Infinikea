@@ -1,6 +1,6 @@
 extends Control
 
-signal intro_cutscene_finished
+signal ending_cutscene_finished
 
 @onready var fade_rect: ColorRect = $FadeRect
 @onready var image: TextureRect = $Image
@@ -28,19 +28,19 @@ func setup_slides() -> void:
 	slides = [
 		{
 			"image": preload("res://assets/cutscenes/images/job_application.png"),
-			"text": "Llevo meses buscando empleo...\nApenas tengo dinero para el alquiler",
+			"text": "¡Por fin!\n\nLlevo 6 años atrapado en este sitio...",
 			"duration": 5.0,
 			"audio": preload("res://assets/cutscenes/audios/typing.mp3")
 		},
 		{
 			"image": preload("res://assets/cutscenes/images/approved.png"),
-			"text": "Estimado candidato:\nNos complace informarle que ha sido seleccionado para el puesto de Auxiliar de Tienda...",
+			"text": "No me lo puedo creer...\nAl fin, la luz del día...",
 			"duration": 4.0,
 			"audio": preload("res://assets/cutscenes/audios/stamp.mp3")
 		},
 		{
 			"image": preload("res://assets/cutscenes/images/warehouse.jpg"),
-			"text": "Este sitio es mucho más grande de lo que esperaba...\nNo he visto ninguna salida...\nParece todo un laberinto... oh no... me he perdido",
+			"text": "Infinikea 2...\n\nComing never!",
 			"duration": 6.0,
 			"audio": preload("res://assets/cutscenes/audios/eerie-atmosphere.mp3")
 		}
@@ -77,6 +77,5 @@ func typing_effect(text: String) -> void:
 		await get_tree().create_timer(0.03).timeout
 
 func end_cutscene() -> void:
-	emit_signal("intro_cutscene_finished")
+	emit_signal("ending_cutscene_finished")
 	queue_free()
-	Inventario.show_inventory()

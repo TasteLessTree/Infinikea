@@ -72,10 +72,11 @@ func mostrar_cinematica() -> void:
 	var cutscene = preload("res://scenes/cutscene/intro.tscn").instantiate()
 	get_tree().root.add_child(cutscene)
 
-	cutscene.cutscene_finished.connect(_on_cutscene_finished)
+	cutscene.intro_cutscene_finished.connect(_on_intro_cutscene_finished)
 
 func handle_signals() -> void:
 	options_menu.exit_option_menu.connect(on_exit_options_menu)
 
-func _on_cutscene_finished() -> void:
+func _on_intro_cutscene_finished() -> void:
+	CicloDiaNoche.set_es_de_noche(false)
 	iniciar_juego()

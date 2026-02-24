@@ -4,7 +4,7 @@ extends Control
 @onready var h_slider: HSlider = $HBoxContainer/HSlider
 @onready var audio_value: Label = $HBoxContainer/Audio_Value
 
-@export_enum("Master", "Music", "Ambient", "Sfx") var bus_name: String
+@export_enum("Master", "Music", "Ambient", "Sfx", "Voice") var bus_name: String
 
 var bus_idx: int = 0
 
@@ -24,6 +24,8 @@ func set_name_label_text() -> void:
 			audio_name.text = "Ambiente"
 		"Sfx":
 			audio_name.text = "Efectos de sonido"
+		"Voice":
+			audio_name.text = "Voces"
 		_:
 			audio_name.text = "Valor desconocido"
 	

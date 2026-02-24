@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://30cd8kq0ae4r" path="res://assets/texturas/textura_puerta/AUTOMATIC_SLIDING_DOOR_MAX.glb" id="1_hopcu"]
 [ext_resource type="Script" uid="uid://dgnjtbtyjes5h" path="res://scripts/puerta.gd" id="1_p0i63"]
-[ext_resource type="AudioStream" uid="uid://cba3deeadr8qc" path="res://assets/sounds/alex_jauk-loud-automatic-door-481756.mp3" id="3_sxiuk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p0i63"]
 size = Vector3(1.6273499, 2.977478, 0.07318115)
@@ -18,7 +17,10 @@ script = ExtResource("1_p0i63")
 [node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="StaticBody3D" unique_id=1051839393 instance=ExtResource("1_hopcu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.52802217, 0, -0.86208653)
 
-[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1078672081]
+[node name="Rectangle04" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 193388937) index="1" unique_id=938633428]
+transform = Transform3D(1, 0, 0, 0, -3.5762787e-07, -0.99999994, 0, 0.99999994, -3.5762787e-07, 43.832222, -13.779519, -2.3622074)
+
+[node name="Plane01" parent="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=2082442518]
 visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=976857822]
@@ -28,8 +30,5 @@ shape = SubResource("BoxShape3D_p0i63")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=23818425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8642137, 1.563446, 0.019592285)
 shape = SubResource("BoxShape3D_sxiuk")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1968712004]
-stream = ExtResource("3_sxiuk")
 
 [editable path="StaticBody3D/AUTOMATIC_SLIDING_DOOR_MAX"]

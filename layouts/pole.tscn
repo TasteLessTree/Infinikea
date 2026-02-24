@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://deflkgporp1s1"]
 
 [ext_resource type="PackedScene" uid="uid://do5pps0gj3ilr" path="res://scenes/objetos/traffic_barrier_pole.glb" id="1_okgp1"]
-[ext_resource type="Script" uid="uid://bfx5oaulksftg" path="res://scripts/pole.gd" id="1_t0n6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0n6k"]
 size = Vector3(61.18386, 14.461319, 1)
 
 [node name="Node3D" type="StaticBody3D" unique_id=40730937]
 transform = Transform3D(0.77370846, 0, 0, 0, 0.77370846, 0, 0, 0, 0.77370846, 0, 0, 0)
-script = ExtResource("1_t0n6k")
 
 [node name="Sketchfab_Scene" parent="." unique_id=237077598 instance=ExtResource("1_okgp1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08538556, 0, 0.1562972)

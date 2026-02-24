@@ -29,7 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://c0al3bdty0jv" path="res://layouts/railes.tscn" id="26_wsb8o"]
 [ext_resource type="PackedScene" uid="uid://dgkm4odkbip38" path="res://scenes/objetos/supermarket_shopping_basket.glb" id="27_v6fg2"]
 [ext_resource type="PackedScene" uid="uid://deflkgporp1s1" path="res://layouts/pole.tscn" id="28_1bdks"]
-[ext_resource type="PackedScene" uid="uid://dj1mif58jpmci" path="res://models/alien.tscn" id="30_v6fg2"]
+[ext_resource type="PackedScene" uid="uid://cb2wco0hy1nh" path="res://scenes/objetos/green_ikea_alien_pbr.glb" id="29_p6jg4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm2yp"]
 albedo_color = Color(1, 0.85490197, 0.101960786, 1)
@@ -132,6 +132,9 @@ transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.32207
 transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.036669, 9.861493, 32.699818)
 
 [node name="Puertas" type="Node3D" parent="Mapa1" unique_id=1070670803]
+
+[node name="Puerta" parent="Mapa1/Puertas" unique_id=2132731247 instance=ExtResource("7_v6fg2")]
+transform = Transform3D(-8.2143984e-08, 0, -1.8792351, 0, 1.8792351, 0, 1.8792351, 0, -8.2143984e-08, -30.716673, 0.52580166, 23.739471)
 
 [node name="Puerta2" parent="Mapa1/Puertas" unique_id=645466031 instance=ExtResource("7_v6fg2")]
 transform = Transform3D(-1.6241906, 0, 1.2467278e-07, 0, 1.4260901, 0, -1.4199126e-07, 0, -1.4260901, -19.359314, 0.4860022, 37.3791)
@@ -1393,6 +1396,9 @@ transform = Transform3D(2.3148487, 0, -2.5866663e-07, 0, 1.383321, 0, 3.8005814e
 [node name="Exit Door" parent="Mapa3/Puertas" unique_id=2013744247 instance=ExtResource("8_xqxua")]
 transform = Transform3D(2.464318e-07, 0, 1.8792351, 0, 1.8792351, 0, -1.8792351, 0, 2.464318e-07, 13.036333, 4.196437, 1.5440216)
 
+[node name="Sketchfab_Scene" parent="Mapa3/Puertas" unique_id=728112735 instance=ExtResource("29_p6jg4")]
+transform = Transform3D(-0.7241718, 0, 0.68961954, 0, 1, 0, -0.68961954, 0, -0.7241718, 11.529705, 1.4869733, -89.865135)
+
 [node name="Mesa" parent="Mapa3" unique_id=1849734700 instance=ExtResource("11_ufccg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -34.716583, 0.79717255, -134.6609)
 
@@ -1886,9 +1892,3 @@ size = Vector3(5, 4.865, 1.14)
 transform = Transform3D(1.4406524, 0, 0, 0, 1.4406524, 0, 0, 0, 1.4406524, -16.281218, 0.5, 52.013218)
 operation = 2
 polygon = PackedVector2Array(-0.24617039, 0.24974805, -0.11158484, 0.5982905, 0.42489225, 0.7302087, 0.73044336, 0.44044322, 0.920818, 0.05908829, 0.47497714, 0.052853644, 0, 0)
-
-[node name="Node3D" parent="." unique_id=867512696 instance=ExtResource("30_v6fg2")]
-transform = Transform3D(0.4551564, 0, -0.8904115, 0, 1, 0, 0.8904115, 0, 0.4551564, -30.902782, 1.4785073, 13.679)
-
-[node name="Puerta" parent="." unique_id=2132731247 instance=ExtResource("7_v6fg2")]
-transform = Transform3D(-8.2143984e-08, 0, -1.8792351, 0, 1.8792351, 0, 1.8792351, 0, -8.2143984e-08, -30.716673, 0.52580166, 23.739471)

@@ -189,7 +189,7 @@ wander_radius = 5.5
 [node name="Enemy8" parent="NavigationRegion3D" unique_id=1520899796 instance=ExtResource("8_a8y0u")]
 transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 19.122152, 0.7350912, -43.83572)
 player_path = NodePath("../../Player")
-detection_range = 14.299999999999999
+detection_range = 14.3
 scream_range = 8.4
 wander_radius = 15.5
 

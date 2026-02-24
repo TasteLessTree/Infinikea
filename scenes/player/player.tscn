@@ -23,7 +23,6 @@ metadata/_edit_group_ = true
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=630397698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.658, 0)
-current = true
 
 [node name="Vision" type="RayCast3D" parent="Head/Camera3D" unique_id=944127831]
 transform = Transform3D(1.0165013, 0, 0, 0, 0.99555933, 0.053015474, 0, -0.12559189, 0.42025045, 0, 0, -0.23164225)

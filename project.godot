@@ -21,6 +21,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://mc1jtvpp64kn"
 config/icon="uid://mc1jtvpp64kn"
 
+[audio]
+
+buses/default_bus_layout="uid://cliur5nkn5qai"
+
 [autoload]
 
 Inventario="*uid://1e6j51g5jhrn"

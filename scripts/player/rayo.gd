@@ -30,5 +30,5 @@ func _physics_process(_delta):
 			collider.terminar_partida()
 		
 		if collider.has_method("salida"):
-			prompt.text = "Aun no puedo salir.\nTengo que trabajar."
+			prompt.text = "Aún no puedo salir.\nTengo trabajo que hacer."
 			

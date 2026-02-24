@@ -135,4 +135,179 @@ navigation_mesh = SubResource("NavigationMesh_eb6dy")
 transform = Transform3D(1.6513768e-08, 0, -1.3848162, 0, 1.3848162, 0, 1.3848162, 0, 1.6513768e-08, -23.307808, 0.7350912, 22.804922)
 player_path = NodePath("../../Player")
 
+[node name="Enemy2" parent="NavigationRegion3D" unique_id=1286088611 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.5993451, 0, 0, 0, 1.5993451, 0, 0, 0, 1.5993451, -14.678151, 0.7350912, -25.356346)
+player_path = NodePath("../../Player")
+walking_speed = 3.1
+running_speed = 5.6
+detection_range = 13.0
+scream_range = 11.4
+wander_radius = 20.0
+
+[node name="Enemy3" parent="NavigationRegion3D" unique_id=1117016745 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-5.635227e-08, 0, -1.2891897, 0, 1.2891897, 0, 1.2891897, 0, -5.635227e-08, 5.3927746, 0.7350912, -17.453682)
+player_path = NodePath("../../Player")
+walking_speed = 1.1
+running_speed = 9.7
+detection_range = 7.6
+scream_range = 9.2
+wander_radius = 21.5
+
+[node name="Enemy4" parent="NavigationRegion3D" unique_id=42050007 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 3.914487, 0.7350912, -0.08581209)
+player_path = NodePath("../../Player")
+walking_speed = 1.5
+running_speed = 6.3
+detection_range = 14.6
+scream_range = 14.6
+attack_range = 2.1
+wander_radius = 20.5
+
+[node name="Enemy5" parent="NavigationRegion3D" unique_id=2136958761 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 24.174538, 0.7350912, 4.675781)
+player_path = NodePath("../../Player")
+walking_speed = 3.1
+detection_range = 13.2
+scream_range = 10.0
+attack_range = 2.1
+wander_radius = 14.5
+
+[node name="Enemy6" parent="NavigationRegion3D" unique_id=148793240 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, 4.603558, 0.7350912, -34.253906)
+player_path = NodePath("../../Player")
+walking_speed = 3.2
+running_speed = 6.3
+detection_range = 7.0
+scream_range = 11.0
+wander_radius = 25.5
+
+[node name="Enemy7" parent="NavigationRegion3D" unique_id=1094520369 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, 9.018315, 0.7350912, -25.67879)
+player_path = NodePath("../../Player")
+wander_radius = 5.5
+
+[node name="Enemy8" parent="NavigationRegion3D" unique_id=1520899796 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 19.122152, 0.7350912, -43.83572)
+player_path = NodePath("../../Player")
+detection_range = 14.299999999999999
+scream_range = 8.4
+wander_radius = 15.5
+
+[node name="Enemy9" parent="NavigationRegion3D" unique_id=534329769 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 34.00609, 0.7350912, -60.468384)
+player_path = NodePath("../../Player")
+running_speed = 9.7
+detection_range = 14.1
+scream_range = 9.7
+wander_radius = 15.0
+
+[node name="Enemy10" parent="NavigationRegion3D" unique_id=1184608501 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-1.3848162, 0, -1.2106447e-07, 0, 1.3848162, 0, 1.2106447e-07, 0, -1.3848162, 32.89442, 0.7350912, -86.381485)
+player_path = NodePath("../../Player")
+running_speed = 8.7
+detection_range = 9.9
+scream_range = 7.0
+attack_range = 2.1
+wander_radius = 12.5
+
+[node name="Enemy11" parent="NavigationRegion3D" unique_id=761749376 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-6.053224e-08, 0, 1.3848162, 0, 1.3848162, 0, -1.3848162, 0, -6.053224e-08, 40.65206, 0.7350912, -90.3472)
+player_path = NodePath("../../Player")
+detection_range = 10.4
+wander_radius = 13.0
+
+[node name="Enemy12" parent="NavigationRegion3D" unique_id=738384162 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(-6.053224e-08, 0, 1.3848162, 0, 1.3848162, 0, -1.3848162, 0, -6.053224e-08, 40.65206, 0.7350912, -104.784096)
+player_path = NodePath("../../Player")
+detection_range = 13.4
+scream_range = 8.0
+attack_range = 2.0
+wander_radius = 12.0
+
+[node name="Enemy13" parent="NavigationRegion3D" unique_id=985960450 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, 24.162182, 0.7350912, -104.784096)
+player_path = NodePath("../../Player")
+scream_range = 10.6
+attack_range = 2.1
+wander_radius = 15.5
+
+[node name="Enemy14" parent="NavigationRegion3D" unique_id=862262990 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -3.3967495, 0.7350912, -122.894844)
+player_path = NodePath("../../Player")
+detection_range = 8.299999999999999
+scream_range = 9.5
+wander_radius = 11.5
+
+[node name="Enemy15" parent="NavigationRegion3D" unique_id=593664308 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -15.187223, 0.7350912, -107.219444)
+player_path = NodePath("../../Player")
+detection_range = 8.0
+scream_range = 6.5
+attack_range = 1.6
+wander_radius = 10.5
+
+[node name="Enemy16" parent="NavigationRegion3D" unique_id=1720470156 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -2.1818686, 0.7350912, -80.34565)
+player_path = NodePath("../../Player")
+
+[node name="Enemy17" parent="NavigationRegion3D" unique_id=2084670226 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -23.610184, 0.7350912, -80.34565)
+player_path = NodePath("../../Player")
+
+[node name="Enemy18" parent="NavigationRegion3D" unique_id=1890928540 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -20.879175, 0.7350912, -80.34565)
+player_path = NodePath("../../Player")
+
+[node name="Enemy19" parent="NavigationRegion3D" unique_id=690626580 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -46.340744, 0.7350912, -64.33825)
+player_path = NodePath("../../Player")
+
+[node name="Enemy20" parent="NavigationRegion3D" unique_id=1054226569 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -31.296507, 0.7350912, -49.775845)
+player_path = NodePath("../../Player")
+
+[node name="Enemy21" parent="NavigationRegion3D" unique_id=1413785862 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -5.7877555, 0.7350912, -63.281227)
+player_path = NodePath("../../Player")
+
+[node name="Enemy22" parent="NavigationRegion3D" unique_id=1359919326 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -5.7877555, 0.7350912, -48.556206)
+player_path = NodePath("../../Player")
+
+[node name="Enemy23" parent="NavigationRegion3D" unique_id=1603706208 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.3848162, 0, 0, 0, 1.3848162, 0, 0, 0, 1.3848162, -0.1631875, 0.7350912, -101.177055)
+player_path = NodePath("../../Player")
+
+[node name="Enemy24" parent="NavigationRegion3D" unique_id=1195678879 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.5993451, 0, 0, 0, 1.5993451, 0, 0, 0, 1.5993451, -5.819051, 0.7350912, -3.9723763)
+player_path = NodePath("../../Player")
+
+[node name="Enemy25" parent="NavigationRegion3D" unique_id=1030822524 instance=ExtResource("8_a8y0u")]
+transform = Transform3D(1.5993451, 0, 0, 0, 1.5993451, 0, 0, 0, 1.5993451, 3.1150274, 0.7350912, 25.3221)
+player_path = NodePath("../../Player")
+
 [connection signal="player_hit" from="NavigationRegion3D/Enemy" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy2" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy3" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy4" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy5" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy6" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy7" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy8" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy9" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy10" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy11" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy12" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy13" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy14" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy15" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy16" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy17" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy18" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy19" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy20" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy21" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy22" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy23" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy24" to="CLGameOver/GameOver" method="pausar"]
+[connection signal="player_hit" from="NavigationRegion3D/Enemy25" to="CLGameOver/GameOver" method="pausar"]

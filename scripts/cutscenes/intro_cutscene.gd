@@ -17,6 +17,7 @@ const AMBIENT_DUCKED_DB: float = -12.0
 const DUCK_TIME: float = 0.5
 
 func _ready() -> void:
+	get_tree().paused = true
 	Inventario.hide_inventory()
 	setup_slides()
 	await get_tree().create_timer(1.0).timeout
@@ -80,6 +81,13 @@ func play_slide(idx: int) -> void:
 
 	await typing_effect(slide["text"])
 
+	if slide.has("voice") and slide["voice"] and audio_voices.playing:
+		await audio_voices.finished
+
+	await get_tree().create_timer(0.5).timeout
+	if not is_skipping:
+		play_slide(idx + 1)
+
 func typing_effect(text: String) -> void:
 	label.text = ""
 	for i in text.length():
@@ -93,6 +101,7 @@ func end_cutscene() -> void:
 	emit_signal("intro_cutscene_finished")
 	queue_free()
 	Inventario.show_inventory()
+	get_tree().paused = false
 
 func duck_ambient(enabled: bool) -> void:
 	var target_db = AMBIENT_DUCKED_DB if enabled else AMBIENT_NORMAL_DB
@@ -102,8 +111,3 @@ func duck_ambient(enabled: bool) -> void:
 
 func _on_voice_finished() -> void:
 	duck_ambient(false)
-
-	await get_tree().create_timer(0.5).timeout
-
-	if not is_skipping:
-		play_slide(current_slide + 1)

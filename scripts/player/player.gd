@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody3D
 
+@onready var timer: Label = $Head/Camera3D/Vision/Timer
+
 @onready var camara = $Head/Camera3D
 @onready var head = $Head
 @onready var linterna = $Head/Camera3D/Mano/SpotLight3D
@@ -67,7 +69,17 @@ func crouch():
 		else:
 			$CollisionShape3D.shape.height = stand_height
 
+func round_to_dec(num, decimals) -> float:
+	return round(num * pow(10.0, decimals)) / pow(10.0, decimals)
+
+func update_timer(delta: float) -> void:
+	var actual = float(timer.text)
+	var nuevo = actual + round_to_dec(delta, 2)
+	timer.text = str(nuevo)
+
 func _physics_process(delta):
+	# Actualizar temporizador
+	update_timer(delta)
 	crouch()
 	
 	ray_scanning(delta)
@@ -159,7 +171,7 @@ func ray_scanning(_delta):
 
 func _process(_delta):
 	var cam_pitch = rad_to_deg(camara.rotation.x)
-	var clamped_pitch = clamp(cam_pitch,-flashlight_pitch_down, flashlight_pitch_up)
+	var clamped_pitch = clamp(cam_pitch, -flashlight_pitch_down, flashlight_pitch_up)
 	
 	$Head/Camera3D/Mano.rotation.x = -deg_to_rad(clamped_pitch)
 	

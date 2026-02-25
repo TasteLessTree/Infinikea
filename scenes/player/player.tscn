@@ -46,6 +46,10 @@ text = "Prompt
 [E]"
 horizontal_alignment = 1
 
+[node name="Timer" type="Label" parent="Head/Camera3D/Vision" unique_id=1916820000]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Mano" type="Node3D" parent="Head/Camera3D" unique_id=2147334846]
 transform = Transform3D(-0.98713624, 0, -0.15988119, 0, 1, 0, 0.15988119, 0, -0.98713624, 0.51590705, -0.34819943, -0.580344)
 script = ExtResource("2_fjrip")

@@ -64,7 +64,7 @@ func play_slide(idx: int) -> void:
 	label.text = ""
 	image.texture = slide["image"] # slide es un diccionario
 
-	# Ambiente
+# Ambiente
 	if slide.has("audio") and slide["audio"]:
 		audio_ambient.stream = slide["audio"]
 		audio_ambient.volume_db = AMBIENT_NORMAL_DB
@@ -78,7 +78,15 @@ func play_slide(idx: int) -> void:
 		duck_ambient(true)
 
 		audio_voices.finished.connect(_on_voice_finished, CONNECT_ONE_SHOT)
+
 	await typing_effect(slide["text"])
+
+	if slide.has("voice") and slide["voice"] and audio_voices.playing:
+		await audio_voices.finished
+
+	await get_tree().create_timer(0.5).timeout
+	if not is_skipping:
+		play_slide(idx + 1)
 
 	# Duración, si la hubiese
 	if slide.has("duration"):
@@ -97,6 +105,7 @@ func typing_effect(text: String) -> void:
 
 func end_cutscene() -> void:
 	emit_signal("ending_cutscene_finished")
+	get_tree().paused = false
 	queue_free()
 
 func duck_ambient(enabled: bool) -> void:
@@ -107,8 +116,3 @@ func duck_ambient(enabled: bool) -> void:
 
 func _on_voice_finished() -> void:
 	duck_ambient(false)
-
-	await get_tree().create_timer(0.5).timeout
-
-	if not is_skipping:
-		play_slide(current_slide + 1)

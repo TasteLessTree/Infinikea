@@ -47,6 +47,7 @@ text = "Prompt
 horizontal_alignment = 1
 
 [node name="Timer" type="Label" parent="Head/Camera3D/Vision" unique_id=1916820000]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
 

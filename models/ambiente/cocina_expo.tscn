@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b3xsgt4dgnsrb"]
+
+[ext_resource type="PackedScene" uid="uid://btrbnkto0b3t" path="res://models/ambiente/uploads_files_6701952_kitchen004.glb" id="1_rl6p7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wphtu"]
+size = Vector3(0.8076172, 0.8745117, 2.7600174)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qv1em"]
+size = Vector3(2.1846313, 2.9821472, 0.27868652)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b37sj"]
+size = Vector3(0.65527344, 2.7231445, 4.629669)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1337637227]
+
+[node name="uploads_files_6701952_kitchen004" parent="." unique_id=1797742633 instance=ExtResource("1_rl6p7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.044277906, 0, -0.10103011)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=791245027]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8699665, 0.47542888, 0.83763504)
+shape = SubResource("BoxShape3D_wphtu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=722414170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06112671, 1.4257764, 3.815136)
+shape = SubResource("BoxShape3D_qv1em")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=233538751]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7847171, 1.5420194, 1.5206757)
+shape = SubResource("BoxShape3D_b37sj")

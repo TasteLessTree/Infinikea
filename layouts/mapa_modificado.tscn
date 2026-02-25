@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dwftfvb0atrdh"]
 
 [ext_resource type="PackedScene" uid="uid://dqmorwf2flrxs" path="res://scenes/objetos/cocina.tscn" id="2_qm2yp"]
-[ext_resource type="PackedScene" uid="uid://batsj131mbfm4" path="res://models/window.tscn" id="3_xqxua"]
+[ext_resource type="PackedScene" uid="uid://batsj131mbfm4" path="res://models/ambiente/window.tscn" id="3_xqxua"]
 [ext_resource type="PackedScene" uid="uid://drkky6yafa1yc" path="res://scenes/objetos/ceiling_light.tscn" id="4_wsb8o"]
-[ext_resource type="PackedScene" uid="uid://b0or21hyw1xkf" path="res://soda_dispenser.tscn" id="5_1bdks"]
-[ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ikea_logo.glb" id="6_p6jg4"]
-[ext_resource type="PackedScene" uid="uid://ch2g4ubfjyoln" path="res://material/shaders/puerta_objeto.tscn" id="7_v6fg2"]
+[ext_resource type="PackedScene" uid="uid://b0or21hyw1xkf" path="res://models/cafeteria/soda_dispenser.tscn" id="5_1bdks"]
+[ext_resource type="PackedScene" uid="uid://dv0yh0y7ifl4y" path="res://models/ambiente/ikea_logo.glb" id="6_p6jg4"]
+[ext_resource type="PackedScene" uid="uid://ch2g4ubfjyoln" path="res://models/ambiente/puerta_objeto.tscn" id="7_v6fg2"]
 [ext_resource type="Material" uid="uid://chb1jtt8c5a0m" path="res://material/pared.tres" id="8_36oek"]
-[ext_resource type="PackedScene" uid="uid://dfc5rvu3lleo3" path="res://models/puerta.tscn" id="8_qm2yp"]
+[ext_resource type="PackedScene" uid="uid://dfc5rvu3lleo3" path="res://models/ambiente/puerta.tscn" id="8_qm2yp"]
 [ext_resource type="PackedScene" uid="uid://cxhtmvqs5fswo" path="res://scenes/objetos/exit_door.tscn" id="8_xqxua"]
 [ext_resource type="Material" uid="uid://j5yuxudqkawe" path="res://material/suelo_madera.tres" id="9_l75da"]
 [ext_resource type="Texture2D" uid="uid://3k3yfahtr6we" path="res://assets/texturas/textura_suelo_madera/Poliigon_WoodFloorAsh_4186_AmbientOcclusion.jpg" id="10_losum"]
@@ -16,20 +16,21 @@
 [ext_resource type="Resource" uid="uid://6gew5n1ibfxf" path="res://items_recogidos/maniqui.tres" id="13_0hht4"]
 [ext_resource type="Resource" uid="uid://bmwu8ahun77kv" path="res://items_recogidos/linterna.tres" id="14_egb4b"]
 [ext_resource type="Resource" uid="uid://doh0an20gfikb" path="res://items_recogidos/hot_dog.tres" id="15_n8y6h"]
-[ext_resource type="PackedScene" uid="uid://bs8fe15i7guqa" path="res://kitchen_lowpoly.tscn" id="16_s8r08"]
-[ext_resource type="PackedScene" uid="uid://cnnjqjmsnqkoq" path="res://living_room.tscn" id="17_e25od"]
-[ext_resource type="PackedScene" uid="uid://ctwkn4f48cqoh" path="res://counter.tscn" id="18_r2in4"]
+[ext_resource type="PackedScene" uid="uid://bs8fe15i7guqa" path="res://models/ambiente/kitchen_lowpoly.tscn" id="16_s8r08"]
+[ext_resource type="PackedScene" uid="uid://cnnjqjmsnqkoq" path="res://models/ambiente/living_room.tscn" id="17_e25od"]
+[ext_resource type="PackedScene" uid="uid://ctwkn4f48cqoh" path="res://models/cafeteria/counter.tscn" id="18_r2in4"]
 [ext_resource type="PackedScene" uid="uid://ekiilutgkok1" path="res://scenes/objetos/parking_lot.glb" id="18_wsb8o"]
-[ext_resource type="PackedScene" uid="uid://cgh54vqaecbrf" path="res://cafeteria_seats.tscn" id="19_kaemq"]
+[ext_resource type="PackedScene" uid="uid://cgh54vqaecbrf" path="res://models/cafeteria/cafeteria_seats.tscn" id="19_kaemq"]
 [ext_resource type="PackedScene" uid="uid://cggmrb5ps56u2" path="res://models/cafeteria/tray_counter.tscn" id="20_nnbqu"]
 [ext_resource type="PackedScene" uid="uid://bxef87ugmensh" path="res://models/cafeteria/food_pack.glb" id="21_d4mx8"]
 [ext_resource type="PackedScene" uid="uid://xda1fuajopwm" path="res://models/cafeteria/ikea__restaurant_tray.glb" id="22_nlx6d"]
-[ext_resource type="PackedScene" uid="uid://b77gpjwser4k5" path="res://models/cashier.tscn" id="23_yo25i"]
-[ext_resource type="PackedScene" uid="uid://5ttgxuamytal" path="res://models/carrito.tscn" id="24_edsqj"]
+[ext_resource type="PackedScene" uid="uid://b77gpjwser4k5" path="res://models/ambiente/cashier.tscn" id="23_yo25i"]
+[ext_resource type="PackedScene" uid="uid://5ttgxuamytal" path="res://models/ambiente/carrito.tscn" id="24_edsqj"]
 [ext_resource type="PackedScene" uid="uid://c0al3bdty0jv" path="res://layouts/railes.tscn" id="26_wsb8o"]
 [ext_resource type="PackedScene" uid="uid://dgkm4odkbip38" path="res://scenes/objetos/supermarket_shopping_basket.glb" id="27_v6fg2"]
 [ext_resource type="PackedScene" uid="uid://deflkgporp1s1" path="res://layouts/pole.tscn" id="28_1bdks"]
-[ext_resource type="PackedScene" uid="uid://dj1mif58jpmci" path="res://models/alien.tscn" id="30_v6fg2"]
+[ext_resource type="PackedScene" uid="uid://b3xsgt4dgnsrb" path="res://models/ambiente/cocina_expo.tscn" id="30_36oek"]
+[ext_resource type="PackedScene" uid="uid://dj1mif58jpmci" path="res://models/alien/alien.tscn" id="30_v6fg2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm2yp"]
 albedo_color = Color(1, 0.85490197, 0.101960786, 1)
@@ -125,10 +126,10 @@ transform = Transform3D(1.1167864, 0, 0, 0, 1.1167864, 0, 0, 0, 1.1167864, 7.031
 
 [node name="Logo" type="Node3D" parent="Mapa1" unique_id=43228236]
 
-[node name="ikea_logo" parent="Mapa1/Logo" unique_id=564681394 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo" parent="Mapa1/Logo" unique_id=467313377 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.322077, 0, -8.4459464e-07, -30.789307, 9.339205, 13.115564)
 
-[node name="ikea_logo2" parent="Mapa1/Logo" unique_id=1037234399 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo2" parent="Mapa1/Logo" unique_id=1918957110 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.036669, 9.861493, 32.699818)
 
 [node name="Puertas" type="Node3D" parent="Mapa1" unique_id=1070670803]
@@ -413,10 +414,10 @@ transform = Transform3D(1.1797429, 0, 0, 0, 1.1797429, 0, 0, 0, 1.1797429, 8.207
 [node name="Node3D3" parent="Mapa1/Cafeteria" unique_id=1146559772 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 30.538185, 0.5000005, -28.252613)
 
-[node name="Node3D4" parent="Mapa1/Cafeteria" unique_id=1839193094 instance=ExtResource("19_kaemq")]
+[node name="Node3D4" parent="Mapa1/Cafeteria" unique_id=477190669 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 24.873352, 0.5000005, -26.446802)
 
-[node name="Node3D5" parent="Mapa1/Cafeteria" unique_id=970398970 instance=ExtResource("19_kaemq")]
+[node name="Node3D5" parent="Mapa1/Cafeteria" unique_id=310628525 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 19.753742, 0.5000005, -28.235893)
 
 [node name="Node3D" parent="Mapa1/Cafeteria" unique_id=497585630 instance=ExtResource("20_nnbqu")]
@@ -436,37 +437,37 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.43
 [node name="Node3D7" parent="Mapa1/Cajas" unique_id=1435947834 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 22.08039)
 
-[node name="Node3D8" parent="Mapa1/Cajas" unique_id=1354996551 instance=ExtResource("23_yo25i")]
+[node name="Node3D8" parent="Mapa1/Cajas" unique_id=827088141 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 22.08039)
 
-[node name="Node3D9" parent="Mapa1/Cajas" unique_id=1757985451 instance=ExtResource("23_yo25i")]
+[node name="Node3D9" parent="Mapa1/Cajas" unique_id=2100751811 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 22.08039)
 
-[node name="Node3D" parent="Mapa1/Cajas" unique_id=935346562 instance=ExtResource("23_yo25i")]
+[node name="Node3D" parent="Mapa1/Cajas" unique_id=737313843 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 33.890648)
 
-[node name="Node3D2" parent="Mapa1/Cajas" unique_id=1392764819 instance=ExtResource("23_yo25i")]
+[node name="Node3D2" parent="Mapa1/Cajas" unique_id=994849404 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 33.890648)
 
-[node name="Node3D3" parent="Mapa1/Cajas" unique_id=137635101 instance=ExtResource("23_yo25i")]
+[node name="Node3D3" parent="Mapa1/Cajas" unique_id=1948213499 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 33.890648)
 
-[node name="Node3D4" parent="Mapa1/Cajas" unique_id=1910924195 instance=ExtResource("23_yo25i")]
+[node name="Node3D4" parent="Mapa1/Cajas" unique_id=186731517 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 27.80066)
 
-[node name="Node3D5" parent="Mapa1/Cajas" unique_id=1755279199 instance=ExtResource("23_yo25i")]
+[node name="Node3D5" parent="Mapa1/Cajas" unique_id=1669668601 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 27.80066)
 
-[node name="Node3D6" parent="Mapa1/Cajas" unique_id=834356982 instance=ExtResource("23_yo25i")]
+[node name="Node3D6" parent="Mapa1/Cajas" unique_id=1412722431 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 27.80066)
 
-[node name="Node3D10" parent="Mapa1/Cajas" unique_id=1691295 instance=ExtResource("23_yo25i")]
+[node name="Node3D10" parent="Mapa1/Cajas" unique_id=1539637607 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 16.212765)
 
-[node name="Node3D11" parent="Mapa1/Cajas" unique_id=1579521188 instance=ExtResource("23_yo25i")]
+[node name="Node3D11" parent="Mapa1/Cajas" unique_id=840677308 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 16.212765)
 
-[node name="Node3D12" parent="Mapa1/Cajas" unique_id=338488697 instance=ExtResource("23_yo25i")]
+[node name="Node3D12" parent="Mapa1/Cajas" unique_id=1741034251 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 16.212765)
 
 [node name="Carritos" type="Node3D" parent="Mapa1" unique_id=1087477835]
@@ -794,10 +795,10 @@ transform = Transform3D(1.1167864, 0, 0, 0, 1.1167864, 0, 0, 0, 1.1167864, 7.031
 
 [node name="Logo" type="Node3D" parent="Mapa2" unique_id=826456998]
 
-[node name="ikea_logo" parent="Mapa2/Logo" unique_id=1938764269 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo" parent="Mapa2/Logo" unique_id=1596663742 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.322077, 0, -8.4459464e-07, -30.789307, 9.339205, 13.115564)
 
-[node name="ikea_logo2" parent="Mapa2/Logo" unique_id=41461020 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo2" parent="Mapa2/Logo" unique_id=1741327916 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.036669, 9.861493, 32.699818)
 
 [node name="Puertas" type="Node3D" parent="Mapa2" unique_id=2042734122]
@@ -841,13 +842,13 @@ transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 10.7
 [node name="Node3D11" parent="Mapa2/Cafeteria" unique_id=545675688 instance=ExtResource("18_r2in4")]
 transform = Transform3D(1.1797429, 0, 0, 0, 1.1797429, 0, 0, 0, 1.1797429, 8.2078, 0.45376605, -35.78153)
 
-[node name="Node3D3" parent="Mapa2/Cafeteria" unique_id=578921164 instance=ExtResource("19_kaemq")]
+[node name="Node3D3" parent="Mapa2/Cafeteria" unique_id=1914173872 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 30.538185, 0.5000005, -28.252613)
 
-[node name="Node3D4" parent="Mapa2/Cafeteria" unique_id=1149526650 instance=ExtResource("19_kaemq")]
+[node name="Node3D4" parent="Mapa2/Cafeteria" unique_id=1269007513 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 24.873352, 0.5000005, -26.446802)
 
-[node name="Node3D5" parent="Mapa2/Cafeteria" unique_id=1909927613 instance=ExtResource("19_kaemq")]
+[node name="Node3D5" parent="Mapa2/Cafeteria" unique_id=1221076621 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 19.753742, 0.5000005, -28.235893)
 
 [node name="Node3D" parent="Mapa2/Cafeteria" unique_id=1462850317 instance=ExtResource("20_nnbqu")]
@@ -864,40 +865,40 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.43
 
 [node name="Cajas" type="Node3D" parent="Mapa2" unique_id=1493521677]
 
-[node name="Node3D7" parent="Mapa2/Cajas" unique_id=2025086387 instance=ExtResource("23_yo25i")]
+[node name="Node3D7" parent="Mapa2/Cajas" unique_id=1562312045 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 22.08039)
 
-[node name="Node3D8" parent="Mapa2/Cajas" unique_id=1774732268 instance=ExtResource("23_yo25i")]
+[node name="Node3D8" parent="Mapa2/Cajas" unique_id=1937610564 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 22.08039)
 
-[node name="Node3D9" parent="Mapa2/Cajas" unique_id=545979440 instance=ExtResource("23_yo25i")]
+[node name="Node3D9" parent="Mapa2/Cajas" unique_id=808695921 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 22.08039)
 
-[node name="Node3D" parent="Mapa2/Cajas" unique_id=1386278142 instance=ExtResource("23_yo25i")]
+[node name="Node3D" parent="Mapa2/Cajas" unique_id=1606111920 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 33.890648)
 
-[node name="Node3D2" parent="Mapa2/Cajas" unique_id=487081811 instance=ExtResource("23_yo25i")]
+[node name="Node3D2" parent="Mapa2/Cajas" unique_id=766501096 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 33.890648)
 
-[node name="Node3D3" parent="Mapa2/Cajas" unique_id=954404557 instance=ExtResource("23_yo25i")]
+[node name="Node3D3" parent="Mapa2/Cajas" unique_id=1255504968 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 33.890648)
 
-[node name="Node3D4" parent="Mapa2/Cajas" unique_id=1413333924 instance=ExtResource("23_yo25i")]
+[node name="Node3D4" parent="Mapa2/Cajas" unique_id=855936691 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 27.80066)
 
-[node name="Node3D5" parent="Mapa2/Cajas" unique_id=1422977048 instance=ExtResource("23_yo25i")]
+[node name="Node3D5" parent="Mapa2/Cajas" unique_id=276678752 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 27.80066)
 
-[node name="Node3D6" parent="Mapa2/Cajas" unique_id=1209866795 instance=ExtResource("23_yo25i")]
+[node name="Node3D6" parent="Mapa2/Cajas" unique_id=1583053867 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 27.80066)
 
-[node name="Node3D10" parent="Mapa2/Cajas" unique_id=1473809239 instance=ExtResource("23_yo25i")]
+[node name="Node3D10" parent="Mapa2/Cajas" unique_id=2018409820 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 16.212765)
 
-[node name="Node3D11" parent="Mapa2/Cajas" unique_id=1847549073 instance=ExtResource("23_yo25i")]
+[node name="Node3D11" parent="Mapa2/Cajas" unique_id=1649220932 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 16.212765)
 
-[node name="Node3D12" parent="Mapa2/Cajas" unique_id=1594454203 instance=ExtResource("23_yo25i")]
+[node name="Node3D12" parent="Mapa2/Cajas" unique_id=3874277 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 16.212765)
 
 [node name="Carritos" type="Node3D" parent="Mapa2" unique_id=1866397939]
@@ -1378,10 +1379,10 @@ transform = Transform3D(1.1167864, 0, 0, 0, 1.1167864, 0, 0, 0, 1.1167864, 7.031
 [node name="Logo" type="Node3D" parent="Mapa3" unique_id=1392074832]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.632765, 0, -177.75824)
 
-[node name="ikea_logo" parent="Mapa3/Logo" unique_id=1286312580 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo" parent="Mapa3/Logo" unique_id=674518919 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-8.4459464e-07, 0, -19.322077, 0, 19.322077, 0, 19.322077, 0, -8.4459464e-07, -30.789307, 9.339205, 13.115564)
 
-[node name="ikea_logo2" parent="Mapa3/Logo" unique_id=186899968 instance=ExtResource("6_p6jg4")]
+[node name="ikea_logo2" parent="Mapa3/Logo" unique_id=1130855257 instance=ExtResource("6_p6jg4")]
 transform = Transform3D(-7.5372924e-07, 0, 17.243315, 0, 17.243315, 0, -17.243315, 0, -7.5372924e-07, -30.036669, 9.861493, 32.699818)
 
 [node name="Puertas" type="Node3D" parent="Mapa3" unique_id=1501790719]
@@ -1425,13 +1426,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.632765, 0, -177.75824)
 [node name="Node3D11" parent="Mapa3/Cafeteria" unique_id=223355521 instance=ExtResource("18_r2in4")]
 transform = Transform3D(1.1797429, 0, 0, 0, 1.1797429, 0, 0, 0, 1.1797429, 8.2078, 0.45376605, -35.78153)
 
-[node name="Node3D3" parent="Mapa3/Cafeteria" unique_id=139881372 instance=ExtResource("19_kaemq")]
+[node name="Node3D3" parent="Mapa3/Cafeteria" unique_id=510174556 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 30.538185, 0.5000005, -28.252613)
 
-[node name="Node3D4" parent="Mapa3/Cafeteria" unique_id=1777925589 instance=ExtResource("19_kaemq")]
+[node name="Node3D4" parent="Mapa3/Cafeteria" unique_id=1977880165 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 24.873352, 0.5000005, -26.446802)
 
-[node name="Node3D5" parent="Mapa3/Cafeteria" unique_id=2106606542 instance=ExtResource("19_kaemq")]
+[node name="Node3D5" parent="Mapa3/Cafeteria" unique_id=1946522113 instance=ExtResource("19_kaemq")]
 transform = Transform3D(-8.757172e-08, 0, 2.0034075, 0, 2.0034075, 0, -2.0034075, 0, -8.757172e-08, 19.753742, 0.5000005, -28.235893)
 
 [node name="Node3D" parent="Mapa3/Cafeteria" unique_id=991550566 instance=ExtResource("20_nnbqu")]
@@ -1449,40 +1450,40 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.43
 [node name="Cajas" type="Node3D" parent="Mapa3" unique_id=325651065]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.632765, 0, -177.75824)
 
-[node name="Node3D7" parent="Mapa3/Cajas" unique_id=619109579 instance=ExtResource("23_yo25i")]
+[node name="Node3D7" parent="Mapa3/Cajas" unique_id=390136960 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 22.08039)
 
-[node name="Node3D8" parent="Mapa3/Cajas" unique_id=2043803582 instance=ExtResource("23_yo25i")]
+[node name="Node3D8" parent="Mapa3/Cajas" unique_id=1669164200 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 22.08039)
 
-[node name="Node3D9" parent="Mapa3/Cajas" unique_id=990145165 instance=ExtResource("23_yo25i")]
+[node name="Node3D9" parent="Mapa3/Cajas" unique_id=2050231023 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 22.08039)
 
-[node name="Node3D" parent="Mapa3/Cajas" unique_id=967017153 instance=ExtResource("23_yo25i")]
+[node name="Node3D" parent="Mapa3/Cajas" unique_id=1553417017 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 33.890648)
 
-[node name="Node3D2" parent="Mapa3/Cajas" unique_id=1658714489 instance=ExtResource("23_yo25i")]
+[node name="Node3D2" parent="Mapa3/Cajas" unique_id=512424217 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 33.890648)
 
-[node name="Node3D3" parent="Mapa3/Cajas" unique_id=923445362 instance=ExtResource("23_yo25i")]
+[node name="Node3D3" parent="Mapa3/Cajas" unique_id=828094355 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 33.890648)
 
-[node name="Node3D4" parent="Mapa3/Cajas" unique_id=740836067 instance=ExtResource("23_yo25i")]
+[node name="Node3D4" parent="Mapa3/Cajas" unique_id=1540016910 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 27.80066)
 
-[node name="Node3D5" parent="Mapa3/Cajas" unique_id=1027202917 instance=ExtResource("23_yo25i")]
+[node name="Node3D5" parent="Mapa3/Cajas" unique_id=1433927741 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 27.80066)
 
-[node name="Node3D6" parent="Mapa3/Cajas" unique_id=403990616 instance=ExtResource("23_yo25i")]
+[node name="Node3D6" parent="Mapa3/Cajas" unique_id=2011273808 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 27.80066)
 
-[node name="Node3D10" parent="Mapa3/Cajas" unique_id=838684423 instance=ExtResource("23_yo25i")]
+[node name="Node3D10" parent="Mapa3/Cajas" unique_id=411714173 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, -7.171437, 0.5886355, 16.212765)
 
-[node name="Node3D11" parent="Mapa3/Cajas" unique_id=742755612 instance=ExtResource("23_yo25i")]
+[node name="Node3D11" parent="Mapa3/Cajas" unique_id=1701804545 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 0.12873507, 0.5886355, 16.212765)
 
-[node name="Node3D12" parent="Mapa3/Cajas" unique_id=1162663939 instance=ExtResource("23_yo25i")]
+[node name="Node3D12" parent="Mapa3/Cajas" unique_id=1681962621 instance=ExtResource("23_yo25i")]
 transform = Transform3D(8.4557445e-09, 0, -0.7090842, 0, 0.7090842, 0, 0.7090842, 0, 8.4557445e-09, 7.284661, 0.5886355, 16.212765)
 
 [node name="Carritos" type="Node3D" parent="Mapa3" unique_id=1371867758]
@@ -1889,6 +1890,9 @@ size = Vector3(5, 4.865, 1.14)
 transform = Transform3D(1.4406524, 0, 0, 0, 1.4406524, 0, 0, 0, 1.4406524, -16.281218, 0.5, 52.013218)
 operation = 2
 polygon = PackedVector2Array(-0.24617039, 0.24974805, -0.11158484, 0.5982905, 0.42489225, 0.7302087, 0.73044336, 0.44044322, 0.920818, 0.05908829, 0.47497714, 0.052853644, 0, 0)
+
+[node name="Node3D" parent="Mapa3" unique_id=1337637227 instance=ExtResource("30_36oek")]
+transform = Transform3D(1.1367366, 0, 7.1054274e-15, 0, 1.1367366, 0, -7.1054274e-15, 0, 1.1367366, -51.95942, 0.50000024, -248.35048)
 
 [node name="Node3D" parent="." unique_id=1246603620 instance=ExtResource("30_v6fg2")]
 transform = Transform3D(0.63158286, 0, -0.7753084, 0, 1, 0, 0.7753084, 0, 0.63158286, -30.917788, 1.4772865, 13.586394)

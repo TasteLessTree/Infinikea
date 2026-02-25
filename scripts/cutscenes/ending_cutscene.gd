@@ -17,6 +17,7 @@ const AMBIENT_DUCKED_DB: float = -12.0
 const DUCK_TIME: float = 0.5
 
 func _ready() -> void:
+	get_tree().paused = true
 	Inventario.hide_inventory()
 	setup_slides()
 	await get_tree().create_timer(1.0).timeout

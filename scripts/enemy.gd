@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var sfx_scream: AudioStreamPlayer = $sfx_scream
 @onready var sfx_attack: AudioStreamPlayer = $sfx_attack
+@onready var sfx_pluh: AudioStreamPlayer3D = $sfx_pluh
 @onready var raycast_origin: RayCast3D = $RayCast3D
 @onready var timer: Timer = $Timer
 
@@ -471,3 +472,8 @@ func load_data(data: Dictionary) -> void:
 	has_triggered_scream = data["has_triggered_scream"]
 	lost_interest_timer = data["lost_interest_timer"]
 	_set_state(state)
+
+# Easter egg
+func easter_egg() -> void:
+	if sfx_pluh:
+		sfx_pluh.play()

@@ -1,0 +1,202 @@
+[gd_scene format=3 uid="uid://ch2g4ubfjyoln"]
+
+[ext_resource type="Script" uid="uid://dgnjtbtyjes5h" path="res://scripts/enviroment/puerta.gd" id="1_k4d01"]
+[ext_resource type="PackedScene" uid="uid://30cd8kq0ae4r" path="res://models/ambiente/AUTOMATIC_SLIDING_DOOR_MAX.glb" id="2_6kht1"]
+
+[sub_resource type="Animation" id="Animation_2x4ox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle08:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-16.535433, -13.779519, -2.362215)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle04:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(16.535433, -13.779519, -2.3622074)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.5701273, 1.4743595, -0.01586914)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0201578, 1.4453545, -0.020996094)]
+}
+
+[sub_resource type="Animation" id="Animation_2jaay"]
+resource_name = "abrir"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle08:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-16.535433, -13.779519, -2.362215), Vector3(-44.105316, -13.779518, -2.3622155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle04:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(16.535433, -13.779519, -2.3622074), Vector3(44.53943, -13.779518, -2.3622074)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.0201578, 1.4453545, -0.020996094), Vector3(1.7325556, 1.4453545, -0.020996094)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.5701273, 1.4743595, -0.01586914), Vector3(-1.239485, 1.4743595, -0.01586914)]
+}
+
+[sub_resource type="Animation" id="Animation_w15o7"]
+resource_name = "cerrar"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle08:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-44.37407, -13.779518, -2.3622155), Vector3(-16.807438, -13.779518, -2.362216)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL/Rectangle04:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(44.271996, -13.779518, -2.3622074), Vector3(15.623625, -13.779518, -2.3622074)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.2714648, 1.4743595, -0.01586914), Vector3(-0.5701273, 1.4743595, -0.01586914)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape3D2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.7162473, 1.4453545, -0.020996094), Vector3(1.0201578, 1.4453545, -0.020996094)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w15o7"]
+_data = {
+&"RESET": SubResource("Animation_2x4ox"),
+&"abrir": SubResource("Animation_2jaay"),
+&"cerrar": SubResource("Animation_w15o7")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67ja8"]
+size = Vector3(1.5615845, 2.8348389, 0.11279297)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_exwrv"]
+size = Vector3(1.5795898, 2.9135742, 0.09472656)
+
+[node name="Node3D" type="StaticBody3D" unique_id=2132731247]
+script = ExtResource("1_k4d01")
+
+[node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="." unique_id=1051839393 instance=ExtResource("2_6kht1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36726993, 0, -0.89667034)
+
+[node name="Rectangle04" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 710541611) index="1" unique_id=673685294]
+transform = Transform3D(1.0000006, 0, 0, 0, -3.5762804e-07, -1.0000005, 0, 1.0000005, -3.5762804e-07, 16.535433, -13.779519, -2.3622074)
+
+[node name="Rectangle08" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 710541611) index="3" unique_id=266472764]
+transform = Transform3D(-1.0000005, 0, 0, 0, 3.5762804e-07, -1.0000005, 0, 1.0000005, 3.5762804e-07, -16.535433, -13.779519, -2.362215)
+
+[node name="Plane01" parent="AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1208542986]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1662493330]
+libraries/ = SubResource("AnimationLibrary_w15o7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1974685422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5701273, 1.4743595, -0.01586914)
+shape = SubResource("BoxShape3D_67ja8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1330909814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0201578, 1.4453545, -0.020996094)
+shape = SubResource("BoxShape3D_exwrv")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="AUTOMATIC_SLIDING_DOOR_MAX"]

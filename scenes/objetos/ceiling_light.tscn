@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://drkky6yafa1yc"]
 
-[ext_resource type="PackedScene" uid="uid://d4c3qax71botx" path="res://models/ceiling_light.glb" id="1_548kw"]
+[ext_resource type="PackedScene" uid="uid://d4c3qax71botx" path="res://models/ambiente/ceiling_light.glb" id="1_548kw"]
 
 [node name="Node3D" type="Node3D" unique_id=1625573157]
 

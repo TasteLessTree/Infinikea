@@ -47,11 +47,11 @@ text = "Prompt
 horizontal_alignment = 1
 
 [node name="Mano" type="Node3D" parent="Head/Camera3D" unique_id=2147334846]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.51590705, -0.34819943, -0.580344)
+transform = Transform3D(-0.98713624, 0, -0.15988119, 0, 1, 0, 0.15988119, 0, -0.98713624, 0.51590705, -0.34819943, -0.580344)
 script = ExtResource("2_fjrip")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Camera3D/Mano" unique_id=1950913028]
-transform = Transform3D(-0.99531215, 0, -0.09671463, 0, 1, 0, 0.09671463, 0, -0.99531215, -0.1105178, -0.10935533, 0.64407265)
+transform = Transform3D(-0.99496263, -0.0037360764, 0.10017897, -0.0014054093, 0.99972695, 0.023325536, -0.10023877, 0.02306723, -0.9946961, -0.11051756, -0.10935533, 0.6440729)
 layers = 99
 light_color = Color(0.8764933, 0.9980642, 0.99999994, 1)
 light_energy = 0.0

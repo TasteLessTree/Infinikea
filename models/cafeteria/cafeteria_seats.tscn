@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cgh54vqaecbrf"]
+
+[ext_resource type="PackedScene" uid="uid://ct10gdt04ju22" path="res://models/ambiente/low_poly_cafeteria_basic.glb" id="1_b56hi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrfby"]
+size = Vector3(4.7738037, 0.34973145, 0.9489746)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6tlk"]
+size = Vector3(4.2441406, 0.22265625, 0.2241211)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mrpwx"]
+size = Vector3(0.7453613, 0.3046875, 0.75775146)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqsi2"]
+size = Vector3(0.30036926, 0.25534058, 0.3400879)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfoan"]
+size = Vector3(0.7824707, 0.3920288, 0.26660156)
+
+[node name="Node3D" type="StaticBody3D" unique_id=1146559772]
+transform = Transform3D(2.0034075, 0, 0, 0, 2.0034075, 0, 0, 0, 2.0034075, 0, 0, 0)
+
+[node name="Sketchfab_Scene" parent="." unique_id=1509850625 instance=ExtResource("1_b56hi")]
+transform = Transform3D(0.024345128, 0, 0, 0, 0.024345128, 0, 0, 0, 0.024345128, -3.2571964, 0, -0.9149154)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=161651603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3258667, 0.32513428, -0.05822754)
+shape = SubResource("BoxShape3D_mrfby")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2010220943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1743164, 0.13574219, -0.79524887)
+shape = SubResource("BoxShape3D_a6tlk")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=2071378047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8197525, 0.34765625, -0.032318115)
+shape = SubResource("BoxShape3D_mrpwx")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1478138208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8171859, 0.21321106, 0.6271249)
+shape = SubResource("BoxShape3D_vqsi2")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=937571515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7553568, 0.2059021, -0.8073534)
+shape = SubResource("BoxShape3D_nfoan")

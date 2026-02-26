@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dj1mif58jpmci"]
 
-[ext_resource type="Script" uid="uid://dit8fwymh1ode" path="res://scripts/enviroment/alien.gd" id="1_je7gj"]
+[ext_resource type="Script" path="res://scripts/enviroment/alien.gd" id="1_je7gj"]
 [ext_resource type="PackedScene" uid="uid://cb2wco0hy1nh" path="res://scenes/objetos/green_ikea_alien_pbr.glb" id="2_5tiy7"]
 [ext_resource type="AudioStream" uid="uid://chg6xo0ncsykd" path="res://assets/sounds/sfx/Easteregg.mp3" id="3_ch2jn"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ch2g4ubfjyoln"]
 
-[ext_resource type="Script" uid="uid://dgnjtbtyjes5h" path="res://scripts/enviroment/puerta.gd" id="1_k4d01"]
+[ext_resource type="Script" path="res://scripts/enviroment/puerta.gd" id="1_k4d01"]
 [ext_resource type="PackedScene" uid="uid://30cd8kq0ae4r" path="res://models/ambiente/AUTOMATIC_SLIDING_DOOR_MAX.glb" id="2_6kht1"]
 
 [sub_resource type="Animation" id="Animation_2x4ox"]
@@ -177,13 +177,13 @@ script = ExtResource("1_k4d01")
 [node name="AUTOMATIC_SLIDING_DOOR_MAX" parent="." unique_id=1051839393 instance=ExtResource("2_6kht1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36726993, 0, -0.89667034)
 
-[node name="Rectangle04" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 710541611) index="1" unique_id=673685294]
+[node name="Rectangle04" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 265702484) index="1" unique_id=1349097749]
 transform = Transform3D(1.0000006, 0, 0, 0, -3.5762804e-07, -1.0000005, 0, 1.0000005, -3.5762804e-07, 16.535433, -13.779519, -2.3622074)
 
-[node name="Rectangle08" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 710541611) index="3" unique_id=266472764]
+[node name="Rectangle08" parent="AUTOMATIC_SLIDING_DOOR_MAX/AUTOMATIC_SLIDING_DOOR/ALUMINIUM_PROFIL" parent_id_path=PackedInt32Array(1051839393, 265702484) index="3" unique_id=1889441562]
 transform = Transform3D(-1.0000005, 0, 0, 0, 3.5762804e-07, -1.0000005, 0, 1.0000005, 3.5762804e-07, -16.535433, -13.779519, -2.362215)
 
-[node name="Plane01" parent="AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=1208542986]
+[node name="Plane01" parent="AUTOMATIC_SLIDING_DOOR_MAX" index="5" unique_id=625446667]
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1662493330]

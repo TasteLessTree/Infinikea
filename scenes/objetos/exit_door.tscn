@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cxhtmvqs5fswo"]
 
 [ext_resource type="Texture2D" uid="uid://du6jpvem0xwqu" path="res://assets/items/salida/door_Door27.jpg" id="1_eyujq"]
-[ext_resource type="Script" uid="uid://bh14yo2oape4j" path="res://scripts/exit_door.gd" id="1_f6giq"]
+[ext_resource type="Script" path="res://scripts/enviroment/exit_door.gd" id="1_f6giq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gp75n"]
 resource_name = "Material #39"

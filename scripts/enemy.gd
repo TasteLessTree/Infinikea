@@ -457,6 +457,7 @@ func save() -> Dictionary:
 		"next_wander_time" : next_wander_time,
 		"has_triggered_scream" : has_triggered_scream,
 		"lost_interest_timer" : lost_interest_timer,
+		"player_path": player_path
 	}
 
 	return save_dict
@@ -471,6 +472,7 @@ func load_data(data: Dictionary) -> void:
 	next_wander_time = data["next_wander_time"]
 	has_triggered_scream = data["has_triggered_scream"]
 	lost_interest_timer = data["lost_interest_timer"]
+	player_path = data["player_path"]
 	_set_state(state)
 
 # Easter egg

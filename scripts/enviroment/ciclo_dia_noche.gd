@@ -68,5 +68,6 @@ func save() -> Dictionary:
 func load_data(data: Dictionary) -> void:
 	tiempo_transcurrido = float(data["tiempo_transcurrido"])
 	es_de_noche = bool(data["es_de_noche"])
+	tiempo_transcurrido = float(data["tiempo_transcurrido"])
 	cambiar_iluminacion(es_de_noche)
 	cambio_estado.emit(es_de_noche)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://deflkgporp1s1"]
 
 [ext_resource type="PackedScene" uid="uid://do5pps0gj3ilr" path="res://scenes/objetos/traffic_barrier_pole.glb" id="1_okgp1"]
-[ext_resource type="Script" uid="uid://bfx5oaulksftg" path="res://scripts/enviroment/pole.gd" id="1_t0n6k"]
+[ext_resource type="Script" path="res://scripts/enviroment/pole.gd" id="1_t0n6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t0n6k"]
 size = Vector3(61.18386, 14.461319, 1)
